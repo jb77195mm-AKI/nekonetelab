@@ -51,9 +51,11 @@ GitHub連携で専用リポジトリをインポートします。
 | Output Directory | Next.js既定の `.next`（Overrideは不要） |
 | Install Command | `npm ci` |
 | Node.js Version | `24.x` |
-| Production Branch | `main`を推奨 |
+| Production Branch | GitHubの既定ブランチと必ず一致させる（本番は `master`） |
 
 VercelはNext.jsを自動検出できます。`vercel.json`で既定値を重複指定せず、ダッシュボードのFramework Presetを使用します。
+
+Production Branchが実際の既定ブランチと違うと、pushしてもPreview Deploymentしか作られず本番が更新されません。デプロイ一覧のEnvironment列が `Production` になることで確認できます。
 
 ## 3. Vercel環境変数
 
@@ -83,9 +85,13 @@ VercelはNext.jsを自動検出できます。`vercel.json`で既定値を重複
 
 1. 通知先が `info@nekonotedejitarurabo.com`
 2. Reply-Toがフォーム入力者のメールアドレス
-3. CAPTCHA、迷惑送信フィルター、レート制限を有効化
+3. 迷惑送信フィルターを有効化
 4. 本番ドメインからテスト送信
 5. 受信箱・迷惑メール・自動返信・文字化けを確認
+
+送信はブラウザから直接ではなく、`/api/contact` を経由して外部サービスへ中継します。そのため外部サービス側のCAPTCHAは有効化しないでください。ブラウザでトークンを取得する経路がないため、有効にすると全送信が拒否されます。ボット対策はコード側のハニーポット（`website` フィールド）と、外部サービス側の機械学習スパムフィルターで行います。
+
+中継型の利点として、エンドポイントURLがブラウザへ露出せず、外部サービスを乗り換えても公開HTMLを変更せずに済みます。
 
 未設定時は成功扱いにせず、画面にメール連絡を案内します。
 
