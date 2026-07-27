@@ -88,7 +88,7 @@ export function OfficialContactForm({ contactEmail }: { contactEmail: string }) 
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2">
         <Field label="お名前" name="name" required error={errors.name}>
           <input
             id="official-name"
@@ -115,7 +115,7 @@ export function OfficialContactForm({ contactEmail }: { contactEmail: string }) 
         </Field>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2">
         <Field label="メールアドレス" name="email" required error={errors.email}>
           <input
             id="official-email"
@@ -185,12 +185,15 @@ export function OfficialContactForm({ contactEmail }: { contactEmail: string }) 
       </div>
 
       <div>
-        <label htmlFor="official-consent" className="flex items-start gap-3 text-sm leading-relaxed text-slate-700">
+        <label
+          htmlFor="official-consent"
+          className="flex min-h-11 cursor-pointer items-start gap-3 rounded-lg py-2 text-sm leading-relaxed text-slate-700 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-orange-800"
+        >
           <input
             id="official-consent"
             name="consent"
             type="checkbox"
-            className="mt-1 h-4 w-4 shrink-0 accent-orange-700"
+            className="mt-0.5 h-5 w-5 shrink-0 accent-orange-700"
             aria-invalid={Boolean(errors.consent)}
             aria-describedby={errors.consent ? "official-consent-error" : undefined}
           />

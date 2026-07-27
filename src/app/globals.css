@@ -13,6 +13,20 @@ body {
   font-family: var(--font-sans), "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
 }
 
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline-color: #9a3412;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -26,4 +40,5 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }

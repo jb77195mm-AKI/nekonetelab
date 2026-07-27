@@ -51,6 +51,10 @@ if (homeResponse) {
     "猫の手デジタルラボ",
     "ホームページ制作",
     "お問い合わせフォーム",
+    "通常価格",
+    "100,000円",
+    "モニター価格",
+    "49,800円",
   ];
   const requiredLinks = [
     "mailto:info@nekonotedejitarurabo.com",
@@ -66,6 +70,10 @@ if (homeResponse) {
   for (const href of requiredLinks) {
     check(html.includes(href), `/: 必須リンク「${href}」がありません`);
   }
+  check(
+    !html.includes("本当に49,800円で作れますか？"),
+    "/: 旧料金FAQの質問が残っています",
+  );
 
   check(
     html.includes('property="og:title"') &&
