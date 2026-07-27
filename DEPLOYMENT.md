@@ -96,7 +96,9 @@ Vercelのプロジェクトで `Settings` → `Domains` を開き、取得済み
 - `www.<取得済みドメイン>`
 - `<取得済みドメイン>`（apex）
 
-推奨構成は `www` を正規URLにし、apexから`www`へ恒久リダイレクトする形です。VercelのDomains画面でPrimary DomainとRedirectを設定し、`NEXT_PUBLIC_SITE_URL=https://www.<取得済みドメイン>` に統一します。逆構成を選ぶ場合も、必ず一方だけを正規URLにしてください。
+本番で採用している構成は **apex（`www`なし）を正規URL** にし、`www` から apex へ 308 恒久リダイレクトする形です。VercelのDomains画面で `www` 側を「別のドメインにリダイレクトする」に切り替え、方式に `308 恒久的リダイレクト`、リダイレクト先に apex を指定します。`NEXT_PUBLIC_SITE_URL` は `https://<取得済みドメイン>`（`www`なし）に統一します。
+
+逆に `www` を正規にする構成も可能ですが、**必ず一方だけを正規URLにし、`NEXT_PUBLIC_SITE_URL` と揃えてください。** 両方がコンテンツを配信すると重複コンテンツになります。
 
 DNS設定は次の順序で行います。
 
@@ -114,16 +116,16 @@ Vercelの表示前にAレコードやCNAME値を推測して登録しないで�
 VercelでDNSが有効になるとSSL証明書が自動発行されます。次を確認します。
 
 ```bash
-curl -I https://www.<取得済みドメイン>/
-curl -I http://www.<取得済みドメイン>/
 curl -I https://<取得済みドメイン>/
+curl -I http://<取得済みドメイン>/
+curl -I https://www.<取得済みドメイン>/
 ```
 
 確認項目:
 
-- 正規URLが `200`
-- HTTPがHTTPSへリダイレクト
-- 非正規ホストが正規ホストへリダイレクト
+- 正規URL（apex）が `200`
+- HTTPがHTTPSへリダイレクト（`308`）
+- `www` が apex へリダイレクト（`308`）
 - ブラウザの証明書警告がない
 - 証明書の対象ホストと有効期限が正しい
 - canonical、OGP、sitemapが正規HTTPS URLを使用
@@ -146,7 +148,7 @@ curl -I https://<取得済みドメイン>/
 1. Search ConsoleでDomain propertyを追加
 2. Googleが表示したTXTレコードをDNSへ登録
 3. 所有権確認を完了
-4. `https://www.<取得済みドメイン>/sitemap.xml` をSitemaps画面から送信
+4. `https://<取得済みドメイン>/sitemap.xml` をSitemaps画面から送信
 5. URL検査でトップとプライバシーポリシーを確認
 
 URLプレフィックス方式を使う場合は、発行されたHTMLタグの `content` 値だけを `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` に設定します。
