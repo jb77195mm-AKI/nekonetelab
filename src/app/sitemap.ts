@@ -2,10 +2,15 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  if (!siteConfig.publicUrl) return [];
+  if (!siteConfig.publicUrl || siteConfig.globalNoindex) return [];
 
   return [
     { url: siteConfig.publicUrl, changeFrequency: "monthly", priority: 1 },
+    { url: `${siteConfig.publicUrl}/services`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteConfig.publicUrl}/industries`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteConfig.publicUrl}/pricing`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.publicUrl}/privacy`, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${siteConfig.publicUrl}/terms`, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${siteConfig.publicUrl}/commerce`, changeFrequency: "yearly", priority: 0.2 },
   ];
 }

@@ -8,6 +8,9 @@ export default function robots(): MetadataRoute.Robots {
       allow: siteConfig.globalNoindex ? undefined : "/",
       disallow: siteConfig.globalNoindex ? "/" : undefined,
     },
-    sitemap: siteConfig.publicUrl ? `${siteConfig.publicUrl}/sitemap.xml` : undefined,
+    sitemap:
+      siteConfig.publicUrl && !siteConfig.globalNoindex
+        ? `${siteConfig.publicUrl}/sitemap.xml`
+        : undefined,
   };
 }

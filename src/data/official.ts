@@ -9,12 +9,12 @@ import {
 } from "lucide-react";
 
 export const officialNavigation = [
+  { label: "制作費0円", href: "/#homepage" },
   { label: "サービス", href: "/#services" },
-  { label: "業務システム", href: "/solutions" },
+  { label: "業種別", href: "/#industries" },
+  { label: "料金", href: "/#plans" },
   { label: "制作サンプル", href: "/#works" },
-  { label: "料金", href: "/#price" },
-  { label: "ご依頼の流れ", href: "/#flow" },
-  { label: "事業者情報", href: "/#about" },
+  { label: "FAQ", href: "/#faq" },
 ] as const;
 
 export interface OfficialService {
@@ -27,32 +27,32 @@ export const officialServices: OfficialService[] = [
   {
     title: "ホームページ制作",
     description:
-      "小規模店舗・中小企業向けに、スマートフォン対応と問い合わせ導線を備えたサイトを制作します。",
+      "小規模事業者向けに、スマートフォン対応、問い合わせ導線、GoogleマップやSNS連携を備えたサイトを制作します。",
     icon: MonitorSmartphone,
   },
   {
-    title: "AI活用支援",
+    title: "Web集客・運用支援",
     description:
-      "日々の業務や情報発信に生成AIを取り入れる方法を、目的と習熟度に合わせて一緒に整理します。",
+      "公開後の更新、Googleビジネスプロフィール、LINE・SNS、口コミ返信、問い合わせ導線の改善を支援します。",
+    icon: MapPinned,
+  },
+  {
+    title: "AI・業務効率化支援",
+    description:
+      "生成AIによる文章作成、マニュアル作成、データ整理、定型業務の小さな自動化を一緒に進めます。",
     icon: Bot,
   },
   {
     title: "生成AI研修",
     description:
-      "基本操作から安全な使い方、実務でのプロンプト作成まで、少人数向けの研修を行います。",
+      "ChatGPTやClaudeの基本操作、安全な使い方、実務での活用方法を少人数向けに分かりやすくお伝えします。",
     icon: GraduationCap,
   },
   {
-    title: "業務効率化・自動化",
+    title: "業務システムのご相談",
     description:
-      "繰り返し作業や情報整理の流れを確認し、小さく始められる改善方法をご提案します。",
+      "順番待ち、口コミ返信、シフト作成など、店舗業務に合う小さな仕組みから導入を検討します。",
     icon: Workflow,
-  },
-  {
-    title: "Googleビジネスプロフィール支援",
-    description:
-      "店舗情報の整備や更新方針など、地域のお客様に見つけてもらうための運用を支援します。",
-    icon: MapPinned,
   },
   {
     title: "デジタル活用のご相談",
@@ -64,7 +64,7 @@ export const officialServices: OfficialService[] = [
 
 export const businessActivities = [
   "ホームページの企画・制作・運用支援",
+  "Googleビジネスプロフィール・LINE・SNS活用支援",
   "生成AIの導入・活用支援および研修",
   "業務効率化・自動化の相談",
-  "Googleビジネスプロフィールの活用支援",
 ] as const;

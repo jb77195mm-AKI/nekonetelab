@@ -2,7 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
-import { faqItems } from "@/data/pricing";
+import { faqItems } from "@/data/business-model";
 
 export function OfficialFaq() {
   const [openItems, setOpenItems] = useState<Set<number>>(() => new Set());

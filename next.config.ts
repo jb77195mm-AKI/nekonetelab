@@ -23,13 +23,29 @@ const securityHeaders = [
   },
 ] as const;
 
+const isDemo = process.env.NEXT_PUBLIC_DEMO_MODE !== "false";
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   async headers() {
     return [
       {
         source: "/:path*",
-        headers: [...securityHeaders],
+        headers: [
+          ...securityHeaders,
+          ...(isDemo
+            ? [
+                {
+                  key: "X-Robots-Tag",
+                  value: "noindex, nofollow, noarchive, nosnippet, noimageindex",
+                },
+                {
+                  key: "Cache-Control",
+                  value: "private, no-store, max-age=0",
+                },
+              ]
+            : []),
+        ],
       },
       {
         source: "/api/:path*",

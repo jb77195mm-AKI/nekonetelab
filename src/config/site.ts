@@ -53,11 +53,12 @@ const publicUrl = optionalPublicUrl(process.env.NEXT_PUBLIC_SITE_URL);
 const phone = optionalValue(process.env.BUSINESS_PHONE);
 const address = optionalValue(process.env.BUSINESS_ADDRESS);
 const officialLineUrl = "https://lin.ee/rWvSMpg";
+const demoMode = process.env.NEXT_PUBLIC_DEMO_MODE !== "false";
 
 export const siteConfig = {
   businessName: "猫の手デジタルラボ",
   description:
-    "小規模店舗・中小企業のホームページ制作、AI活用、生成AI研修、業務効率化、Googleビジネスプロフィール活用を支援します。",
+    "名張市・伊賀市を拠点に全国対応。小規模事業者のホームページ制作、更新・運用、Googleマップ、LINE、SNS、生成AI、業務効率化を支援します。",
   email: "info@nekonotedejitarurabo.com",
   contactToEmail:
     optionalValue(process.env.CONTACT_TO_EMAIL) ?? "info@nekonotedejitarurabo.com",
@@ -73,11 +74,14 @@ export const siteConfig = {
   businessHours: optionalValue(process.env.BUSINESS_HOURS),
   serviceArea: optionalValue(process.env.BUSINESS_SERVICE_AREA),
   publicUrl,
+  demoMode,
+  checkoutMode: optionalValue(process.env.SUBSCRIPTION_CHECKOUT_MODE) ?? "mock",
+  customerPortalUrl: optionalHttpUrl(process.env.NEXT_PUBLIC_STRIPE_CUSTOMER_PORTAL_URL),
   googleAnalyticsId: optionalGoogleAnalyticsId(
     process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
   ),
   googleSiteVerification: optionalVerificationToken(
     process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   ),
-  globalNoindex: process.env.NEXT_PUBLIC_NOINDEX !== "false",
+  globalNoindex: demoMode || process.env.NEXT_PUBLIC_NOINDEX !== "false",
 } as const;

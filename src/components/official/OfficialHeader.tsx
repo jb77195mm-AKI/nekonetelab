@@ -127,10 +127,10 @@ export function OfficialHeader({
             LINE
           </a>
             <Link
-              href="/#contact"
+              href="/contact"
               className="ml-1 inline-flex min-h-11 items-center rounded-full bg-slate-950 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
             >
-              お問い合わせ
+              無料相談
             </Link>
           </div>
 
@@ -187,11 +187,11 @@ export function OfficialHeader({
               公式LINE
             </a>
             <Link
-              href="/#contact"
+              href="/contact"
               onClick={closeMenu}
               className="mt-2 flex min-h-12 items-center justify-center rounded-xl bg-orange-700 px-4 py-3 text-center font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
             >
-              お問い合わせ
+              無料相談
             </Link>
           </nav>
         </>

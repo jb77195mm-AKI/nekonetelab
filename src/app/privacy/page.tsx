@@ -12,7 +12,8 @@ const sections = [
   {
     title: "1. 取得する情報",
     body: [
-      "お問い合わせフォームを通じて、お名前、会社名・屋号、メールアドレス、電話番号、お問い合わせ種別、お問い合わせ内容を取得する場合があります。",
+      "お問い合わせフォームを通じて、お名前、事業者名・屋号、メールアドレス、電話番号、所在地、業種、ホームページの有無、相談内容、希望プラン、相談方法、お問い合わせ内容を取得する場合があります。",
+      "現在のデモフォームでは入力内容を保存・送信しません。正式公開時に送信先、保存期間、委託先を確認して本項を更新します。",
       "サイトの安定運用や利用状況の確認のため、IPアドレス、ブラウザ情報、閲覧日時などの情報が自動的に記録される場合があります。",
     ],
   },
@@ -71,8 +72,8 @@ export default function PrivacyPage() {
           <Link href="/" className="font-black">
             {siteConfig.businessName}
           </Link>
-          <Link href="/#contact" className="text-sm font-bold text-orange-800 underline underline-offset-4">
-            お問い合わせ
+          <Link href="/contact" className="text-sm font-bold text-orange-800 underline underline-offset-4">
+            無料相談
           </Link>
         </div>
       </header>
