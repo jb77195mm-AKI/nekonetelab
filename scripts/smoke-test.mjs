@@ -7,9 +7,7 @@ const expectIndexable = process.env.SMOKE_EXPECT_INDEXABLE === "true";
 const testUnconfiguredForm =
   process.env.SMOKE_EXPECT_FORM_UNCONFIGURED === "true";
 
-const pageRoutes = [
-  "/",
-  "/privacy",
+const demoSiteRoutes = [
   "/cafe",
   "/salon",
   "/beauty",
@@ -17,6 +15,13 @@ const pageRoutes = [
   "/builder",
   "/corporate",
 ];
+const solutionRoutes = [
+  "/solutions",
+  "/solutions/queue",
+  "/solutions/review-reply",
+  "/solutions/skill-shift",
+];
+const pageRoutes = ["/", "/privacy", ...demoSiteRoutes, ...solutionRoutes];
 const specialRoutes = ["/robots.txt", "/sitemap.xml", "/og-image"];
 const failures = [];
 let checks = 0;
@@ -55,6 +60,11 @@ if (homeResponse) {
     "100,000円",
     "モニター価格",
     "49,800円",
+    "店舗業務を、もっとシンプルに",
+    "かんたん順番待ち",
+    "口コミ返信サポート",
+    "スキル別AIシフト",
+    "最大20言語対応を開発・検証中",
   ];
   const requiredLinks = [
     "mailto:info@nekonotedejitarurabo.com",
@@ -62,6 +72,7 @@ if (homeResponse) {
     "https://x.com/nekonote_dlab",
     "https://lin.ee/rWvSMpg",
     "/privacy",
+    "/solutions",
   ];
 
   for (const text of requiredText) {
@@ -124,7 +135,7 @@ if (homeResponse) {
   );
 }
 
-for (const path of pageRoutes.filter((path) => path !== "/" && path !== "/privacy")) {
+for (const path of demoSiteRoutes) {
   const response = await fetchRoute(path);
   if (!response) continue;
   const html = await response.text();
@@ -133,6 +144,36 @@ for (const path of pageRoutes.filter((path) => path !== "/" && path !== "/privac
     `${path}: noindexがありません`,
   );
   check(html.includes("デモサイト"), `${path}: デモ表示がありません`);
+}
+
+for (const path of solutionRoutes) {
+  const response = await fetchRoute(path);
+  if (!response) continue;
+  const html = await response.text();
+  check(
+    html.includes('name="robots" content="noindex, nofollow"') ||
+      html.includes('name="robots" content="noindex'),
+    `${path}: noindexがありません`,
+  );
+  check(
+    html.includes("現在、サービス内容を検証中です") ||
+      html.includes("外部送信、保存、AI処理は行いません"),
+    `${path}: デモ説明がありません`,
+  );
+  if (path === "/solutions/queue") {
+    for (const requiredText of [
+      "多言語受付デモ",
+      "スタンダード5言語",
+      "アジア10言語",
+      "グローバル15言語",
+      "グローバル20言語",
+      "言語数によって料金が変わる理由",
+      "固定翻訳とリアルタイム翻訳",
+      "翻訳内容は開発中の参考表示です",
+    ]) {
+      check(html.includes(requiredText), `${path}: 必須テキスト「${requiredText}」がありません`);
+    }
+  }
 }
 
 const robotsResponse = await fetchRoute("/robots.txt");
@@ -158,7 +199,7 @@ if (sitemapResponse && expectedSiteUrl) {
     sitemap.includes(`<loc>${expectedSiteUrl}/privacy</loc>`),
     "/sitemap.xml: プライバシーポリシーURLがありません",
   );
-  for (const demoPath of pageRoutes.slice(2)) {
+  for (const demoPath of [...demoSiteRoutes, ...solutionRoutes]) {
     check(!sitemap.includes(demoPath), `/sitemap.xml: デモページ ${demoPath} が含まれています`);
   }
 }

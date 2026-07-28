@@ -13,9 +13,11 @@ import { OfficialContactForm } from "@/components/official/OfficialContactForm";
 import { OfficialFaq } from "@/components/official/OfficialFaq";
 import { OfficialHeader } from "@/components/official/OfficialHeader";
 import { PlaceholderImage } from "@/components/common/PlaceholderImage";
+import { SolutionCard } from "@/components/solutions/SolutionCard";
 import { siteConfig } from "@/config/site";
 import { allSites } from "@/data";
 import { businessActivities, officialServices } from "@/data/official";
+import { solutions } from "@/data/solutions";
 import {
   basicPlan,
   optionItems,
@@ -149,6 +151,35 @@ export default function OfficialHomePage() {
                 </article>
               );
             })}
+          </div>
+        </section>
+
+        <section id="business-tools" className="scroll-mt-20 bg-sky-50/60 py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <SectionHeading
+                eyebrow="BUSINESS TOOLS"
+                title="店舗業務を、もっとシンプルに"
+                description="順番待ち、口コミ返信、シフト作成など、日々の店舗業務を小さく効率化するシステムをご提案します。大がかりなシステムではなく、必要な機能から始められる小規模事業者向けのサービスです。"
+              />
+              <p className="inline-flex w-fit rounded-full border border-sky-200 bg-white px-4 py-2 text-xs font-bold text-sky-950">
+                サービス内容を検証中のデモです
+              </p>
+            </div>
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {solutions.map((solution) => (
+                <SolutionCard key={solution.slug} solution={solution} />
+              ))}
+            </div>
+            <div className="mt-10 text-center">
+              <Link
+                href="/solutions"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-sky-900 px-7 py-3 font-bold text-white transition hover:bg-sky-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
+              >
+                3つの業務システムを比較する
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -418,6 +449,9 @@ export default function OfficialHomePage() {
           </div>
           <div className="text-sm">
             <nav aria-label="フッターナビゲーション" className="flex flex-wrap gap-x-5 gap-y-2">
+              <Link href="/solutions" className="inline-flex min-h-11 items-center underline-offset-4 hover:underline">
+                業務システム
+              </Link>
               <Link href="/privacy" className="inline-flex min-h-11 items-center underline-offset-4 hover:underline">
                 プライバシーポリシー
               </Link>

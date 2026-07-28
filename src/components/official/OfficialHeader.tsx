@@ -45,7 +45,7 @@ export function OfficialHeader({
   const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    const desktopQuery = window.matchMedia("(min-width: 1024px)");
+    const desktopQuery = window.matchMedia("(min-width: 1280px)");
     const closeAtDesktopWidth = (event: MediaQueryListEvent) => {
       if (event.matches) setOpen(false);
     };
@@ -80,28 +80,28 @@ export function OfficialHeader({
     <>
       <header className="sticky top-0 z-[60] border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
-        <Link
-          href="#top"
-          onClick={closeMenu}
-          className="flex min-w-0 items-center gap-2 font-black tracking-tight text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-800"
-        >
-          <BrandPawMark />
-          <span className="truncate text-[0.8125rem] sm:text-base">{businessName}</span>
-        </Link>
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="flex min-w-0 items-center gap-2 font-black tracking-tight text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-800"
+          >
+            <BrandPawMark />
+            <span className="truncate text-[0.8125rem] sm:text-base">{businessName}</span>
+          </Link>
 
-        <nav aria-label="メインナビゲーション" className="hidden items-center gap-6 text-sm font-medium lg:flex">
-          {officialNavigation.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-sm transition hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-800"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+          <nav aria-label="メインナビゲーション" className="hidden items-center gap-4 text-sm font-medium xl:flex">
+            {officialNavigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-sm transition hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-800"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
+          <div className="hidden items-center gap-1 xl:flex">
           <a
             href={instagramUrl}
             aria-label="Instagramを新しいタブで開く"
@@ -126,29 +126,29 @@ export function OfficialHeader({
           >
             LINE
           </a>
-          <a
-            href="#contact"
-            className="ml-1 inline-flex min-h-11 items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
-          >
-            お問い合わせ
-          </a>
-        </div>
+            <Link
+              href="/#contact"
+              className="ml-1 inline-flex min-h-11 items-center rounded-full bg-slate-950 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+            >
+              お問い合わせ
+            </Link>
+          </div>
 
-        <button
-          ref={menuButtonRef}
-          type="button"
-          aria-label={open ? "メニューを閉じる" : "メニューを開く"}
-          aria-expanded={open}
-          aria-controls="official-mobile-menu"
-          onClick={() => setOpen((current) => !current)}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-900 transition hover:border-orange-700 hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800 lg:hidden"
-        >
-          {open ? (
-            <CloseIcon className="h-5 w-5" aria-hidden="true" />
-          ) : (
-            <Menu className="h-5 w-5" aria-hidden="true" />
-          )}
-        </button>
+          <button
+            ref={menuButtonRef}
+            type="button"
+            aria-label={open ? "メニューを閉じる" : "メニューを開く"}
+            aria-expanded={open}
+            aria-controls="official-mobile-menu"
+            onClick={() => setOpen((current) => !current)}
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-900 transition hover:border-orange-700 hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800 xl:hidden"
+          >
+            {open ? (
+              <CloseIcon className="h-5 w-5" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            )}
+          </button>
         </div>
       </header>
 
@@ -159,15 +159,15 @@ export function OfficialHeader({
             tabIndex={-1}
             aria-label="メニューを閉じる"
             onClick={closeMenu}
-            className="fixed inset-0 top-16 z-40 cursor-default bg-slate-950/40 lg:hidden"
+            className="fixed inset-0 top-16 z-40 cursor-default bg-slate-950/40 xl:hidden"
           />
           <nav
             id="official-mobile-menu"
             aria-label="モバイルナビゲーション"
-            className="fixed inset-x-4 top-20 z-50 max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl border border-slate-200 bg-white p-3 text-sm shadow-2xl sm:left-auto sm:w-80 lg:hidden"
+            className="fixed inset-x-4 top-20 z-50 max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl border border-slate-200 bg-white p-3 text-sm shadow-2xl sm:left-auto sm:w-80 xl:hidden"
           >
             {officialNavigation.map((item, index) => (
-              <a
+              <Link
                 key={item.href}
                 ref={index === 0 ? firstMenuLinkRef : undefined}
                 href={item.href}
@@ -175,7 +175,7 @@ export function OfficialHeader({
                 className="flex min-h-11 items-center rounded-xl px-4 py-3 font-medium hover:bg-orange-50 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-orange-800"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <a
               href={lineUrl}
@@ -186,13 +186,13 @@ export function OfficialHeader({
             >
               公式LINE
             </a>
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               onClick={closeMenu}
               className="mt-2 flex min-h-12 items-center justify-center rounded-xl bg-orange-700 px-4 py-3 text-center font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
             >
               お問い合わせ
-            </a>
+            </Link>
           </nav>
         </>
       ) : null}

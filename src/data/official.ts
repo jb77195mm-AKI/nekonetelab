@@ -9,11 +9,12 @@ import {
 } from "lucide-react";
 
 export const officialNavigation = [
-  { label: "サービス", href: "#services" },
-  { label: "制作サンプル", href: "#works" },
-  { label: "料金", href: "#price" },
-  { label: "ご依頼の流れ", href: "#flow" },
-  { label: "事業者情報", href: "#about" },
+  { label: "サービス", href: "/#services" },
+  { label: "業務システム", href: "/solutions" },
+  { label: "制作サンプル", href: "/#works" },
+  { label: "料金", href: "/#price" },
+  { label: "ご依頼の流れ", href: "/#flow" },
+  { label: "事業者情報", href: "/#about" },
 ] as const;
 
 export interface OfficialService {
