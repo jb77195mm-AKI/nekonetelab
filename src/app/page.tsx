@@ -28,12 +28,14 @@ import {
   additionalCosts,
   businessModel,
   comparisonRows,
+  faqItems,
   formatYen,
   homepagePlans,
   industries,
   outcomes,
   painPoints,
   productionFlow,
+  productionFaqItems,
   reasons,
   serviceLayers,
   supportPlans,
@@ -524,12 +526,16 @@ export default function OfficialHomePage() {
             <SectionHeading
               eyebrow="HOMEPAGE PLANS"
               title="始め方とサポート範囲で選べる3つの料金プラン"
-              description="Webスタートは2つの支払い方法から選択。原稿下書きと更新支援を厚くしたWebサポート、データを引き渡す買い切りも用意しています。"
+              description={
+                siteConfig.demoMode
+                  ? "Webスタートは2つの支払い方法から選択。原稿下書きと更新支援を厚くしたWebサポート、データを引き渡す買い切りも用意しています。"
+                  : "初期制作費0円のWebスタート、原稿下書きと更新支援を厚くしたWebサポート、データを引き渡す買い切りを用意しています。"
+              }
             />
             <p className="mt-6 max-w-3xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium leading-6 text-amber-950">
               {siteConfig.demoMode
                 ? "表示内容は確認用デモです。Webスタート初期費用0円型の解約条件は表示済みです。その他のプランの条件とデータ移管条件は、正式なお申し込み前にご案内します。"
-                : "Webスタート初期費用0円型の料金・更新・解約条件は本ページと特定商取引法表記に掲載しています。その他のプランの中途解約条件とデータ移管条件は、お申し込み前に書面でご案内します。"}
+                : "Webスタートの料金・更新・解約条件は本ページと特定商取引法表記に掲載しています。その他のプランの中途解約条件とデータ移管条件は、お申し込み前に書面でご案内します。"}
             </p>
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
               {[...homepagePlans]
@@ -800,7 +806,9 @@ export default function OfficialHomePage() {
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
             <div>
               <SectionHeading eyebrow="FAQ" title="よくあるご質問" />
-              <OfficialFaq />
+              <OfficialFaq
+                items={siteConfig.demoMode ? faqItems : productionFaqItems}
+              />
             </div>
             <div>
               <div className="rounded-3xl bg-slate-50 p-7 sm:p-9">
@@ -1075,7 +1083,7 @@ function PlanCard({ plan }: { plan: HomepagePlan }) {
         </div>
       </div>
 
-      {plan.paymentOptions ? (
+      {siteConfig.demoMode && plan.paymentOptions ? (
         <div className="mt-4 space-y-2">
           {plan.paymentOptions.map((option) => (
             <div
@@ -1110,7 +1118,9 @@ function PlanCard({ plan }: { plan: HomepagePlan }) {
 
       <div className="mt-auto pt-6">
         <p className="rounded-xl bg-slate-50 px-4 py-3 text-xs leading-5 text-slate-600">
-          {plan.notices[0]}
+          {siteConfig.demoMode || plan.slug !== "web-start"
+            ? plan.notices[0]
+            : "24か月支払総額は235,200円（税込）です。"}
         </p>
         <Link
           href={plan.ctaHref}

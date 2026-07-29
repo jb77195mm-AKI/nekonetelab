@@ -181,7 +181,12 @@ export const additionalCosts = [
   "高度なAI・システム開発",
 ] as const;
 
-export const faqItems = [
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export const faqItems: readonly FaqItem[] = [
   {
     question: "本当に制作費は0円ですか？",
     answer:
@@ -223,6 +228,21 @@ export const faqItems = [
       "ホームページ制作を伴わない単体DXツールや業種別DXパックも相談できます。AI出力は人が確認する運用を基本にします。",
   },
 ] as const;
+
+export const productionFaqItems: readonly FaqItem[] = faqItems
+  .filter(
+    (item) =>
+      item.question !== "Webスタートの2つの支払い方法で内容は変わりますか？",
+  )
+  .map((item) =>
+    item.question === "本当に制作費は0円ですか？"
+      ? {
+          ...item,
+          answer:
+            "はい。Webスタートプランは初期制作費0円、月額9,800円（税込）、最低利用期間24か月です。独自ドメインや外部有料サービスは別途です。",
+        }
+      : item,
+  );
 
 export function getHomepagePlan(slug: string | null | undefined): HomepagePlan | undefined {
   return homepagePlans.find((plan) => plan.slug === slug);

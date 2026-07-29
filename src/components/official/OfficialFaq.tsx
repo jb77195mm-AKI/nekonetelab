@@ -2,9 +2,9 @@
 
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
-import { faqItems } from "@/data/business-model";
+import type { FaqItem } from "@/data/business-model";
 
-export function OfficialFaq() {
+export function OfficialFaq({ items }: { items: readonly FaqItem[] }) {
   const [openItems, setOpenItems] = useState<Set<number>>(() => new Set());
 
   const toggleItem = (index: number) => {
@@ -18,7 +18,7 @@ export function OfficialFaq() {
 
   return (
     <div className="mt-8 space-y-3">
-      {faqItems.map((item, index) => {
+      {items.map((item, index) => {
         const open = openItems.has(index);
         const answerId = `official-faq-answer-${index}`;
 

@@ -23,11 +23,15 @@ export default function PricingPage() {
     <SubpageShell
       eyebrow="PRICING"
       title="ホームページ制作は、3つのプランから選べます"
-      description="Webスタートは初期費用0円型と月額負担軽減型から選択。Webサポート、買い切りと、公開後の保守範囲も一緒にご確認ください。"
+      description={
+        siteConfig.demoMode
+          ? "Webスタートは初期費用0円型と月額負担軽減型から選択。Webサポート、買い切りと、公開後の保守範囲も一緒にご確認ください。"
+          : "初期制作費0円のWebスタート、Webサポート、買い切りと、公開後の保守範囲を比較できます。"
+      }
     >
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-amber-950">
-          <strong>Webスタート（初期費用0円型）の契約条件：</strong>
+          <strong>Webスタートの契約条件：</strong>
           月額9,800円（税込）、最低利用期間24か月、24か月総額235,200円（税込）です。期間内の中途解約金は残契約月数×9,800円（税込）。24か月経過後は1か月単位で自動更新し、解約金はありません。解約は次回決済日の10日前までにお申し出ください。
         </div>
 
@@ -77,7 +81,7 @@ export default function PricingPage() {
                   </p>
                 </div>
 
-                {plan.paymentOptions ? (
+                {siteConfig.demoMode && plan.paymentOptions ? (
                   <div className="mt-4 space-y-2">
                     {plan.paymentOptions.map((option) => (
                       <div
@@ -117,14 +121,35 @@ export default function PricingPage() {
                     {plan.extraCosts.join("、")}
                   </p>
                   <div className="mt-4 space-y-2">
-                    {plan.notices.map((notice) => (
-                      <p
-                        key={notice}
-                        className="rounded-xl bg-slate-50 px-4 py-3 text-xs leading-5 text-slate-600"
-                      >
-                        {notice}
-                      </p>
-                    ))}
+                    {plan.notices
+                      .filter(
+                        (notice) =>
+                          siteConfig.demoMode ||
+                          (notice !== "サービス内容は2つの支払い方法で共通です。" &&
+                            !notice.startsWith("月額負担軽減型")),
+                      )
+                      .map((notice) => {
+                        const displayedNotice = siteConfig.demoMode
+                          ? notice
+                          : notice
+                              .replace(
+                                "初期費用0円型の24か月支払総額",
+                                "24か月支払総額",
+                              )
+                              .replace(
+                                "初期費用0円型を24か月未満で解約する場合",
+                                "Webスタートを24か月未満で解約する場合",
+                              );
+
+                        return (
+                          <p
+                            key={displayedNotice}
+                            className="rounded-xl bg-slate-50 px-4 py-3 text-xs leading-5 text-slate-600"
+                          >
+                            {displayedNotice}
+                          </p>
+                        );
+                      })}
                   </div>
                   <Link
                     href={plan.ctaHref}
