@@ -126,16 +126,13 @@ export default function PricingPage() {
                         (notice) =>
                           siteConfig.demoMode ||
                           (notice !== "サービス内容は2つの支払い方法で共通です。" &&
+                            !notice.includes("24か月支払総額") &&
                             !notice.startsWith("月額負担軽減型")),
                       )
                       .map((notice) => {
                         const displayedNotice = siteConfig.demoMode
                           ? notice
                           : notice
-                              .replace(
-                                "初期費用0円型の24か月支払総額",
-                                "24か月支払総額",
-                              )
                               .replace(
                                 "初期費用0円型を24か月未満で解約する場合",
                                 "Webスタートを24か月未満で解約する場合",

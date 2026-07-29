@@ -1117,11 +1117,11 @@ function PlanCard({ plan }: { plan: HomepagePlan }) {
       </ul>
 
       <div className="mt-auto pt-6">
-        <p className="rounded-xl bg-slate-50 px-4 py-3 text-xs leading-5 text-slate-600">
-          {siteConfig.demoMode || plan.slug !== "web-start"
-            ? plan.notices[0]
-            : "24か月支払総額は235,200円（税込）です。"}
-        </p>
+        {siteConfig.demoMode || plan.slug !== "web-start" ? (
+          <p className="rounded-xl bg-slate-50 px-4 py-3 text-xs leading-5 text-slate-600">
+            {plan.notices[0]}
+          </p>
+        ) : null}
         <Link
           href={plan.ctaHref}
           className={`mt-4 flex min-h-12 items-center justify-center rounded-full px-5 py-3 text-center font-bold ${
