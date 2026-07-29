@@ -18,14 +18,16 @@ export function SubpageShell({
 }) {
   return (
     <div className="min-h-screen bg-white text-slate-950">
-      <div className="bg-amber-300 text-slate-950">
-        <div className="mx-auto flex max-w-6xl items-start gap-3 px-4 py-3 text-xs font-bold leading-5 sm:items-center sm:px-6">
-          <span className="rounded bg-slate-950 px-2 py-0.5 text-[0.65rem] tracking-[0.14em] text-white">
-            DEMO
-          </span>
-          <p>{businessModel.demoNotice}</p>
+      {siteConfig.demoMode ? (
+        <div className="bg-amber-300 text-slate-950">
+          <div className="mx-auto flex max-w-6xl items-start gap-3 px-4 py-3 text-xs font-bold leading-5 sm:items-center sm:px-6">
+            <span className="rounded bg-slate-950 px-2 py-0.5 text-[0.65rem] tracking-[0.14em] text-white">
+              DEMO
+            </span>
+            <p>{businessModel.demoNotice}</p>
+          </div>
         </div>
-      </div>
+      ) : null}
       <OfficialHeader
         businessName={siteConfig.businessName}
         instagramUrl={siteConfig.instagramUrl}

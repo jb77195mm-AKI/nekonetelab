@@ -23,7 +23,12 @@ const securityHeaders = [
   },
 ] as const;
 
-const isDemo = process.env.NEXT_PUBLIC_DEMO_MODE !== "false";
+const explicitDemoMode = process.env.NEXT_PUBLIC_DEMO_MODE?.trim();
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "");
+const isDemo =
+  explicitDemoMode === "true" ||
+  (explicitDemoMode !== "false" &&
+    configuredSiteUrl !== "https://nekonotedejitarurabo.com");
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,

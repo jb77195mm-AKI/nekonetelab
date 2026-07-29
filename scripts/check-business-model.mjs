@@ -30,6 +30,8 @@ const checkoutRoute = read(
 );
 const stripeLibrary = read("src/lib/stripe.ts");
 const contactRoute = read("src/app/api/contact/route.ts");
+const legalDocuments = read("src/data/legal-documents.ts");
+const checkoutPage = read("src/app/subscription/checkout/page.tsx");
 const envExample = read(".env.example");
 const nextConfig = read("next.config.ts");
 const allCheckedSources = [
@@ -42,6 +44,8 @@ const allCheckedSources = [
   checkoutRoute,
   stripeLibrary,
   contactRoute,
+  legalDocuments,
+  checkoutPage,
   envExample,
   nextConfig,
 ].join("\n");
@@ -99,6 +103,33 @@ assertIncludes(
   envExample,
   "CONTACT_DELIVERY_MODE=mock",
   "問い合わせモック既定値",
+);
+assertIncludes(legalDocuments, "田村 明史", "特商法の販売事業者");
+assertIncludes(
+  legalDocuments,
+  "三重県名張市赤目町丈六23-5",
+  "特商法の所在地",
+);
+assertIncludes(legalDocuments, "070-8933-4067", "特商法の電話番号");
+assertIncludes(
+  legalDocuments,
+  "24か月の支払総額：235,200円（税込）",
+  "Webスタート24か月総額",
+);
+assertIncludes(
+  legalDocuments,
+  "残契約月数に月額料金9,800円（税込）を乗じた金額",
+  "Webスタート中途解約金",
+);
+assertIncludes(
+  checkoutPage,
+  'value="残契約月数×9,800円（税込）"',
+  "Checkout中途解約金",
+);
+assertIncludes(
+  checkoutPage,
+  'value="次回決済日の10日前まで"',
+  "Checkout解約申出期限",
 );
 assertIncludes(nextConfig, '"X-Robots-Tag"', "デモnoindexヘッダー");
 assertExcludes(allCheckedSources, "sk_live_", "Stripe本番キー");

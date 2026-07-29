@@ -38,9 +38,11 @@ const inputClass =
 export function OfficialContactForm({
   contactEmail,
   initialPlan = "undecided",
+  demoMode = true,
 }: {
   contactEmail: string;
   initialPlan?: string;
+  demoMode?: boolean;
 }) {
   const safeInitialPlan = consultationPlans.some((plan) => plan.value === initialPlan)
     ? initialPlan
@@ -182,9 +184,15 @@ export function OfficialContactForm({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
-      <p className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-950">
-        デモのため、入力内容は保存・送信されません。実在の個人情報は入力しないでください。
-      </p>
+      {demoMode ? (
+        <p className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-950">
+          デモのため、入力内容は保存・送信されません。実在の個人情報は入力しないでください。
+        </p>
+      ) : (
+        <p className="rounded-xl border border-sky-200 bg-sky-50 px-4 py-3 text-sm leading-6 text-sky-950">
+          ご入力いただいた情報は、お問い合わせへの回答とご相談内容の確認に利用します。
+        </p>
+      )}
 
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="お名前" name="name" required error={errors.name}>
@@ -562,9 +570,9 @@ export function OfficialContactForm({
               : "入力確認に失敗しました。時間をおいて再度お試しください。"}
           </p>
           <p className="mt-1">
-            正式公開後のお問い合わせ先は
+            お急ぎの場合は
             <span className="mx-1 font-bold">{contactEmail}</span>
-            を予定しています。
+            へメールでお問い合わせください。
           </p>
         </div>
       ) : null}
@@ -574,7 +582,13 @@ export function OfficialContactForm({
         disabled={status === "submitting"}
         className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-orange-700 px-8 py-3 font-bold text-white transition hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800 disabled:cursor-wait disabled:opacity-60 sm:w-auto"
       >
-        {status === "submitting" ? "確認中…" : "デモフォームを確認する"}
+        {status === "submitting"
+          ? demoMode
+            ? "確認中…"
+            : "送信中…"
+          : demoMode
+            ? "デモフォームを確認する"
+            : "相談内容を送信する"}
       </button>
     </form>
   );

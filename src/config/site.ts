@@ -50,17 +50,26 @@ function telephoneHref(phone: string | undefined): string | undefined {
   return normalized ? `tel:${normalized}` : undefined;
 }
 
+const officialPublicUrl = "https://nekonotedejitarurabo.com";
 const publicUrl = optionalPublicUrl(process.env.NEXT_PUBLIC_SITE_URL);
-const phone = optionalValue(process.env.BUSINESS_PHONE);
-const address = optionalValue(process.env.BUSINESS_ADDRESS);
+const phone =
+  optionalValue(process.env.BUSINESS_PHONE) ?? "070-8933-4067";
+const address =
+  optionalValue(process.env.BUSINESS_ADDRESS) ??
+  "三重県名張市赤目町丈六23-5";
 const officialLineUrl = "https://lin.ee/rWvSMpg";
-const demoMode = process.env.NEXT_PUBLIC_DEMO_MODE !== "false";
+const explicitDemoMode = optionalValue(process.env.NEXT_PUBLIC_DEMO_MODE);
+const demoMode =
+  explicitDemoMode === "true" ||
+  (explicitDemoMode !== "false" && publicUrl !== officialPublicUrl);
 
 export const siteConfig = {
   businessName: "猫の手デジタルラボ",
   description:
     "名張市・伊賀市を拠点に全国対応。小規模事業者のホームページ制作、更新・運用、Googleマップ、LINE、SNS、生成AI、業務効率化を支援します。",
   email: "info@nekonotedejitarurabo.com",
+  operatorName: "田村 明史",
+  postalCode: "〒518-0465",
   contactToEmail:
     optionalValue(process.env.CONTACT_TO_EMAIL) ?? "info@nekonotedejitarurabo.com",
   instagramUrl: "https://www.instagram.com/nekonote_dlab/?hl=ja",
@@ -72,7 +81,9 @@ export const siteConfig = {
   mapUrl: address
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
     : undefined,
-  businessHours: optionalValue(process.env.BUSINESS_HOURS) ?? supportRules.businessHours,
+  businessHours: optionalValue(process.env.BUSINESS_HOURS) ?? "平日9時～18時",
+  holidays: "土曜日・日曜日・祝日",
+  supportHours: supportRules.businessHours,
   serviceArea: optionalValue(process.env.BUSINESS_SERVICE_AREA),
   publicUrl,
   demoMode,

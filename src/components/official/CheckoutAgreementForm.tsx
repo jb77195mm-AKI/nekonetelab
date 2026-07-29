@@ -60,7 +60,11 @@ export function CheckoutAgreementForm({
         <AgreementCheckbox
           checked={minimumTerm}
           onChange={setMinimumTerm}
-          label="最低利用期間および期間内に解約する場合の条件を確認しました。"
+          label={
+            planId === "web-start"
+              ? "最低利用期間24か月、24か月未満の中途解約金（残契約月数×9,800円・税込）、解約申出期限（次回決済日の10日前まで）を確認しました。"
+              : "最低利用期間および期間内に解約する場合の条件を確認しました。"
+          }
         />
       </div>
 

@@ -9,9 +9,8 @@
 Stripe Dashboardをテストモードへ切り替え、次の月額Priceを作成する。
 
 - Webスタート：9,800円（税込相当）／月
-- おまかせサブスク：14,800円（税込相当）／月
 
-バランスプランは初期費用の請求方法と契約期間が未確定のため、Checkoutへ接続しない。
+Webサポート、Webスタート月額負担軽減型、買い切り、DX関連サービスはCheckoutへ接続しない。
 
 ## 2. 環境変数
 
@@ -25,7 +24,6 @@ SUBSCRIPTION_CHECKOUT_MODE=mock
 STRIPE_SECRET_KEY=sk_test_xxxxxxxxx
 STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxx
 STRIPE_PRICE_ID_WEB_START=price_xxxxxxxxx
-STRIPE_PRICE_ID_OMAKASE=price_xxxxxxxxx
 NEXT_PUBLIC_STRIPE_CUSTOMER_PORTAL_URL=https://billing.stripe.com/p/login/xxxxxxxx
 ```
 

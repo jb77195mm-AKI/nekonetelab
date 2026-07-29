@@ -202,7 +202,7 @@ export default function OfficialHomePage() {
                   ))}
                 </ul>
                 <p className="mt-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium leading-6 text-amber-950">
-                  独自ドメイン代・外部有料サービスは別途。最低利用期間内の解約・精算条件は契約書に明記します。
+                  24か月未満の中途解約金は、残契約月数×9,800円（税込）です。24か月経過後の解約金はありません。解約は次回決済日の10日前までにお申し出ください。
                 </p>
               </div>
               <div
@@ -527,7 +527,9 @@ export default function OfficialHomePage() {
               description="Webスタートは2つの支払い方法から選択。原稿下書きと更新支援を厚くしたWebサポート、データを引き渡す買い切りも用意しています。"
             />
             <p className="mt-6 max-w-3xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium leading-6 text-amber-950">
-              表示内容は確認用デモです。契約条件、解約条件、データ移管条件は正式なお申し込み前にご案内し、契約書へ明記します。
+              {siteConfig.demoMode
+                ? "表示内容は確認用デモです。Webスタート初期費用0円型の解約条件は表示済みです。その他のプランの条件とデータ移管条件は、正式なお申し込み前にご案内します。"
+                : "Webスタート初期費用0円型の料金・更新・解約条件は本ページと特定商取引法表記に掲載しています。その他のプランの中途解約条件とデータ移管条件は、お申し込み前に書面でご案内します。"}
             </p>
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
               {[...homepagePlans]
@@ -682,7 +684,7 @@ export default function OfficialHomePage() {
                 制作費を最初にまとめていただくのではなく、制作後のサーバー管理、保守、バックアップ、軽微な更新サポートを含む月額制でご利用いただく仕組みです。初期投資を抑えながら、公開後も継続してサポートを受けられます。
               </p>
               <p className="mt-5 rounded-2xl bg-white px-5 py-4 font-bold leading-7 text-slate-950 shadow-sm">
-                月額9,800円（税込）・最低利用期間24か月。24か月経過後は1か月単位で自動更新します。独自ドメインや外部有料サービスは別途必要です。
+                月額9,800円（税込）・最低利用期間24か月・24か月総額235,200円（税込）。24か月経過後は1か月単位で自動更新し、解約金はありません。解約は次回決済日の10日前までにお申し出ください。期間内の中途解約金は残契約月数×9,800円（税込）です。
               </p>
             </div>
           </div>
@@ -697,7 +699,9 @@ export default function OfficialHomePage() {
                 description="多言語順番待ち、口コミ返信、シフト作成を、標準範囲とオプションに分けて小さく導入できます。"
               />
               <p className="inline-flex w-fit rounded-full border border-sky-200 bg-white px-4 py-2 text-xs font-bold text-sky-950">
-                サービス内容を検証中のデモです
+                {siteConfig.demoMode
+                  ? "サービス内容を検証中のデモです"
+                  : "掲載画面は導入イメージです"}
               </p>
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -894,9 +898,7 @@ export default function OfficialHomePage() {
                     aria-hidden="true"
                   />
                   <span>
-                    <span className="block text-xs text-slate-400">
-                      正式公開後の連絡先
-                    </span>
+                    <span className="block text-xs text-slate-400">メール</span>
                     <span className="mt-1 block break-all text-sm font-bold">
                       {siteConfig.email}
                     </span>
@@ -921,12 +923,17 @@ export default function OfficialHomePage() {
             </div>
 
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-900/5 sm:p-9">
-              <h3 className="text-xl font-bold">無料相談デモフォーム</h3>
+              <h3 className="text-xl font-bold">
+                {siteConfig.demoMode ? "無料相談デモフォーム" : "無料相談フォーム"}
+              </h3>
               <p className="mt-2 text-sm text-slate-600">
                 <span className="text-red-700">*</span> は必須項目です。
               </p>
               <div className="mt-7">
-                <OfficialContactForm contactEmail={siteConfig.email} />
+                <OfficialContactForm
+                  contactEmail={siteConfig.email}
+                  demoMode={siteConfig.demoMode}
+                />
               </div>
             </div>
           </div>
@@ -994,6 +1001,8 @@ export default function OfficialHomePage() {
 }
 
 function DemoBanner() {
+  if (!siteConfig.demoMode) return null;
+
   return (
     <div className="bg-amber-300 text-slate-950">
       <div className="mx-auto flex max-w-6xl items-start gap-3 px-4 py-3 text-xs font-bold leading-5 sm:items-center sm:px-6">

@@ -10,8 +10,8 @@ import {
 } from "@/data/business-model";
 
 export const metadata: Metadata = {
-  title: "月額プランのテスト申込確認",
-  description: "Stripeテストモードまたはモックモードの申込確認画面です。",
+  title: "Webスタートプランの申込内容確認",
+  description: "Webスタートプランの料金、契約期間、更新および解約条件の確認画面です。",
   robots: { index: false, follow: false },
 };
 
@@ -47,9 +47,13 @@ export default async function SubscriptionCheckoutPage({
 
   return (
     <SubpageShell
-      eyebrow="TEST CHECKOUT"
-      title="月額プランのテスト申込確認"
-      description="申込内容と契約条件の表示、同意、Stripe Checkoutへの遷移を確認するデモです。正式な申込受付・請求は行いません。"
+      eyebrow={siteConfig.demoMode ? "TEST CHECKOUT" : "APPLICATION REVIEW"}
+      title="Webスタートプランの申込内容確認"
+      description={
+        siteConfig.demoMode
+          ? "申込内容と契約条件の表示、同意、Stripe Checkoutへの遷移を確認するデモです。正式な申込受付・請求は行いません。"
+          : "料金、契約期間、自動更新および解約条件をご確認ください。現在オンライン申込を受け付けていない場合は、無料相談フォームからご案内します。"
+      }
     >
       <div className="mx-auto grid max-w-5xl gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_0.95fr]">
         <section className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
@@ -60,9 +64,11 @@ export default async function SubscriptionCheckoutPage({
               </p>
               <h2 className="mt-2 text-2xl font-black">{plan.name}</h2>
             </div>
-            <span className="rounded-full bg-amber-300 px-3 py-1 text-xs font-black">
-              テスト
-            </span>
+            {siteConfig.demoMode ? (
+              <span className="rounded-full bg-amber-300 px-3 py-1 text-xs font-black">
+                テスト
+              </span>
+            ) : null}
           </div>
 
           <dl className="mt-7 divide-y divide-slate-200 rounded-2xl border border-slate-200">
@@ -71,6 +77,14 @@ export default async function SubscriptionCheckoutPage({
             <PriceRow label="初回決済額" value={`${formatYen(plan.monthlyPrice)}（税込）予定`} />
             <PriceRow label="翌月以降" value={`${formatYen(plan.monthlyPrice)}（税込）／月`} />
             <PriceRow label="最低利用期間" value={plan.minimumTermLabel} />
+            <PriceRow label="24か月支払総額" value="235,200円（税込）" />
+            <PriceRow label="自動更新" value="24か月終了後、1か月単位" />
+            <PriceRow label="解約申出期限" value="次回決済日の10日前まで" />
+            <PriceRow label="24か月経過後の解約金" value="なし" />
+            <PriceRow
+              label="24か月未満の中途解約金"
+              value="残契約月数×9,800円（税込）"
+            />
             <PriceRow label="独自ドメイン" value="原則別途" />
             <PriceRow label="外部有料サービス" value="別途" />
           </dl>
@@ -110,7 +124,7 @@ export default async function SubscriptionCheckoutPage({
           />
           <h2 className="mt-4 text-xl font-black">契約条件の確認</h2>
           <p className="mt-3 text-sm leading-7 text-slate-700">
-            サービスは正式な契約条件の合意、必要情報の受領、初回決済の確認後に開始する想定です。途中解約・精算・所有権・移管条件は契約書を優先します。
+            サービスは契約条件の合意、必要情報の受領、初回決済の確認後に開始します。未払利用料金、購入済みのドメイン・サーバー費用、依頼により発生した外部費用がある場合は、中途解約金とは別にお支払いが必要です。所有権・移管条件は個別契約を優先します。
           </p>
           <div className="mt-5 flex flex-wrap gap-3 text-sm font-bold">
             <Link href="/terms" className="text-orange-900 underline underline-offset-4">

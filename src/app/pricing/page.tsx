@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { SubpageShell } from "@/components/official/SubpageShell";
+import { siteConfig } from "@/config/site";
 import {
   additionalWorkPricing,
   additionalCosts,
@@ -26,8 +27,8 @@ export default function PricingPage() {
     >
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-amber-950">
-          <strong>デモ表示：</strong>
-          料金は税込の目安です。解約、所有権、移管、外部サービス費用は正式なお申し込み前にご案内し、契約書へ明記します。
+          <strong>Webスタート（初期費用0円型）の契約条件：</strong>
+          月額9,800円（税込）、最低利用期間24か月、24か月総額235,200円（税込）です。期間内の中途解約金は残契約月数×9,800円（税込）。24か月経過後は1か月単位で自動更新し、解約金はありません。解約は次回決済日の10日前までにお申し出ください。
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -135,7 +136,7 @@ export default function PricingPage() {
                   >
                     {plan.ctaLabel}
                   </Link>
-                  {plan.stripeCheckoutEnabled ? (
+                  {plan.stripeCheckoutEnabled && siteConfig.demoMode ? (
                     <Link
                       href={`/subscription/checkout?plan=${plan.slug}`}
                       className="mt-3 flex min-h-11 items-center justify-center text-sm font-bold text-sky-900 underline underline-offset-4"
