@@ -11,7 +11,7 @@ import {
 export const officialNavigation = [
   { label: "制作費0円", href: "/#homepage" },
   { label: "サービス", href: "/#services" },
-  { label: "業種別", href: "/#industries" },
+  { label: "業種別DX", href: "/services/dx" },
   { label: "料金", href: "/#plans" },
   { label: "制作サンプル", href: "/#works" },
   { label: "FAQ", href: "/#faq" },
@@ -39,7 +39,7 @@ export const officialServices: OfficialService[] = [
   {
     title: "AI・業務効率化支援",
     description:
-      "生成AIによる文章作成、マニュアル作成、データ整理、定型業務の小さな自動化を一緒に進めます。",
+      "既存システムを残し、生成AIによる下書き、データ整理、定型業務の小さな自動化を一緒に進めます。",
     icon: Bot,
   },
   {
@@ -51,7 +51,7 @@ export const officialServices: OfficialService[] = [
   {
     title: "業務システムのご相談",
     description:
-      "順番待ち、口コミ返信、シフト作成など、店舗業務に合う小さな仕組みから導入を検討します。",
+      "単体DXツールと業種別DXパックを分け、店舗業務に合う小さな仕組みから導入を検討します。",
     icon: Workflow,
   },
   {
@@ -66,5 +66,5 @@ export const businessActivities = [
   "ホームページの企画・制作・運用支援",
   "Googleビジネスプロフィール・LINE・SNS活用支援",
   "生成AIの導入・活用支援および研修",
-  "業務効率化・自動化の相談",
+  "単体DXツール・業種別DXパックの導入相談",
 ] as const;

@@ -23,11 +23,11 @@ export function QueueLanguagePricing() {
             <p className="text-xs font-bold tracking-[0.18em] text-sky-900">REFERENCE PRICE</p>
             <h2 className="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">対応言語数で選べる参考プラン</h2>
             <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
-              料金はすべて小規模店舗向けの参考価格・税別です。来店されるお客様の傾向に合わせ、必要な言語数から開始できます。
+              料金は小規模店舗向けの税込参考価格です。標準10言語から始め、追加候補は翻訳・表示検証後にご案内します。
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
             {queueLanguagePlans.map((plan) => (
               <article
                 key={plan.name}

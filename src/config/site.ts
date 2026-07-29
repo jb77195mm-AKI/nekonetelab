@@ -1,4 +1,5 @@
 import "server-only";
+import { supportRules } from "@/data/support-rules";
 
 function optionalValue(value: string | undefined): string | undefined {
   const trimmed = value?.trim();
@@ -71,7 +72,7 @@ export const siteConfig = {
   mapUrl: address
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
     : undefined,
-  businessHours: optionalValue(process.env.BUSINESS_HOURS),
+  businessHours: optionalValue(process.env.BUSINESS_HOURS) ?? supportRules.businessHours,
   serviceArea: optionalValue(process.env.BUSINESS_SERVICE_AREA),
   publicUrl,
   demoMode,

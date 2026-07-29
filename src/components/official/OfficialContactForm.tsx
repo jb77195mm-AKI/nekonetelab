@@ -20,6 +20,13 @@ type FieldName =
   | "inquiryType"
   | "plan"
   | "consultationMethod"
+  | "storeCount"
+  | "staffCount"
+  | "currentServices"
+  | "currentProblems"
+  | "desiredFeatures"
+  | "desiredStart"
+  | "budget"
   | "message"
   | "consent";
 type FormErrors = Partial<Record<FieldName, string>>;
@@ -41,6 +48,7 @@ export function OfficialContactForm({
   const [status, setStatus] = useState<Status>("idle");
   const [isDemoResult, setIsDemoResult] = useState(true);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [selectedPlan, setSelectedPlan] = useState(safeInitialPlan);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -59,6 +67,18 @@ export function OfficialContactForm({
       inquiryType: String(data.get("inquiryType") ?? "").trim(),
       plan: String(data.get("plan") ?? "").trim(),
       consultationMethod: String(data.get("consultationMethod") ?? "").trim(),
+      storeCount: String(data.get("storeCount") ?? "").trim(),
+      staffCount: String(data.get("staffCount") ?? "").trim(),
+      currentServices: String(data.get("currentServices") ?? "").trim(),
+      currentProblems: String(data.get("currentProblems") ?? "").trim(),
+      desiredFeatures: String(data.get("desiredFeatures") ?? "").trim(),
+      desiredStart: String(data.get("desiredStart") ?? "").trim(),
+      budget: String(data.get("budget") ?? "").trim(),
+      serviceDetails: Object.fromEntries(
+        Array.from(data.entries())
+          .filter(([key]) => key.startsWith("serviceDetail."))
+          .map(([key, value]) => [key.replace("serviceDetail.", ""), String(value).trim()]),
+      ),
       message: String(data.get("message") ?? "").trim(),
       consent: data.get("consent") === "on",
       website: String(data.get("website") ?? "").trim(),
@@ -99,6 +119,13 @@ export function OfficialContactForm({
     ) {
       nextErrors.consultationMethod = "相談方法を選択してください。";
     }
+    if (values.storeCount.length > 20) nextErrors.storeCount = "店舗数は20文字以内で入力してください。";
+    if (values.staffCount.length > 20) nextErrors.staffCount = "スタッフ数は20文字以内で入力してください。";
+    if (values.currentServices.length > 1000) nextErrors.currentServices = "現在使用中のサービスは1,000文字以内で入力してください。";
+    if (values.currentProblems.length > 2000) nextErrors.currentProblems = "現在困っている業務は2,000文字以内で入力してください。";
+    if (values.desiredFeatures.length > 2000) nextErrors.desiredFeatures = "希望機能は2,000文字以内で入力してください。";
+    if (values.desiredStart.length > 100) nextErrors.desiredStart = "希望開始時期は100文字以内で入力してください。";
+    if (values.budget.length > 100) nextErrors.budget = "予算は100文字以内で入力してください。";
     if (!values.message) nextErrors.message = "お問い合わせ内容を入力してください。";
     else if (values.message.length > 5000) {
       nextErrors.message = "お問い合わせ内容は5,000文字以内で入力してください。";
@@ -124,6 +151,7 @@ export function OfficialContactForm({
 
       if (response.ok && result?.ok) {
         form.reset();
+        setSelectedPlan("undecided");
         setIsDemoResult(result.demo !== false);
         setStatus("success");
         return;
@@ -303,6 +331,7 @@ export function OfficialContactForm({
             id="official-plan"
             name="plan"
             defaultValue={safeInitialPlan}
+            onChange={(event) => setSelectedPlan(event.target.value)}
             aria-invalid={Boolean(errors.plan)}
             aria-describedby={errors.plan ? "official-plan-error" : undefined}
             className={inputClass}
@@ -316,7 +345,7 @@ export function OfficialContactForm({
         </Field>
 
         <Field
-          label="相談方法"
+          label="オンライン相談希望・相談方法"
           name="consultationMethod"
           error={errors.consultationMethod}
         >
@@ -341,6 +370,114 @@ export function OfficialContactForm({
           </select>
         </Field>
       </div>
+
+      <div className="grid gap-5 md:grid-cols-2">
+        <Field label="店舗数" name="storeCount" error={errors.storeCount}>
+          <input
+            id="official-storeCount"
+            name="storeCount"
+            type="text"
+            inputMode="numeric"
+            maxLength={20}
+            placeholder="例：1店舗"
+            aria-invalid={Boolean(errors.storeCount)}
+            aria-describedby={errors.storeCount ? "official-storeCount-error" : undefined}
+            className={inputClass}
+          />
+        </Field>
+        <Field label="スタッフ数" name="staffCount" error={errors.staffCount}>
+          <input
+            id="official-staffCount"
+            name="staffCount"
+            type="text"
+            inputMode="numeric"
+            maxLength={20}
+            placeholder="例：8名"
+            aria-invalid={Boolean(errors.staffCount)}
+            aria-describedby={errors.staffCount ? "official-staffCount-error" : undefined}
+            className={inputClass}
+          />
+        </Field>
+      </div>
+
+      <Field
+        label="現在使用中のサービス"
+        name="currentServices"
+        error={errors.currentServices}
+      >
+        <textarea
+          id="official-currentServices"
+          name="currentServices"
+          rows={3}
+          maxLength={1000}
+          placeholder="例：予約システム、POS、会計ソフト、LINE公式、Google Drive"
+          aria-invalid={Boolean(errors.currentServices)}
+          aria-describedby={errors.currentServices ? "official-currentServices-error" : undefined}
+          className={inputClass}
+        />
+      </Field>
+
+      <div className="grid gap-5 md:grid-cols-2">
+        <Field
+          label="現在困っている業務"
+          name="currentProblems"
+          error={errors.currentProblems}
+        >
+          <textarea
+            id="official-currentProblems"
+            name="currentProblems"
+            rows={5}
+            maxLength={2000}
+            aria-invalid={Boolean(errors.currentProblems)}
+            aria-describedby={errors.currentProblems ? "official-currentProblems-error" : undefined}
+            className={inputClass}
+          />
+        </Field>
+        <Field
+          label="希望機能"
+          name="desiredFeatures"
+          error={errors.desiredFeatures}
+        >
+          <textarea
+            id="official-desiredFeatures"
+            name="desiredFeatures"
+            rows={5}
+            maxLength={2000}
+            aria-invalid={Boolean(errors.desiredFeatures)}
+            aria-describedby={errors.desiredFeatures ? "official-desiredFeatures-error" : undefined}
+            className={inputClass}
+          />
+        </Field>
+      </div>
+
+      <div className="grid gap-5 md:grid-cols-2">
+        <Field label="希望開始時期" name="desiredStart" error={errors.desiredStart}>
+          <input
+            id="official-desiredStart"
+            name="desiredStart"
+            type="text"
+            maxLength={100}
+            placeholder="例：3か月以内、未定"
+            aria-invalid={Boolean(errors.desiredStart)}
+            aria-describedby={errors.desiredStart ? "official-desiredStart-error" : undefined}
+            className={inputClass}
+          />
+        </Field>
+        <Field label="予算" name="budget" error={errors.budget}>
+          <input
+            id="official-budget"
+            name="budget"
+            type="text"
+            maxLength={100}
+            placeholder="例：月額3万円まで、相談したい"
+            aria-invalid={Boolean(errors.budget)}
+            aria-describedby={errors.budget ? "official-budget-error" : undefined}
+            className={inputClass}
+          />
+        </Field>
+      </div>
+
+      <ConditionalServiceFields plan={selectedPlan} />
 
       <Field
         label="お問い合わせ内容"
@@ -440,6 +577,81 @@ export function OfficialContactForm({
         {status === "submitting" ? "確認中…" : "デモフォームを確認する"}
       </button>
     </form>
+  );
+}
+
+const conditionalFields: Record<
+  string,
+  Array<{ key: string; label: string; placeholder?: string }>
+> = {
+  "inbound-queue": [
+    { key: "dailyVisitors", label: "1日の受付人数" },
+    { key: "busyHours", label: "混雑時間帯" },
+    { key: "currentWait", label: "現在の待ち時間" },
+    { key: "foreignVisitorRatio", label: "外国人客の割合" },
+    { key: "mainRegions", label: "主な国・地域" },
+    { key: "languageCount", label: "必要言語数" },
+    { key: "queueCount", label: "受付列数" },
+    { key: "notificationPreference", label: "LINE・SMS通知希望" },
+  ],
+  "salon-retention": [
+    { key: "reservationSystem", label: "予約システム" },
+    { key: "customerCount", label: "顧客数" },
+    { key: "lineUsage", label: "LINE公式の利用状況" },
+    { key: "customerDataFormat", label: "顧客データ形式" },
+    { key: "retentionMethod", label: "現在の再来店フォロー方法" },
+  ],
+  "field-project": [
+    { key: "monthlyProjects", label: "月間案件数" },
+    { key: "estimateSoftware", label: "見積ソフト" },
+    { key: "accountingSoftware", label: "会計ソフト" },
+    { key: "driveUsage", label: "Google Drive利用状況" },
+    { key: "fieldStaffCount", label: "現場スタッフ数" },
+  ],
+  "retail-food-backoffice": [
+    { key: "pos", label: "POS" },
+    { key: "productCount", label: "商品数" },
+    { key: "storeCountDetail", label: "店舗数" },
+    { key: "inventoryMethod", label: "在庫管理方法" },
+    { key: "wasteMethod", label: "廃棄管理方法" },
+    { key: "socialReviewOperation", label: "SNS・口コミ運用状況" },
+  ],
+};
+
+function ConditionalServiceFields({ plan }: { plan: string }) {
+  const fields = conditionalFields[plan];
+  if (!fields) return null;
+
+  return (
+    <fieldset className="rounded-2xl border border-sky-200 bg-sky-50/70 p-5">
+      <legend className="px-2 text-sm font-black text-sky-950">
+        選択したサービスの確認項目
+      </legend>
+      <p className="mb-5 text-xs leading-6 text-sky-900">
+        分かる範囲だけで構いません。導入範囲と連携方法の整理に使用します。
+      </p>
+      <div className="grid gap-5 md:grid-cols-2">
+        {fields.map((field) => (
+          <div key={field.key}>
+            <label
+              htmlFor={`official-service-${field.key}`}
+              className="mb-2 block text-sm font-bold text-slate-800"
+            >
+              {field.label}
+              <span className="ml-2 text-xs font-normal text-slate-500">任意</span>
+            </label>
+            <input
+              id={`official-service-${field.key}`}
+              name={`serviceDetail.${field.key}`}
+              type="text"
+              maxLength={300}
+              placeholder={field.placeholder}
+              className={inputClass}
+            />
+          </div>
+        ))}
+      </div>
+    </fieldset>
   );
 }
 

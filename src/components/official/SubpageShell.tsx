@@ -8,11 +8,13 @@ export function SubpageShell({
   title,
   description,
   children,
+  showIntro = true,
 }: {
   eyebrow: string;
   title: string;
   description: string;
   children: React.ReactNode;
+  showIntro?: boolean;
 }) {
   return (
     <div className="min-h-screen bg-white text-slate-950">
@@ -31,19 +33,21 @@ export function SubpageShell({
         lineUrl={siteConfig.lineUrl}
       />
       <main>
-        <header className="border-b border-slate-200 bg-[linear-gradient(135deg,#fff7ed_0%,#ffffff_55%,#f0f9ff_100%)]">
-          <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
-            <p className="text-xs font-black tracking-[0.18em] text-orange-800">
-              {eyebrow}
-            </p>
-            <h1 className="mt-3 max-w-4xl text-3xl font-black leading-tight sm:text-5xl">
-              {title}
-            </h1>
-            <p className="mt-5 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
-              {description}
-            </p>
-          </div>
-        </header>
+        {showIntro ? (
+          <header className="border-b border-slate-200 bg-[linear-gradient(135deg,#fff7ed_0%,#ffffff_55%,#f0f9ff_100%)]">
+            <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+              <p className="text-xs font-black tracking-[0.18em] text-orange-800">
+                {eyebrow}
+              </p>
+              <h1 className="mt-3 max-w-4xl text-3xl font-black leading-tight sm:text-5xl">
+                {title}
+              </h1>
+              <p className="mt-5 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
+                {description}
+              </p>
+            </div>
+          </header>
+        ) : null}
         {children}
       </main>
       <footer className="border-t border-slate-800 bg-slate-950 py-10 text-slate-300">

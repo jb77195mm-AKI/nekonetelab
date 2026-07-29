@@ -27,6 +27,13 @@ function hasValidOfficialFields(body: ContactBody): boolean {
   const inquiryType = textValue(body, "inquiryType");
   const plan = textValue(body, "plan");
   const consultationMethod = textValue(body, "consultationMethod");
+  const storeCount = textValue(body, "storeCount");
+  const staffCount = textValue(body, "staffCount");
+  const currentServices = textValue(body, "currentServices");
+  const currentProblems = textValue(body, "currentProblems");
+  const desiredFeatures = textValue(body, "desiredFeatures");
+  const desiredStart = textValue(body, "desiredStart");
+  const budget = textValue(body, "budget");
   const message = textValue(body, "message");
 
   return (
@@ -45,6 +52,17 @@ function hasValidOfficialFields(body: ContactBody): boolean {
       consultationMethods.includes(
         consultationMethod as (typeof consultationMethods)[number],
       )) &&
+    storeCount.length <= 20 &&
+    staffCount.length <= 20 &&
+    currentServices.length <= 1000 &&
+    currentProblems.length <= 2000 &&
+    desiredFeatures.length <= 2000 &&
+    desiredStart.length <= 100 &&
+    budget.length <= 100 &&
+    (body.serviceDetails === undefined ||
+      (typeof body.serviceDetails === "object" &&
+        body.serviceDetails !== null &&
+        !Array.isArray(body.serviceDetails))) &&
     message.length > 0 &&
     message.length <= 5000 &&
     body.consent === true
@@ -120,6 +138,14 @@ export async function POST(request: Request) {
         inquiryType: textValue(body, "inquiryType"),
         plan: textValue(body, "plan"),
         consultationMethod: textValue(body, "consultationMethod"),
+        storeCount: textValue(body, "storeCount"),
+        staffCount: textValue(body, "staffCount"),
+        currentServices: textValue(body, "currentServices"),
+        currentProblems: textValue(body, "currentProblems"),
+        desiredFeatures: textValue(body, "desiredFeatures"),
+        desiredStart: textValue(body, "desiredStart"),
+        budget: textValue(body, "budget"),
+        serviceDetails: body.serviceDetails,
         message: textValue(body, "message"),
         submittedAt: new Date().toISOString(),
       }

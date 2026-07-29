@@ -69,7 +69,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="text-3xl font-black">公開後の継続支援</h2>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
-            導入用の4プランと混在させず、必要な支援範囲を確認してから見積もります。
+            ホームページ制作3プランとは分け、必要な支援範囲を確認してから見積もります。
           </p>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {supportPlans.map((plan) => (

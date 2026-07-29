@@ -9,27 +9,28 @@ import {
   formatYen,
   homepagePlans,
 } from "@/data/business-model";
+import { buyoutMaintenancePlans } from "@/data/web-options";
 
 export const metadata: Metadata = {
   title: "ホームページ制作料金",
   description:
-    "制作費0円・月額9,800円のWebスタート、おまかせサブスク、バランス、買い切りの4プランを比較できます。",
+    "Webスタート、Webサポート、買い切りの3プランと、標準範囲、支払い方法、保守、追加オプションを比較できます。",
 };
 
 export default function PricingPage() {
   return (
     <SubpageShell
       eyebrow="PRICING"
-      title="制作費0円のWebスタートを中心に、4プランから選べます"
-      description="主力のWebスタートは初期制作費0円、月額9,800円（税込）、最低利用期間24か月です。料金だけでなく、公開後の支援と契約条件を一緒にご確認ください。"
+      title="ホームページ制作は、3つのプランから選べます"
+      description="Webスタートは初期費用0円型と月額負担軽減型から選択。Webサポート、買い切りと、公開後の保守範囲も一緒にご確認ください。"
     >
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-amber-950">
           <strong>デモ表示：</strong>
-          正式な料金・契約条件ではありません。解約、所有権、移管、バランスプランの請求方法などの未確定事項は、正式提供前に契約書へ反映します。
+          料金は税込の目安です。解約、所有権、移管、外部サービス費用は正式なお申し込み前にご案内し、契約書へ明記します。
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {[...homepagePlans]
             .sort((a, b) => a.displayOrderMobile - b.displayOrderMobile)
             .map((plan) => (
@@ -74,6 +75,25 @@ export default function PricingPage() {
                     {plan.minimumTermLabel}
                   </p>
                 </div>
+
+                {plan.paymentOptions ? (
+                  <div className="mt-4 space-y-2">
+                    {plan.paymentOptions.map((option) => (
+                      <div
+                        key={option.name}
+                        className="rounded-xl border border-orange-200 bg-orange-50 px-4 py-3 text-xs leading-6 text-orange-950"
+                      >
+                        <p className="font-black">{option.name}</p>
+                        <p>
+                          初期 {formatYen(option.initialPrice)}・月額{" "}
+                          {formatYen(option.monthlyPrice)}
+                          <br />
+                          24か月総額 {formatYen(option.total24Months)}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
 
                 <ul className="mt-6 space-y-2">
                   {plan.features.map((feature) => (
@@ -129,8 +149,8 @@ export default function PricingPage() {
         </div>
 
         <div className="mt-12 overflow-x-auto rounded-2xl border border-slate-200">
-          <table className="min-w-[940px] w-full border-collapse bg-white text-left text-sm">
-            <caption className="sr-only">ホームページ制作4プランの比較</caption>
+          <table className="min-w-[760px] w-full border-collapse bg-white text-left text-sm">
+            <caption className="sr-only">ホームページ制作3プランの比較</caption>
             <thead>
               <tr className="border-b border-slate-200">
                 <th scope="col" className="p-4">
@@ -140,10 +160,7 @@ export default function PricingPage() {
                   Webスタート
                 </th>
                 <th scope="col" className="p-4">
-                  バランス
-                </th>
-                <th scope="col" className="p-4">
-                  おまかせサブスク
+                  Webサポート
                 </th>
                 <th scope="col" className="p-4">
                   買い切り
@@ -157,13 +174,38 @@ export default function PricingPage() {
                     {row.label}
                   </th>
                   <td className="bg-orange-50/60 p-4 font-bold">{row.webStart}</td>
-                  <td className="p-4">{row.balance}</td>
-                  <td className="p-4">{row.omakase}</td>
+                  <td className="p-4">{row.webSupport}</td>
                   <td className="p-4">{row.buyout}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="mt-8 rounded-3xl border border-sky-200 bg-sky-50 p-7 sm:p-10">
+          <h2 className="text-2xl font-black">買い切り向けの任意保守</h2>
+          <p className="mt-3 text-sm leading-7 text-slate-600">
+            買い切りプランの公開後は、技術保守または軽微な更新付き保守を必要に応じて追加できます。
+          </p>
+          <div className="mt-6 grid gap-5 lg:grid-cols-2">
+            {buyoutMaintenancePlans.map((plan) => (
+              <article key={plan.name} className="rounded-2xl bg-white p-6">
+                <h3 className="text-lg font-black">{plan.name}</h3>
+                <p className="mt-2 text-2xl font-black text-sky-900">
+                  月額{formatYen(plan.monthlyPrice)}（税込）
+                </p>
+                <ul className="mt-5 space-y-2">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                      <Check className="mt-1 h-4 w-4 shrink-0 text-sky-800" aria-hidden="true" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-xs leading-6 text-slate-500">{plan.note}</p>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div className="mt-12 rounded-3xl bg-slate-50 p-7 sm:p-10">

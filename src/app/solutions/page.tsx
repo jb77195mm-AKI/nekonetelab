@@ -114,7 +114,7 @@ export default function SolutionsPage() {
             <p className="text-xs font-bold tracking-[0.18em] text-sky-200">STARTER PACK</p>
             <h2 className="mt-4 text-3xl font-black sm:text-4xl">{starterPack.name}</h2>
             <p className="mt-5 text-sm leading-7 text-sky-100">
-              受付、口コミ対応、シフト作成をまとめて検討する場合の参考プランです。必要な機能だけに絞ることも想定しています。
+              受付、口コミ対応、シフト作成の3つから、必要な仕組みだけを選んで導入できます。複数の課題がある場合も個別にお見積もりします。
             </p>
           </div>
           <div className="rounded-3xl bg-white p-7 text-slate-950 shadow-2xl sm:p-9">

@@ -21,8 +21,26 @@ const solutionRoutes = [
   "/solutions/review-reply",
   "/solutions/skill-shift",
 ];
-const pageRoutes = ["/", "/privacy", ...demoSiteRoutes, ...solutionRoutes];
-const specialRoutes = ["/robots.txt", "/sitemap.xml", "/og-image"];
+const dxRoutes = [
+  "/services/dx",
+  "/services/dx/tools",
+  "/services/dx/tools/inbound-queue",
+  "/services/dx/tools/review-support",
+  "/services/dx/tools/skill-shift",
+  "/services/dx/packs",
+  "/services/dx/packs/salon-retention",
+  "/services/dx/packs/field-project",
+  "/services/dx/packs/retail-food-backoffice",
+];
+const pageRoutes = [
+  "/",
+  "/privacy",
+  "/services/web",
+  ...demoSiteRoutes,
+  ...solutionRoutes,
+  ...dxRoutes,
+];
+const specialRoutes = ["/robots.txt", "/sitemap.xml", "/og.png"];
 const failures = [];
 let checks = 0;
 
@@ -55,24 +73,26 @@ if (homeResponse) {
   const requiredText = [
     "猫の手デジタルラボ",
     "ホームページ制作",
-    "お問い合わせフォーム",
+    "まずは、お困りごとをお聞かせください",
     "通常価格",
-    "100,000円",
+    "148,000円",
     "モニター価格",
-    "49,800円",
-    "店舗業務を、もっとシンプルに",
-    "かんたん順番待ち",
-    "口コミ返信サポート",
-    "スキル別AIシフト",
-    "最大20言語対応を開発・検証中",
+    "98,000円",
+    "3つの料金プラン",
+    "インバウンド対応 かんたん順番待ち",
+    "サロン再来店DXパック",
+    "現場案件管理DXパック",
+    "小売・飲食バックオフィスDXパック",
+    "12業種の対応イメージ",
   ];
   const requiredLinks = [
-    "mailto:info@nekonotedejitarurabo.com",
     "https://www.instagram.com/nekonote_dlab/?hl=ja",
     "https://x.com/nekonote_dlab",
     "https://lin.ee/rWvSMpg",
     "/privacy",
     "/solutions",
+    "/services/dx",
+    "/services/dx/tools",
   ];
 
   for (const text of requiredText) {
@@ -110,7 +130,7 @@ if (homeResponse) {
       "/: canonical URLが期待値と異なります",
     );
     check(
-      html.includes(`${expectedSiteUrl}/og-image`),
+      html.includes(`${expectedSiteUrl}/og.png`),
       "/: OGP画像URLが期待値と異なります",
     );
   }
@@ -163,10 +183,9 @@ for (const path of solutionRoutes) {
   if (path === "/solutions/queue") {
     for (const requiredText of [
       "多言語受付デモ",
-      "スタンダード5言語",
-      "アジア10言語",
-      "グローバル15言語",
-      "グローバル20言語",
+      "標準10言語",
+      "15言語プラン",
+      "20言語プラン",
       "言語数によって料金が変わる理由",
       "固定翻訳とリアルタイム翻訳",
       "翻訳内容は開発中の参考表示です",
@@ -174,6 +193,23 @@ for (const path of solutionRoutes) {
       check(html.includes(requiredText), `${path}: 必須テキスト「${requiredText}」がありません`);
     }
   }
+}
+
+for (const path of dxRoutes) {
+  const response = await fetchRoute(path);
+  if (!response) continue;
+  const html = await response.text();
+  check(
+    html.includes('name="robots" content="noindex, nofollow"') ||
+      html.includes('name="robots" content="noindex'),
+    `${path}: noindexがありません`,
+  );
+  check(
+    html.includes("相談受付中") ||
+      html.includes("既存システムを活かす") ||
+      html.includes("DXツール"),
+    `${path}: DXサービスの説明がありません`,
+  );
 }
 
 const robotsResponse = await fetchRoute("/robots.txt");
@@ -199,15 +235,15 @@ if (sitemapResponse && expectedSiteUrl) {
     sitemap.includes(`<loc>${expectedSiteUrl}/privacy</loc>`),
     "/sitemap.xml: プライバシーポリシーURLがありません",
   );
-  for (const demoPath of [...demoSiteRoutes, ...solutionRoutes]) {
+  for (const demoPath of [...demoSiteRoutes, ...solutionRoutes, ...dxRoutes]) {
     check(!sitemap.includes(demoPath), `/sitemap.xml: デモページ ${demoPath} が含まれています`);
   }
 }
 
-const ogResponse = await fetchRoute("/og-image");
+const ogResponse = await fetchRoute("/og.png");
 check(
   ogResponse?.headers.get("content-type")?.startsWith("image/png"),
-  "/og-image: PNGとして配信されていません",
+  "/og.png: PNGとして配信されていません",
 );
 
 const notFoundResponse = await fetchRoute("/__smoke-missing-page__");

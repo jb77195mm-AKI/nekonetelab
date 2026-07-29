@@ -26,7 +26,6 @@ export function getStripeClient(): Stripe {
 export function getStripePriceId(planSlug: HomepagePlanSlug): string {
   const envKeyByPlan: Partial<Record<HomepagePlanSlug, string>> = {
     "web-start": "STRIPE_PRICE_ID_WEB_START",
-    omakase: "STRIPE_PRICE_ID_OMAKASE",
   };
   const envKey = envKeyByPlan[planSlug];
   const priceId = envKey ? process.env[envKey]?.trim() : undefined;

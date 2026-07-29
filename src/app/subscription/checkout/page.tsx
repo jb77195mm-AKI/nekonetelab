@@ -31,7 +31,7 @@ export default async function SubscriptionCheckoutPage({
       <SubpageShell
         eyebrow="TEST CHECKOUT"
         title="このプランはテスト決済の対象外です"
-        description="買い切り・バランス・継続支援は、相談と見積もりから進めます。"
+        description="Webサポート、買い切り、単体DXツール、業種別DXパックは、相談と見積もりから進めます。"
       >
         <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
           <Link

@@ -17,6 +17,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { PlaceholderImage } from "@/components/common/PlaceholderImage";
+import { DxHomePreview } from "@/components/dx/DxHomePreview";
 import { OfficialContactForm } from "@/components/official/OfficialContactForm";
 import { OfficialFaq } from "@/components/official/OfficialFaq";
 import { OfficialHeader } from "@/components/official/OfficialHeader";
@@ -127,7 +128,7 @@ export default function OfficialHomePage() {
                   href="#plans"
                   className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-slate-800 bg-white/70 px-7 py-3 font-bold transition hover:bg-slate-950 hover:text-white"
                 >
-                  4つのプランを見る
+                  3つのプランを見る
                 </a>
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
@@ -185,7 +186,7 @@ export default function OfficialHomePage() {
                   {[
                     "制作・公開・基本SEO",
                     "サーバー・SSL・バックアップ",
-                    "月1回・30分程度までの軽微な更新",
+                    "月1回・15分以内の軽微な更新",
                     "公開後のWeb・AI相談窓口",
                   ].map((item) => (
                     <li
@@ -522,13 +523,13 @@ export default function OfficialHomePage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="HOMEPAGE PLANS"
-              title="始め方とサポート範囲で選べる4つの料金プラン"
-              description="主力は制作費0円・月額9,800円のWebスタート。運用サポートを厚くしたプラン、初期費用と月額のバランス型、買い切り型も選べます。"
+              title="始め方とサポート範囲で選べる3つの料金プラン"
+              description="Webスタートは2つの支払い方法から選択。原稿下書きと更新支援を厚くしたWebサポート、データを引き渡す買い切りも用意しています。"
             />
             <p className="mt-6 max-w-3xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium leading-6 text-amber-950">
-              表示内容はデモです。未確定の契約条件、解約条件、データ移管条件は正式提供前に確定し、契約書へ反映します。
+              表示内容は確認用デモです。契約条件、解約条件、データ移管条件は正式なお申し込み前にご案内し、契約書へ明記します。
             </p>
-            <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-12 grid gap-6 lg:grid-cols-3">
               {[...homepagePlans]
                 .sort((a, b) => a.displayOrderMobile - b.displayOrderMobile)
                 .map((plan) => (
@@ -537,8 +538,8 @@ export default function OfficialHomePage() {
             </div>
 
             <div className="mt-12 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <table className="min-w-[940px] w-full border-collapse text-left text-sm">
-                <caption className="sr-only">ホームページ制作4プランの比較</caption>
+              <table className="min-w-[760px] w-full border-collapse text-left text-sm">
+                <caption className="sr-only">ホームページ制作3プランの比較</caption>
                 <thead>
                   <tr className="border-b border-slate-200">
                     <th scope="col" className="p-4 font-black text-slate-700">
@@ -551,10 +552,7 @@ export default function OfficialHomePage() {
                       Webスタート
                     </th>
                     <th scope="col" className="p-4 font-black text-slate-700">
-                      バランス
-                    </th>
-                    <th scope="col" className="p-4 font-black text-slate-700">
-                      おまかせサブスク
+                      Webサポート
                     </th>
                     <th scope="col" className="p-4 font-black text-slate-700">
                       買い切り
@@ -570,8 +568,7 @@ export default function OfficialHomePage() {
                       <td className="bg-orange-50/60 p-4 font-bold text-slate-950">
                         {row.webStart}
                       </td>
-                      <td className="p-4 text-slate-700">{row.balance}</td>
-                      <td className="p-4 text-slate-700">{row.omakase}</td>
+                      <td className="p-4 text-slate-700">{row.webSupport}</td>
                       <td className="p-4 text-slate-700">{row.buyout}</td>
                     </tr>
                   ))}
@@ -696,8 +693,8 @@ export default function OfficialHomePage() {
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <SectionHeading
                 eyebrow="BUSINESS TOOLS"
-                title="小さな業務システムも相談できます"
-                description="順番待ち、口コミ返信、シフト作成など、日々の店舗業務を必要な機能から小さく効率化します。"
+                title="必要な業務だけを改善する、3つの単体DXツール"
+                description="多言語順番待ち、口コミ返信、シフト作成を、標準範囲とオプションに分けて小さく導入できます。"
               />
               <p className="inline-flex w-fit rounded-full border border-sky-200 bg-white px-4 py-2 text-xs font-bold text-sky-950">
                 サービス内容を検証中のデモです
@@ -710,15 +707,17 @@ export default function OfficialHomePage() {
             </div>
             <div className="mt-10 text-center">
               <Link
-                href="/solutions"
+                href="/services/dx/tools"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-sky-900 px-7 py-3 font-bold text-white transition hover:bg-sky-950"
               >
-                3つの業務システムを比較する
+                3つの単体DXツールを比較する
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
           </div>
         </section>
+
+        <DxHomePreview />
 
         <section
           id="works"
@@ -829,7 +828,7 @@ export default function OfficialHomePage() {
                 />
                 <h3 className="mt-4 text-xl font-black">未確定事項は契約前に確認</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
-                  解約条件、所有権、移管、バランスプランの請求方法、上位支援の対応時間は未確定です。専門家による契約・法務確認を推奨します。
+                  解約条件、所有権、移管、外部サービス費用、DX連携範囲は正式なお申し込み前に確認し、契約書またはお見積もりへ明記します。
                 </p>
               </div>
             </div>
@@ -955,6 +954,9 @@ export default function OfficialHomePage() {
               <Link href="/services" className="min-h-11 py-3 hover:text-white">
                 サービス
               </Link>
+              <Link href="/services/dx" className="min-h-11 py-3 hover:text-white">
+                業種別DX
+              </Link>
               <Link href="/industries" className="min-h-11 py-3 hover:text-white">
                 業種別
               </Link>
@@ -1063,6 +1065,24 @@ function PlanCard({ plan }: { plan: HomepagePlan }) {
           </p>
         </div>
       </div>
+
+      {plan.paymentOptions ? (
+        <div className="mt-4 space-y-2">
+          {plan.paymentOptions.map((option) => (
+            <div
+              key={option.name}
+              className="rounded-xl border border-orange-200 bg-orange-50 px-4 py-3 text-xs leading-6 text-orange-950"
+            >
+              <p className="font-black">{option.name}</p>
+              <p>
+                初期 {formatYen(option.initialPrice)}・月額{" "}
+                {formatYen(option.monthlyPrice)}・24か月総額{" "}
+                {formatYen(option.total24Months)}
+              </p>
+            </div>
+          ))}
+        </div>
+      ) : null}
 
       <ul className="mt-6 space-y-2">
         {plan.features.slice(0, 7).map((feature) => (
