@@ -27,6 +27,9 @@ const isDemo = process.env.NEXT_PUBLIC_DEMO_MODE !== "false";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  images: {
+    unoptimized: true,
+  },
   async headers() {
     return [
       {

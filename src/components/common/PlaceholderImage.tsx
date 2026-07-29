@@ -21,6 +21,7 @@ export function PlaceholderImage({
       <Image
         src={src}
         alt={alt}
+        unoptimized
         fill
         priority={priority}
         sizes={sizes ?? "100vw"}
@@ -32,6 +33,7 @@ export function PlaceholderImage({
     <Image
       src={src}
       alt={alt}
+      unoptimized
       width={800}
       height={600}
       priority={priority}
