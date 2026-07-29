@@ -41,4 +41,4 @@
 ## プレビュー
 
 - 公開先: 猫の手デジタルラボ 公式サイト刷新デモ（限定公開）
-- URL: デプロイ完了後に追記
+- URL: https://nekonote-official-refresh-demo.sasakama77195.chatgpt.site
