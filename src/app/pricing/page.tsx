@@ -9,6 +9,7 @@ import {
   comparisonRows,
   formatYen,
   homepagePlans,
+  productionComparisonRows,
 } from "@/data/business-model";
 import { buyoutMaintenancePlans } from "@/data/web-options";
 
@@ -191,7 +192,10 @@ export default function PricingPage() {
               </tr>
             </thead>
             <tbody>
-              {comparisonRows.map((row) => (
+              {(siteConfig.demoMode
+                ? comparisonRows
+                : productionComparisonRows
+              ).map((row) => (
                 <tr key={row.label} className="border-b border-slate-100 last:border-0">
                   <th scope="row" className="p-4 font-bold">
                     {row.label}

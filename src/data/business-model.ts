@@ -11,6 +11,17 @@ export type HomepagePlan = WebPlan;
 
 export const homepagePlans = webPlans;
 export const comparisonRows = webPlanComparisonRows;
+export const productionComparisonRows = comparisonRows.map((row) => {
+  if (row.label === "初期制作費") {
+    return { ...row, webStart: "0円" };
+  }
+
+  if (row.label === "月額料金") {
+    return { ...row, webStart: "9,800円" };
+  }
+
+  return row;
+});
 export const additionalWorkPricing = webOptions;
 
 export const businessModel = {

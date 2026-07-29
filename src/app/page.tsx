@@ -34,6 +34,7 @@ import {
   industries,
   outcomes,
   painPoints,
+  productionComparisonRows,
   productionFlow,
   productionFaqItems,
   reasons,
@@ -568,7 +569,10 @@ export default function OfficialHomePage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {comparisonRows.map((row) => (
+                  {(siteConfig.demoMode
+                    ? comparisonRows
+                    : productionComparisonRows
+                  ).map((row) => (
                     <tr key={row.label} className="border-b border-slate-100 last:border-0">
                       <th scope="row" className="p-4 font-bold text-slate-700">
                         {row.label}
