@@ -97,7 +97,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  const deliveryMode = process.env.CONTACT_DELIVERY_MODE?.trim() ?? "mock";
+  const deliveryMode =
+    process.env.CONTACT_DELIVERY_MODE?.trim() ||
+    (siteConfig.demoMode ? "mock" : "forward");
   if (deliveryMode !== "forward") {
     return NextResponse.json({ ok: true, demo: true });
   }

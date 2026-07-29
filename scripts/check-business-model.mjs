@@ -95,6 +95,11 @@ assertIncludes(
   "問い合わせモック既定",
 );
 assertIncludes(
+  contactRoute,
+  '(siteConfig.demoMode ? "mock" : "forward")',
+  "問い合わせ本番転送既定",
+);
+assertIncludes(
   envExample,
   "SUBSCRIPTION_CHECKOUT_MODE=mock",
   "決済モック既定値",
