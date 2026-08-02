@@ -30,7 +30,7 @@ export function OfficialFaq({ items }: { items: readonly FaqItem[] }) {
                 aria-expanded={open}
                 aria-controls={answerId}
                 onClick={() => toggleItem(index)}
-                className="flex min-h-14 w-full items-start justify-between gap-4 rounded-2xl p-5 text-left font-bold hover:bg-orange-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+                className="flex min-h-14 w-full items-start justify-between gap-4 rounded-2xl p-5 text-left font-bold hover:bg-cream-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
               >
                 <span>Q. {item.question}</span>
                 <ChevronDown

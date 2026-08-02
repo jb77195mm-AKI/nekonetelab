@@ -20,7 +20,7 @@ export function DxHomePreview() {
               </p>
               <h2 className="mt-4 text-[clamp(2rem,7vw,3.5rem)] font-black leading-tight">
                 外国人観光客を、
-                <span className="block text-orange-300">店頭で迷わせない受付へ</span>
+                <span className="block text-amber-soft">店頭で迷わせない受付へ</span>
               </h2>
               <p className="mt-5 max-w-2xl text-sm leading-8 text-sky-100 sm:text-base">
                 日本語での受付説明、紙への記入、アプリ登録を求めず、QRコードから利用者の言語で受付できる仕組みを設計します。
@@ -68,7 +68,7 @@ export function DxHomePreview() {
 
       <section className="bg-slate-50 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="text-xs font-black tracking-[0.18em] text-orange-800">INDUSTRY DX PACKS</p>
+          <p className="text-xs font-black tracking-[0.18em] text-navy-deep">INDUSTRY DX PACKS</p>
           <div className="mt-3 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <h2 className="text-[clamp(2rem,7vw,3rem)] font-black leading-tight">
@@ -81,7 +81,7 @@ export function DxHomePreview() {
             </div>
             <Link
               href="/services/dx"
-              className="inline-flex min-h-12 w-fit items-center gap-2 rounded-full bg-slate-950 px-6 py-3 font-bold text-white"
+              className="inline-flex min-h-12 w-fit items-center gap-2 rounded-full bg-navy-deep px-6 py-3 font-bold text-white"
             >
               業種別DXを詳しく見る
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -95,7 +95,7 @@ export function DxHomePreview() {
                 </span>
                 <p className="mt-5 text-xs font-black text-sky-900">{serviceStatusLabels[pack.status]}</p>
                 <h3 className="mt-2 text-xl font-black">{pack.name}</h3>
-                <p className="mt-3 text-sm font-bold leading-6 text-orange-800">{pack.catchphrase}</p>
+                <p className="mt-3 text-sm font-bold leading-6 text-navy-deep">{pack.catchphrase}</p>
                 <p className="mt-4 text-sm leading-7 text-slate-600">{pack.description}</p>
                 <div className="mt-5 rounded-2xl bg-slate-50 p-4 text-sm">
                   <p className="font-black">料金目安</p>

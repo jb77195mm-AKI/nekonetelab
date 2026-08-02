@@ -29,7 +29,7 @@ export function DemoBadge() {
 export function SolutionPage({ solution }: { solution: SolutionData }) {
   return (
     <main>
-      <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-orange-50">
+      <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-cream-light">
         <div
           aria-hidden="true"
           className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-sky-200/50 blur-3xl"
@@ -67,7 +67,7 @@ export function SolutionPage({ solution }: { solution: SolutionData }) {
                 </a>
                 <Link
                   href="/#contact"
-                  className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-slate-800 px-6 py-3 font-bold text-slate-950 transition hover:bg-slate-950 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
+                  className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-slate-800 px-6 py-3 font-bold text-slate-950 transition hover:bg-navy-deep hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
                 >
                   導入について相談する
                 </Link>
@@ -90,14 +90,14 @@ export function SolutionPage({ solution }: { solution: SolutionData }) {
               key={pain}
               className="flex min-h-16 items-center gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-bold leading-6 text-slate-800"
             >
-              <CircleAlert className="h-5 w-5 shrink-0 text-orange-700" aria-hidden="true" />
+              <CircleAlert className="h-5 w-5 shrink-0 text-navy" aria-hidden="true" />
               {pain}
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="bg-slate-950 py-20 text-white sm:py-24">
+      <section className="bg-navy-deep py-20 text-white sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading
             eyebrow="WHAT IT DOES"
@@ -170,22 +170,22 @@ export function SolutionPage({ solution }: { solution: SolutionData }) {
       {solution.slug === "queue" ? (
         <QueueLanguagePricing />
       ) : (
-        <section className="bg-orange-50/60 py-20 sm:py-24">
+        <section className="bg-cream-light/60 py-20 sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <SectionHeading
               eyebrow="REFERENCE PRICE"
               title="参考料金"
               description="開発中の参考価格です。正式な料金は必要機能を整理した後にお見積もりします。"
             />
-            <div className="rounded-3xl border border-orange-200 bg-white p-7 shadow-lg shadow-orange-900/5 sm:p-9">
+            <div className="rounded-3xl border border-cat-beige bg-white p-7 shadow-lg shadow-navy-deep/5 sm:p-9">
               <dl className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <dt className="text-xs font-bold text-slate-500">初期導入費</dt>
-                  <dd className="mt-2 text-3xl font-black tabular-nums text-orange-800">{solution.pricing.initial}</dd>
+                  <dd className="mt-2 text-3xl font-black tabular-nums text-navy-deep">{solution.pricing.initial}</dd>
                 </div>
                 <div>
                   <dt className="text-xs font-bold text-slate-500">月額利用・サポート費</dt>
-                  <dd className="mt-2 text-3xl font-black tabular-nums text-orange-800">{solution.pricing.monthly}</dd>
+                  <dd className="mt-2 text-3xl font-black tabular-nums text-navy-deep">{solution.pricing.monthly}</dd>
                 </div>
               </dl>
               {solution.pricing.upperPlan ? (

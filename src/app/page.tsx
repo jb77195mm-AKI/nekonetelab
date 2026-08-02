@@ -16,6 +16,7 @@ import {
   Store,
   Wrench,
 } from "lucide-react";
+import { CatMark, CatSitting } from "@/components/brand/BrandCat";
 import { PlaceholderImage } from "@/components/common/PlaceholderImage";
 import { DxHomePreview } from "@/components/dx/DxHomePreview";
 import { OfficialContactForm } from "@/components/official/OfficialContactForm";
@@ -90,11 +91,11 @@ export default function OfficialHomePage() {
       <main>
         <section
           id="homepage"
-          className="scroll-mt-28 relative overflow-hidden bg-[linear-gradient(135deg,#fff7ed_0%,#ffffff_52%,#f0f9ff_100%)]"
+          className="scroll-mt-28 relative overflow-hidden bg-[linear-gradient(135deg,#faf6ee_0%,#ffffff_52%,#eef6fa_100%)]"
         >
           <div
             aria-hidden="true"
-            className="absolute -right-28 -top-28 h-96 w-96 rounded-full bg-orange-200/45 blur-3xl"
+            className="absolute -right-28 -top-28 h-96 w-96 rounded-full bg-cat-beige/45 blur-3xl"
           />
           <div
             aria-hidden="true"
@@ -102,13 +103,13 @@ export default function OfficialHomePage() {
           />
           <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/80 px-4 py-2 text-xs font-bold text-orange-950 shadow-sm">
-                <Sparkles className="h-4 w-4 text-orange-700" aria-hidden="true" />
+              <p className="inline-flex items-center gap-2 rounded-full border border-cat-beige bg-white/80 px-4 py-2 text-xs font-bold text-navy-deep shadow-sm">
+                <Sparkles className="h-4 w-4 text-navy" aria-hidden="true" />
                 小規模事業者のための、月額制Web・AI担当
               </p>
-              <h1 className="mt-6 text-[clamp(2.5rem,10vw,4.8rem)] font-black leading-[1.08] tracking-tight">
+              <h1 className="mt-6 font-serif text-[clamp(2.5rem,10vw,4.8rem)] font-black leading-[1.08] tracking-tight">
                 ホームページ
-                <span className="mt-1 block text-orange-800">制作費0円</span>
+                <span className="mt-1 block text-navy-deep">制作費0円</span>
               </h1>
               <p className="mt-6 max-w-2xl text-[clamp(1.2rem,3vw,1.7rem)] font-black leading-snug text-slate-900">
                 あなたの会社の
@@ -122,14 +123,14 @@ export default function OfficialHomePage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/contact?plan=web-start"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-orange-700 px-7 py-3 font-bold text-white shadow-lg shadow-orange-900/10 transition hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-navy px-7 py-3 font-bold text-white shadow-lg shadow-navy-deep/10 transition hover:bg-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
                 >
                   制作費0円で無料相談する
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <a
                   href="#plans"
-                  className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-slate-800 bg-white/70 px-7 py-3 font-bold transition hover:bg-slate-950 hover:text-white"
+                  className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-slate-800 bg-white/70 px-7 py-3 font-bold transition hover:bg-navy-deep hover:text-white"
                 >
                   3つのプランを見る
                 </a>
@@ -155,17 +156,17 @@ export default function OfficialHomePage() {
               <div className="rounded-[2rem] border border-white bg-white/90 p-6 shadow-2xl shadow-slate-900/10 backdrop-blur sm:p-8">
                 <div className="flex items-center justify-between gap-4">
                   <div>
-                    <p className="text-xs font-black tracking-[0.16em] text-orange-800">
+                    <p className="text-xs font-black tracking-[0.16em] text-navy-deep">
                       WEB START
                     </p>
                     <h2 className="mt-2 text-xl font-black">{mainPlan.name}</h2>
                   </div>
-                  <span className="rounded-full bg-orange-700 px-3 py-1.5 text-xs font-black text-white">
+                  <span className="rounded-full bg-navy px-3 py-1.5 text-xs font-black text-white">
                     主力プラン
                   </span>
                 </div>
-                <div className="mt-6 rounded-2xl bg-slate-950 p-6 text-white">
-                  <p className="text-sm font-bold text-orange-300">初期制作費</p>
+                <div className="mt-6 rounded-2xl bg-navy-deep p-6 text-white">
+                  <p className="text-sm font-bold text-amber-soft">初期制作費</p>
                   <p className="mt-1 flex items-baseline gap-2 tabular-nums">
                     <span className="text-6xl font-black">0</span>
                     <span className="text-xl font-black">円</span>
@@ -197,7 +198,7 @@ export default function OfficialHomePage() {
                       className="flex items-start gap-3 text-sm font-medium text-slate-700"
                     >
                       <CheckCircle2
-                        className="mt-0.5 h-5 w-5 shrink-0 text-orange-700"
+                        className="mt-0.5 h-5 w-5 shrink-0 text-navy"
                         aria-hidden="true"
                       />
                       {item}
@@ -210,15 +211,15 @@ export default function OfficialHomePage() {
               </div>
               <div
                 aria-hidden="true"
-                className="absolute -bottom-4 -right-3 grid h-16 w-16 rotate-6 place-items-center rounded-[42%_58%_48%_52%] bg-orange-700 text-2xl text-white shadow-lg"
+                className="absolute -bottom-5 -right-3 grid h-20 w-20 rotate-6 place-items-center rounded-full border-2 border-cat-beige bg-white shadow-lg"
               >
-                🐾
+                <CatMark className="h-14 w-14" />
               </div>
             </div>
           </div>
         </section>
 
-        <section className="border-y border-slate-200 bg-slate-950 py-8 text-white">
+        <section className="border-y border-slate-200 bg-navy-deep py-8 text-white">
           <div className="mx-auto grid max-w-6xl gap-4 px-4 sm:grid-cols-3 sm:px-6">
             {[
               ["名張市・伊賀市", "内容・日程に応じて対面相談"],
@@ -229,7 +230,7 @@ export default function OfficialHomePage() {
                 key={title}
                 className="rounded-2xl border border-slate-700 bg-slate-900 px-5 py-4"
               >
-                <p className="text-sm font-black text-orange-300">{title}</p>
+                <p className="text-sm font-black text-amber-soft">{title}</p>
                 <p className="mt-1 text-sm text-slate-300">{text}</p>
               </div>
             ))}
@@ -249,7 +250,7 @@ export default function OfficialHomePage() {
                 className="flex min-h-28 items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-5"
               >
                 <CircleHelp
-                  className="mt-0.5 h-5 w-5 shrink-0 text-orange-700"
+                  className="mt-0.5 h-5 w-5 shrink-0 text-navy"
                   aria-hidden="true"
                 />
                 <p className="text-sm font-bold leading-6 text-slate-800">{point}</p>
@@ -258,7 +259,7 @@ export default function OfficialHomePage() {
           </div>
         </section>
 
-        <section className="bg-orange-50/60 py-20 sm:py-28">
+        <section className="bg-cream-light/60 py-20 sm:py-28">
           <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <SectionHeading
@@ -274,10 +275,10 @@ export default function OfficialHomePage() {
               {outcomes.map((outcome) => (
                 <div
                   key={outcome}
-                  className="flex items-start gap-3 rounded-2xl border border-orange-100 bg-white p-5 shadow-sm"
+                  className="flex items-start gap-3 rounded-2xl border border-cat-cream bg-white p-5 shadow-sm"
                 >
                   <Check
-                    className="mt-1 h-4 w-4 shrink-0 text-orange-800"
+                    className="mt-1 h-4 w-4 shrink-0 text-navy-deep"
                     aria-hidden="true"
                   />
                   <span className="text-sm font-bold leading-6 text-slate-800">
@@ -304,10 +305,10 @@ export default function OfficialHomePage() {
                 key={layer.title}
                 className={`relative overflow-hidden rounded-3xl border p-7 ${
                   index === 0
-                    ? "border-orange-300 bg-orange-50"
+                    ? "border-amber-soft bg-cream-light"
                     : index === 1
                       ? "border-sky-200 bg-sky-50"
-                      : "border-slate-700 bg-slate-950 text-white"
+                      : "border-slate-700 bg-navy-deep text-white"
                 }`}
               >
                 <div className="flex items-center justify-between gap-4">
@@ -321,10 +322,10 @@ export default function OfficialHomePage() {
                   <span
                     className={`rounded-full px-3 py-1 text-xs font-black ${
                       index === 0
-                        ? "bg-orange-700 text-white"
+                        ? "bg-navy text-white"
                         : index === 1
                           ? "bg-sky-900 text-white"
-                          : "bg-orange-300 text-slate-950"
+                          : "bg-amber-soft text-slate-950"
                     }`}
                   >
                     {layer.label}
@@ -348,7 +349,7 @@ export default function OfficialHomePage() {
                     >
                       <Check
                         className={`mt-0.5 h-4 w-4 shrink-0 ${
-                          index === 2 ? "text-orange-300" : "text-orange-700"
+                          index === 2 ? "text-amber-soft" : "text-navy"
                         }`}
                         aria-hidden="true"
                       />
@@ -362,7 +363,7 @@ export default function OfficialHomePage() {
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               href="/services"
-              className="inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-slate-800 px-6 py-3 font-bold hover:bg-slate-950 hover:text-white"
+              className="inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-slate-800 px-6 py-3 font-bold hover:bg-navy-deep hover:text-white"
             >
               サービス範囲を詳しく見る
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -376,15 +377,15 @@ export default function OfficialHomePage() {
           </div>
         </section>
 
-        <section className="bg-slate-950 py-20 text-white sm:py-28">
+        <section className="bg-navy-deep py-20 text-white sm:py-28">
           <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <p className="text-xs font-black tracking-[0.18em] text-orange-300">
+              <p className="text-xs font-black tracking-[0.18em] text-amber-soft">
                 YOUR EXTERNAL DIGITAL TEAM
               </p>
               <h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">
                 Web担当者を一人採用する代わりに、
-                <span className="mt-2 block text-orange-300">必要な業務だけ外部へ</span>
+                <span className="mt-2 block text-amber-soft">必要な業務だけ外部へ</span>
               </h2>
               <p className="mt-6 text-sm leading-7 text-slate-300 sm:text-base">
                 ホームページ、Googleマップ、LINE、SNS、生成AIを別々の会社へ依頼すると、管理も相談も複雑になります。必要な範囲を一つの窓口へまとめ、公開後も同じ担当へ相談できる状態をつくります。
@@ -404,7 +405,7 @@ export default function OfficialHomePage() {
                     className="rounded-2xl border border-slate-700 bg-slate-900 p-6"
                   >
                     <ItemIcon
-                      className="h-7 w-7 text-orange-300"
+                      className="h-7 w-7 text-amber-soft"
                       aria-hidden="true"
                     />
                     <p className="mt-4 font-black">{title as string}</p>
@@ -468,7 +469,7 @@ export default function OfficialHomePage() {
                   className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-orange-100 text-orange-800">
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-cat-cream text-navy-deep">
                       <Store className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <h3 className="font-black">{industry.name}</h3>
@@ -491,7 +492,7 @@ export default function OfficialHomePage() {
             </div>
             <Link
               href="/industries"
-              className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-slate-950 px-6 py-3 font-bold text-white hover:bg-slate-800"
+              className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-navy-deep px-6 py-3 font-bold text-white hover:bg-slate-800"
             >
               業種別支援を詳しく見る
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -510,7 +511,7 @@ export default function OfficialHomePage() {
                 key={reason}
                 className="rounded-2xl border border-slate-200 p-6"
               >
-                <span className="text-3xl font-black text-orange-200">
+                <span className="text-3xl font-black text-cat-beige">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <p className="mt-3 font-bold leading-7 text-slate-800">{reason}</p>
@@ -521,7 +522,7 @@ export default function OfficialHomePage() {
 
         <section
           id="plans"
-          className="scroll-mt-28 bg-[linear-gradient(180deg,#fff7ed_0%,#ffffff_100%)] py-20 sm:py-28"
+          className="scroll-mt-28 bg-[linear-gradient(180deg,#faf6ee_0%,#ffffff_100%)] py-20 sm:py-28"
         >
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
@@ -556,7 +557,7 @@ export default function OfficialHomePage() {
                     </th>
                     <th
                       scope="col"
-                      className="bg-orange-50 p-4 font-black text-orange-950"
+                      className="bg-cream-light p-4 font-black text-navy-deep"
                     >
                       Webスタート
                     </th>
@@ -577,7 +578,7 @@ export default function OfficialHomePage() {
                       <th scope="row" className="p-4 font-bold text-slate-700">
                         {row.label}
                       </th>
-                      <td className="bg-orange-50/60 p-4 font-bold text-slate-950">
+                      <td className="bg-cream-light/60 p-4 font-bold text-slate-950">
                         {row.webStart}
                       </td>
                       <td className="p-4 text-slate-700">{row.webSupport}</td>
@@ -592,7 +593,7 @@ export default function OfficialHomePage() {
             </p>
             <Link
               href="/pricing"
-              className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-slate-800 px-6 py-3 font-bold hover:bg-slate-950 hover:text-white"
+              className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-slate-800 px-6 py-3 font-bold hover:bg-navy-deep hover:text-white"
             >
               料金と条件を詳しく見る
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -614,12 +615,12 @@ export default function OfficialHomePage() {
                   className={`rounded-3xl border p-7 sm:p-9 ${
                     index === 0
                       ? "border-sky-200 bg-sky-50"
-                      : "border-slate-700 bg-slate-950 text-white"
+                      : "border-slate-700 bg-navy-deep text-white"
                   }`}
                 >
                   <p
                     className={`text-xs font-black tracking-[0.16em] ${
-                      index === 0 ? "text-sky-900" : "text-orange-300"
+                      index === 0 ? "text-sky-900" : "text-amber-soft"
                     }`}
                   >
                     {index === 0 ? "WEB OPERATION" : "EXTERNAL WEB & AI"}
@@ -643,7 +644,7 @@ export default function OfficialHomePage() {
                       >
                         <Check
                           className={`mt-0.5 h-4 w-4 shrink-0 ${
-                            index === 0 ? "text-sky-900" : "text-orange-300"
+                            index === 0 ? "text-sky-900" : "text-amber-soft"
                           }`}
                           aria-hidden="true"
                         />
@@ -665,7 +666,7 @@ export default function OfficialHomePage() {
                     className={`mt-6 inline-flex min-h-12 items-center gap-2 rounded-full px-6 py-3 font-bold ${
                       index === 0
                         ? "bg-sky-900 text-white hover:bg-sky-950"
-                        : "bg-orange-300 text-slate-950 hover:bg-orange-200"
+                        : "bg-amber-soft text-slate-950 hover:bg-cat-beige"
                     }`}
                   >
                     {plan.ctaLabel}
@@ -677,10 +678,10 @@ export default function OfficialHomePage() {
           </div>
         </section>
 
-        <section className="border-y border-orange-200 bg-orange-50 py-20 sm:py-24">
+        <section className="border-y border-cat-beige bg-cream-light py-20 sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <div>
-              <p className="text-xs font-black tracking-[0.18em] text-orange-800">
+              <p className="text-xs font-black tracking-[0.18em] text-navy-deep">
                 WHY ZERO YEN?
               </p>
               <h2 className="mt-3 text-3xl font-black">
@@ -758,17 +759,17 @@ export default function OfficialHomePage() {
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                       className="transition duration-500 group-hover:scale-105"
                     />
-                    <span className="absolute left-3 top-3 rounded-full bg-slate-950/90 px-3 py-1 text-xs font-bold text-white">
+                    <span className="absolute left-3 top-3 rounded-full bg-navy-deep/90 px-3 py-1 text-xs font-bold text-white">
                       デモ制作
                     </span>
                   </div>
                   <div className="p-5">
-                    <p className="text-xs font-bold text-orange-800">{site.category}</p>
+                    <p className="text-xs font-bold text-navy-deep">{site.category}</p>
                     <h3 className="mt-1 text-lg font-bold">{site.data.siteName}</h3>
                     <p className="mt-2 text-sm leading-6 text-slate-600">
                       {site.summary}
                     </p>
-                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-orange-800">
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-navy-deep">
                       サンプルを見る
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </span>
@@ -779,7 +780,7 @@ export default function OfficialHomePage() {
           </div>
         </section>
 
-        <section id="flow" className="scroll-mt-28 bg-slate-950 py-20 text-white sm:py-28">
+        <section id="flow" className="scroll-mt-28 bg-navy-deep py-20 text-white sm:py-28">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="FLOW"
@@ -793,7 +794,7 @@ export default function OfficialHomePage() {
                   key={title}
                   className="rounded-2xl border border-slate-700 bg-slate-900 p-5"
                 >
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-orange-700 text-sm font-black">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy text-sm font-black">
                     {index + 1}
                   </span>
                   <h3 className="mt-4 font-bold">{title}</h3>
@@ -816,7 +817,7 @@ export default function OfficialHomePage() {
             </div>
             <div>
               <div className="rounded-3xl bg-slate-50 p-7 sm:p-9">
-                <p className="text-xs font-black tracking-[0.18em] text-orange-800">
+                <p className="text-xs font-black tracking-[0.18em] text-navy-deep">
                   EXTRA COSTS
                 </p>
                 <h2 className="mt-3 text-2xl font-black">
@@ -828,7 +829,7 @@ export default function OfficialHomePage() {
                       key={item}
                       className="flex items-start gap-3 text-sm leading-6 text-slate-700"
                     >
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-700" />
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-navy" />
                       {item}
                     </li>
                   ))}
@@ -837,9 +838,9 @@ export default function OfficialHomePage() {
                   必要な費用は契約前にご説明し、追加料金が発生する作業については事前にお見積もりします。
                 </p>
               </div>
-              <div className="mt-6 rounded-3xl border border-orange-200 bg-orange-50 p-7">
+              <div className="mt-6 rounded-3xl border border-cat-beige bg-cream-light p-7">
                 <ShieldCheck
-                  className="h-8 w-8 text-orange-800"
+                  className="h-8 w-8 text-navy-deep"
                   aria-hidden="true"
                 />
                 <h3 className="mt-4 text-xl font-black">未確定事項は契約前に確認</h3>
@@ -853,11 +854,11 @@ export default function OfficialHomePage() {
 
         <section
           id="about"
-          className="scroll-mt-28 border-y border-slate-200 bg-orange-50/50 py-20 sm:py-28"
+          className="scroll-mt-28 border-y border-slate-200 bg-cream-light/50 py-20 sm:py-28"
         >
           <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
-              <p className="text-xs font-black tracking-[0.18em] text-orange-800">
+              <p className="text-xs font-black tracking-[0.18em] text-navy-deep">
                 ABOUT
               </p>
               <h2 className="mt-3 text-3xl font-black">事業者情報</h2>
@@ -866,7 +867,7 @@ export default function OfficialHomePage() {
               </p>
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-orange-100 bg-white">
+            <div className="overflow-hidden rounded-2xl border border-cat-cream bg-white">
               <dl className="divide-y divide-slate-200">
                 <BusinessRow label="事業者名">{siteConfig.businessName}</BusinessRow>
                 <BusinessRow label="拠点・対応">
@@ -893,20 +894,23 @@ export default function OfficialHomePage() {
         <section id="contact" className="scroll-mt-28 py-20 sm:py-28">
           <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="text-xs font-black tracking-[0.18em] text-orange-800">
-                FREE CONSULTATION
-              </p>
-              <h2 className="mt-3 text-3xl font-black sm:text-4xl">
+              <div className="flex items-end justify-between gap-4">
+                <p className="text-xs font-black tracking-[0.18em] text-navy-deep">
+                  FREE CONSULTATION
+                </p>
+                <CatSitting className="h-16 w-auto shrink-0 sm:h-20" />
+              </div>
+              <h2 className="mt-3 font-serif text-3xl font-black sm:text-4xl">
                 まずは、お困りごとをお聞かせください
               </h2>
               <p className="mt-5 text-sm leading-7 text-slate-600">
                 プランが決まっていなくても大丈夫です。ホームページ、更新、Googleマップ、LINE・SNS、AI活用のうち、今どこから始めるべきか整理します。
               </p>
 
-              <div className="mt-8 space-y-4 rounded-2xl bg-slate-950 p-6 text-white">
+              <div className="mt-8 space-y-4 rounded-2xl bg-navy-deep p-6 text-white">
                 <div className="flex items-start gap-3 rounded-xl p-2">
                   <Mail
-                    className="mt-0.5 h-5 w-5 shrink-0 text-orange-300"
+                    className="mt-0.5 h-5 w-5 shrink-0 text-amber-soft"
                     aria-hidden="true"
                   />
                   <span>
@@ -918,7 +922,7 @@ export default function OfficialHomePage() {
                 </div>
                 <div className="flex items-start gap-3 rounded-xl p-2">
                   <MapPin
-                    className="mt-0.5 h-5 w-5 shrink-0 text-orange-300"
+                    className="mt-0.5 h-5 w-5 shrink-0 text-amber-soft"
                     aria-hidden="true"
                   />
                   <span>
@@ -952,10 +956,11 @@ export default function OfficialHomePage() {
         </section>
       </main>
 
-      <footer className="border-t border-slate-800 bg-slate-950 pb-24 pt-10 text-slate-300 sm:pb-10">
+      <footer className="border-t border-slate-800 bg-navy-deep pb-24 pt-10 text-slate-300 sm:pb-10">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <Link href="#top" className="font-black text-white">
+            <Link href="#top" className="inline-flex items-center gap-3 font-black text-white">
+              <CatSitting className="h-12 w-auto" />
               {siteConfig.businessName}
             </Link>
             <p className="mt-3 max-w-lg text-sm leading-6 text-slate-400">
@@ -1002,7 +1007,7 @@ export default function OfficialHomePage() {
       <div className="fixed inset-x-3 bottom-3 z-50 sm:hidden">
         <Link
           href="/contact?plan=web-start"
-          className="flex min-h-12 items-center justify-center gap-2 rounded-full border border-orange-300 bg-orange-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
+          className="flex min-h-12 items-center justify-center gap-2 rounded-full border border-amber-soft bg-navy px-5 py-3 text-sm font-black text-white shadow-2xl"
         >
           制作費0円で相談
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -1018,7 +1023,7 @@ function DemoBanner() {
   return (
     <div className="bg-amber-300 text-slate-950">
       <div className="mx-auto flex max-w-6xl items-start gap-3 px-4 py-3 text-xs font-bold leading-5 sm:items-center sm:px-6">
-        <span className="rounded bg-slate-950 px-2 py-0.5 text-[0.65rem] tracking-[0.14em] text-white">
+        <span className="rounded bg-navy-deep px-2 py-0.5 text-[0.65rem] tracking-[0.14em] text-white">
           DEMO
         </span>
         <p>{businessModel.demoNotice}</p>
@@ -1041,18 +1046,18 @@ function PlanCard({ plan }: { plan: HomepagePlan }) {
     <article
       className={`${desktopOrder} relative flex h-full flex-col rounded-3xl border p-6 sm:p-7 ${
         plan.recommended
-          ? "border-orange-400 bg-white shadow-2xl shadow-orange-900/10"
+          ? "border-amber-accent bg-white shadow-2xl shadow-navy-deep/10"
           : "border-slate-200 bg-white shadow-sm"
       }`}
     >
       {plan.recommended ? (
-        <span className="absolute -top-3 left-6 rounded-full bg-orange-700 px-4 py-1.5 text-xs font-black text-white">
+        <span className="absolute -top-3 left-6 rounded-full bg-navy px-4 py-1.5 text-xs font-black text-white">
           主力プラン
         </span>
       ) : null}
       <div>
         {plan.label ? (
-          <p className="text-sm font-black text-orange-800">{plan.label}</p>
+          <p className="text-sm font-black text-navy-deep">{plan.label}</p>
         ) : (
           <p className="text-sm font-black text-slate-500">選べる導入方法</p>
         )}
@@ -1062,14 +1067,14 @@ function PlanCard({ plan }: { plan: HomepagePlan }) {
         </p>
       </div>
 
-      <div className="mt-6 rounded-2xl bg-slate-950 p-5 text-white">
+      <div className="mt-6 rounded-2xl bg-navy-deep p-5 text-white">
         {plan.regularPrice ? (
           <p className="text-xs text-slate-300">
             通常制作価格{" "}
             <span className="line-through">{formatYen(plan.regularPrice)}</span>
           </p>
         ) : null}
-        <p className="mt-1 text-xs font-bold text-orange-300">初期制作費</p>
+        <p className="mt-1 text-xs font-bold text-amber-soft">初期制作費</p>
         <p className="mt-1 flex flex-wrap items-baseline gap-1 tabular-nums">
           <span className="text-4xl font-black">{formatYen(plan.initialPrice)}</span>
           <span className="text-xs">（税込）</span>
@@ -1092,7 +1097,7 @@ function PlanCard({ plan }: { plan: HomepagePlan }) {
           {plan.paymentOptions.map((option) => (
             <div
               key={option.name}
-              className="rounded-xl border border-orange-200 bg-orange-50 px-4 py-3 text-xs leading-6 text-orange-950"
+              className="rounded-xl border border-cat-beige bg-cream-light px-4 py-3 text-xs leading-6 text-navy-deep"
             >
               <p className="font-black">{option.name}</p>
               <p>
@@ -1112,7 +1117,7 @@ function PlanCard({ plan }: { plan: HomepagePlan }) {
             className="flex items-start gap-2 text-sm leading-6 text-slate-700"
           >
             <Check
-              className="mt-1 h-4 w-4 shrink-0 text-orange-700"
+              className="mt-1 h-4 w-4 shrink-0 text-navy"
               aria-hidden="true"
             />
             {feature}
@@ -1130,8 +1135,8 @@ function PlanCard({ plan }: { plan: HomepagePlan }) {
           href={plan.ctaHref}
           className={`mt-4 flex min-h-12 items-center justify-center rounded-full px-5 py-3 text-center font-bold ${
             plan.recommended
-              ? "bg-orange-700 text-white hover:bg-orange-800"
-              : "border-2 border-slate-800 hover:bg-slate-950 hover:text-white"
+              ? "bg-navy text-white hover:bg-navy-deep"
+              : "border-2 border-slate-800 hover:bg-navy-deep hover:text-white"
           }`}
         >
           {plan.ctaLabel}
@@ -1168,7 +1173,7 @@ function RegionCard({
         <span className="grid h-12 w-12 place-items-center rounded-xl bg-sky-100 text-sky-900">
           <Icon className="h-6 w-6" aria-hidden="true" />
         </span>
-        <span className="rounded-full bg-slate-950 px-3 py-1 text-xs font-black text-white">
+        <span className="rounded-full bg-navy-deep px-3 py-1 text-xs font-black text-white">
           {label}
         </span>
       </div>
@@ -1207,13 +1212,13 @@ function SectionHeading({
     <div className="max-w-3xl">
       <p
         className={`text-xs font-black tracking-[0.18em] ${
-          inverted ? "text-orange-300" : "text-orange-800"
+          inverted ? "text-amber-soft" : "text-navy-deep"
         }`}
       >
         {eyebrow}
       </p>
       <h2
-        className={`mt-3 text-[clamp(1.8rem,7vw,2.6rem)] font-black leading-tight ${
+        className={`mt-3 font-serif text-[clamp(1.8rem,7vw,2.6rem)] font-black leading-tight ${
           inverted ? "text-white" : "text-slate-950"
         }`}
       >
@@ -1249,8 +1254,8 @@ function BusinessRow({
 
 function SocialLinks({ inverted = false }: { inverted?: boolean }) {
   const linkClass = inverted
-    ? "inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-700 px-3 py-2 text-sm font-bold text-white transition hover:border-orange-300 hover:text-orange-300"
-    : "inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-300 px-3 py-2 text-sm font-bold text-slate-800 transition hover:border-orange-700 hover:text-orange-800";
+    ? "inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-700 px-3 py-2 text-sm font-bold text-white transition hover:border-amber-soft hover:text-amber-soft"
+    : "inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-300 px-3 py-2 text-sm font-bold text-slate-800 transition hover:border-navy hover:text-navy-deep";
 
   return (
     <div className="flex flex-wrap gap-2">

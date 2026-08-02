@@ -9,7 +9,7 @@ export function DxToolDetailPage({ tool }: { tool: DxTool }) {
 
   return (
     <div className="bg-white text-slate-950">
-      <section className="bg-[linear-gradient(135deg,#f0f9ff_0%,#ffffff_55%,#fff7ed_100%)]">
+      <section className="bg-[linear-gradient(135deg,#eef6fa_0%,#ffffff_55%,#faf6ee_100%)]">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <Link href="/services/dx/tools" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-sky-900 underline-offset-4 hover:underline">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
@@ -19,7 +19,7 @@ export function DxToolDetailPage({ tool }: { tool: DxTool }) {
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-black text-sky-950">{tool.category}</span>
-                <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-black text-orange-950">{serviceStatusLabels[tool.status]}</span>
+                <span className="rounded-full bg-cat-cream px-3 py-1 text-xs font-black text-navy-deep">{serviceStatusLabels[tool.status]}</span>
               </div>
               <h1 className="mt-5 text-[clamp(2.35rem,8vw,4.2rem)] font-black leading-tight tracking-tight">
                 {tool.name}
@@ -35,7 +35,7 @@ export function DxToolDetailPage({ tool }: { tool: DxTool }) {
               </div>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-900/5 sm:p-8">
-              <p className="text-xs font-black tracking-[0.16em] text-orange-800">REFERENCE PRICE</p>
+              <p className="text-xs font-black tracking-[0.16em] text-navy-deep">REFERENCE PRICE</p>
               <dl className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
                 <PriceBox label="初期設定費" value={formatPriceRange(tool.initialPrice)} />
                 <PriceBox label="月額利用料" value={formatPriceRange(tool.monthlyPrice)} />
@@ -55,7 +55,7 @@ export function DxToolDetailPage({ tool }: { tool: DxTool }) {
           <ul className="mt-10 grid gap-3 md:grid-cols-2">
             {tool.problems.map((problem) => (
               <li key={problem} className="flex items-start gap-3 rounded-2xl border border-slate-200 p-5 text-sm font-bold leading-6">
-                <CircleAlert className="mt-0.5 h-5 w-5 shrink-0 text-orange-700" aria-hidden="true" />
+                <CircleAlert className="mt-0.5 h-5 w-5 shrink-0 text-navy" aria-hidden="true" />
                 {problem}
               </li>
             ))}
@@ -63,7 +63,7 @@ export function DxToolDetailPage({ tool }: { tool: DxTool }) {
         </div>
       </section>
 
-      <section className="bg-slate-950 py-20 text-white sm:py-24">
+      <section className="bg-navy-deep py-20 text-white sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionTitle eyebrow="STANDARD FEATURES" title="標準機能" inverted />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -94,7 +94,7 @@ export function DxToolDetailPage({ tool }: { tool: DxTool }) {
               {tool.options.map((option) => (
                 <div key={option.name} className="grid gap-2 p-5 text-sm sm:grid-cols-[1fr_auto] sm:items-center">
                   <dt className="font-bold">{option.name}</dt>
-                  <dd className="font-black text-orange-800">{option.price}</dd>
+                  <dd className="font-black text-navy-deep">{option.price}</dd>
                 </div>
               ))}
             </dl>
@@ -166,7 +166,7 @@ function LanguageStatusSection() {
 }
 
 function PriceBox({ label, value }: { label: string; value: string }) {
-  return <div className="rounded-2xl bg-slate-950 p-5 text-white"><dt className="text-xs text-slate-400">{label}</dt><dd className="mt-2 text-3xl font-black tabular-nums">{value}</dd></div>;
+  return <div className="rounded-2xl bg-navy-deep p-5 text-white"><dt className="text-xs text-slate-400">{label}</dt><dd className="mt-2 text-3xl font-black tabular-nums">{value}</dd></div>;
 }
 
 function ScopeCard({ title, items, positive = false }: { title: string; items: string[]; positive?: boolean }) {
@@ -186,5 +186,5 @@ function ScopeCard({ title, items, positive = false }: { title: string; items: s
 }
 
 function SectionTitle({ eyebrow, title, description, inverted = false }: { eyebrow: string; title: string; description?: string; inverted?: boolean }) {
-  return <div className="max-w-3xl"><p className={`text-xs font-black tracking-[0.18em] ${inverted ? "text-orange-300" : "text-orange-800"}`}>{eyebrow}</p><h2 className={`mt-3 text-[clamp(2rem,7vw,3rem)] font-black leading-tight ${inverted ? "text-white" : "text-slate-950"}`}>{title}</h2>{description ? <p className={`mt-4 text-sm leading-7 sm:text-base ${inverted ? "text-slate-300" : "text-slate-600"}`}>{description}</p> : null}</div>;
+  return <div className="max-w-3xl"><p className={`text-xs font-black tracking-[0.18em] ${inverted ? "text-amber-soft" : "text-navy-deep"}`}>{eyebrow}</p><h2 className={`mt-3 text-[clamp(2rem,7vw,3rem)] font-black leading-tight ${inverted ? "text-white" : "text-slate-950"}`}>{title}</h2>{description ? <p className={`mt-4 text-sm leading-7 sm:text-base ${inverted ? "text-slate-300" : "text-slate-600"}`}>{description}</p> : null}</div>;
 }

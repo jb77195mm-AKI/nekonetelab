@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function SolutionsPage() {
   return (
     <main>
-      <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-orange-50">
+      <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-cream-light">
         <div
           aria-hidden="true"
           className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-sky-200/50 blur-3xl"
@@ -46,7 +46,7 @@ export default function SolutionsPage() {
               </a>
               <Link
                 href="/#contact"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-slate-800 px-6 py-3 font-bold transition hover:bg-slate-950 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-slate-800 px-6 py-3 font-bold transition hover:bg-navy-deep hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
               >
                 導入について相談する
               </Link>
@@ -126,9 +126,9 @@ export default function SolutionsPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-7 rounded-2xl bg-orange-50 p-5">
+            <div className="mt-7 rounded-2xl bg-cream-light p-5">
               <p className="text-xs font-bold text-slate-500">参考価格</p>
-              <p className="mt-2 text-2xl font-black leading-tight tabular-nums text-orange-800 sm:text-3xl">
+              <p className="mt-2 text-2xl font-black leading-tight tabular-nums text-navy-deep sm:text-3xl">
                 {starterPack.price}
               </p>
               <p className="mt-3 text-xs leading-6 text-slate-600">※ {starterPack.note}</p>
@@ -146,7 +146,7 @@ export default function SolutionsPage() {
           </p>
           <Link
             href="/#contact"
-            className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-orange-700 px-7 py-3 font-bold text-white transition hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+            className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-navy px-7 py-3 font-bold text-white transition hover:bg-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
           >
             業務システムについて相談する
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

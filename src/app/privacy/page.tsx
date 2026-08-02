@@ -74,14 +74,14 @@ export default function PrivacyPage() {
           <Link href="/" className="font-black">
             {siteConfig.businessName}
           </Link>
-          <Link href="/contact" className="text-sm font-bold text-orange-800 underline underline-offset-4">
+          <Link href="/contact" className="text-sm font-bold text-navy-deep underline underline-offset-4">
             無料相談
           </Link>
         </div>
       </header>
 
       <main className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20">
-        <p className="text-xs font-bold tracking-[0.18em] text-orange-800">PRIVACY POLICY</p>
+        <p className="text-xs font-bold tracking-[0.18em] text-navy-deep">PRIVACY POLICY</p>
         <h1 className="mt-3 text-3xl font-black sm:text-4xl">プライバシーポリシー</h1>
         <p className="mt-6 text-sm leading-7 text-slate-600">
           {siteConfig.businessName}
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
             </section>
           ))}
 
-          <section className="rounded-2xl border border-orange-200 bg-orange-50 p-6 sm:p-8">
+          <section className="rounded-2xl border border-cat-beige bg-cream-light p-6 sm:p-8">
             <h2 className="text-lg font-bold">9. お問い合わせ窓口</h2>
             <p className="mt-3 text-sm leading-7 text-slate-700">
               本ポリシーおよび個人情報の取り扱いに関するお問い合わせは、以下までご連絡ください。
@@ -110,7 +110,7 @@ export default function PrivacyPage() {
               <dd>{siteConfig.businessName}</dd>
               <dt className="font-bold">メール</dt>
               <dd>
-                <a href={`mailto:${siteConfig.email}`} className="font-medium text-orange-800 underline underline-offset-2">
+                <a href={`mailto:${siteConfig.email}`} className="font-medium text-navy-deep underline underline-offset-2">
                   {siteConfig.email}
                 </a>
               </dd>
@@ -118,7 +118,7 @@ export default function PrivacyPage() {
                 <>
                   <dt className="font-bold">電話番号</dt>
                   <dd>
-                    <a href={siteConfig.phoneHref} className="font-medium text-orange-800 underline underline-offset-2">
+                    <a href={siteConfig.phoneHref} className="font-medium text-navy-deep underline underline-offset-2">
                       {siteConfig.phone}
                     </a>
                   </dd>
@@ -137,7 +137,7 @@ export default function PrivacyPage() {
         <p className="mt-8 text-right text-xs text-slate-500">制定日：2026年7月27日</p>
         <Link
           href="/"
-          className="mt-10 inline-flex rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-bold hover:border-orange-700 hover:text-orange-800"
+          className="mt-10 inline-flex rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-bold hover:border-navy hover:text-navy-deep"
         >
           トップページへ戻る
         </Link>

@@ -6,7 +6,7 @@ export function ComparisonTable() {
       <div className="hidden overflow-hidden rounded-3xl border border-slate-200 bg-white md:block">
         <div className="overflow-x-auto">
           <table className="min-w-[52rem] w-full table-fixed text-left text-sm">
-            <thead className="bg-slate-950 text-white">
+            <thead className="bg-navy-deep text-white">
               <tr>
                 <th className="w-36 px-5 py-4 font-bold">項目</th>
                 {solutions.map((solution) => (

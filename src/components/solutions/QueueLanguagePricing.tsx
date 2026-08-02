@@ -17,7 +17,7 @@ const reasonIcons = [Languages, MonitorCheck, RefreshCw] as const;
 export function QueueLanguagePricing() {
   return (
     <>
-      <section className="bg-orange-50/60 py-20 sm:py-24">
+      <section className="bg-cream-light/60 py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="max-w-3xl">
             <p className="text-xs font-bold tracking-[0.18em] text-sky-900">REFERENCE PRICE</p>
@@ -34,13 +34,13 @@ export function QueueLanguagePricing() {
                 className={`relative flex h-full flex-col rounded-3xl border bg-white p-6 shadow-sm ${
                   plan.recommended
                     ? "border-sky-500 ring-2 ring-sky-100"
-                    : "border-orange-200"
+                    : "border-cat-beige"
                 }`}
               >
                 <span className={`w-fit rounded-full px-3 py-1 text-xs font-black ${
                   plan.recommended
                     ? "bg-sky-900 text-white"
-                    : "bg-orange-100 text-orange-950"
+                    : "bg-cat-cream text-navy-deep"
                 }`}>
                   {plan.label}
                 </span>
@@ -49,11 +49,11 @@ export function QueueLanguagePricing() {
                 <dl className="mt-5 space-y-4">
                   <div>
                     <dt className="text-xs font-bold text-slate-500">初期導入費</dt>
-                    <dd className="mt-1 text-2xl font-black tabular-nums text-orange-800">{plan.initial}</dd>
+                    <dd className="mt-1 text-2xl font-black tabular-nums text-navy-deep">{plan.initial}</dd>
                   </div>
                   <div>
                     <dt className="text-xs font-bold text-slate-500">月額利用・サポート費</dt>
-                    <dd className="mt-1 text-2xl font-black tabular-nums text-orange-800">{plan.monthly}</dd>
+                    <dd className="mt-1 text-2xl font-black tabular-nums text-navy-deep">{plan.monthly}</dd>
                   </div>
                 </dl>
                 <p className="mt-5 border-t border-slate-100 pt-4 text-xs leading-6 text-slate-600">{plan.languages}</p>
@@ -61,14 +61,14 @@ export function QueueLanguagePricing() {
             ))}
           </div>
 
-          <div className="mt-8 rounded-3xl border border-orange-200 bg-white p-6 sm:p-8">
+          <div className="mt-8 rounded-3xl border border-cat-beige bg-white p-6 sm:p-8">
             <h3 className="text-xl font-black text-slate-950">多言語オプション</h3>
             <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200">
               <dl className="divide-y divide-slate-200">
                 {queueLanguageOptions.map(([option, price]) => (
                   <div key={option} className="grid gap-1 px-4 py-4 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-6 sm:px-5">
                     <dt className="text-sm font-bold text-slate-800">{option}</dt>
-                    <dd className="text-sm font-black tabular-nums text-orange-800 sm:text-right">{price}</dd>
+                    <dd className="text-sm font-black tabular-nums text-navy-deep sm:text-right">{price}</dd>
                   </div>
                 ))}
               </dl>
@@ -142,7 +142,7 @@ export function QueueLanguagePricing() {
               <p className="mt-4 text-sm leading-7 text-slate-600">
                 店舗が入力した臨時案内、混雑状況の自由入力、個別のお知らせ、店舗独自メッセージなどが対象例です。
               </p>
-              <p className="mt-5 rounded-2xl bg-orange-50 px-4 py-3 text-sm font-bold leading-7 text-orange-950">
+              <p className="mt-5 rounded-2xl bg-cream-light px-4 py-3 text-sm font-bold leading-7 text-navy-deep">
                 店舗が自由に入力した文章の自動翻訳は、オプション機能として対応を想定しています。
               </p>
             </article>

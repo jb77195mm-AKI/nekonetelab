@@ -28,15 +28,15 @@ export default function ServicesPage() {
               key={layer.title}
               className={`rounded-3xl border p-7 ${
                 index === 0
-                  ? "border-orange-200 bg-orange-50"
+                  ? "border-cat-beige bg-cream-light"
                   : index === 1
                     ? "border-sky-200 bg-sky-50"
-                    : "border-slate-700 bg-slate-950 text-white"
+                    : "border-slate-700 bg-navy-deep text-white"
               }`}
             >
               <p
                 className={`text-xs font-black tracking-[0.16em] ${
-                  index === 2 ? "text-orange-300" : "text-orange-800"
+                  index === 2 ? "text-amber-soft" : "text-navy-deep"
                 }`}
               >
                 {layer.step} / {layer.label}
@@ -53,7 +53,7 @@ export default function ServicesPage() {
                 {layer.items.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm">
                     <Check
-                      className="mt-0.5 h-4 w-4 shrink-0 text-orange-600"
+                      className="mt-0.5 h-4 w-4 shrink-0 text-navy"
                       aria-hidden="true"
                     />
                     {item}
@@ -78,7 +78,7 @@ export default function ServicesPage() {
                 className="rounded-3xl border border-slate-200 bg-white p-7"
               >
                 <h3 className="text-xl font-black">{plan.name}</h3>
-                <p className="mt-2 font-black text-orange-800">{plan.priceLabel}</p>
+                <p className="mt-2 font-black text-navy-deep">{plan.priceLabel}</p>
                 <p className="mt-4 text-sm leading-7 text-slate-600">
                   {plan.description}
                 </p>
@@ -89,7 +89,7 @@ export default function ServicesPage() {
                       className="flex items-start gap-2 text-sm text-slate-700"
                     >
                       <Check
-                        className="mt-0.5 h-4 w-4 shrink-0 text-orange-700"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-navy"
                         aria-hidden="true"
                       />
                       {feature}
@@ -101,7 +101,7 @@ export default function ServicesPage() {
                 </p>
                 <Link
                   href={plan.ctaHref}
-                  className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full bg-slate-950 px-6 py-3 font-bold text-white"
+                  className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full bg-navy-deep px-6 py-3 font-bold text-white"
                 >
                   {plan.ctaLabel}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />

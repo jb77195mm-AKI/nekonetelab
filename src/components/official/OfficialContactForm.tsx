@@ -33,7 +33,7 @@ type FormErrors = Partial<Record<FieldName, string>>;
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const inputClass =
-  "w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-orange-700 focus:ring-2 focus:ring-orange-700/20";
+  "w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-navy focus:ring-2 focus:ring-navy/20";
 
 export function OfficialContactForm({
   contactEmail,
@@ -526,13 +526,13 @@ export function OfficialContactForm({
       <div>
         <label
           htmlFor="official-consent"
-          className="flex min-h-11 cursor-pointer items-start gap-3 rounded-lg py-2 text-sm leading-relaxed text-slate-700 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-orange-800"
+          className="flex min-h-11 cursor-pointer items-start gap-3 rounded-lg py-2 text-sm leading-relaxed text-slate-700 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-navy-deep"
         >
           <input
             id="official-consent"
             name="consent"
             type="checkbox"
-            className="mt-0.5 h-5 w-5 shrink-0 accent-orange-700"
+            className="mt-0.5 h-5 w-5 shrink-0 accent-navy"
             aria-invalid={Boolean(errors.consent)}
             aria-describedby={
               errors.consent ? "official-consent-error" : undefined
@@ -541,7 +541,7 @@ export function OfficialContactForm({
           <span>
             <Link
               href="/privacy"
-              className="font-medium text-orange-800 underline underline-offset-2"
+              className="font-medium text-navy-deep underline underline-offset-2"
             >
               個人情報の取り扱い
             </Link>
@@ -580,7 +580,7 @@ export function OfficialContactForm({
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-orange-700 px-8 py-3 font-bold text-white transition hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800 disabled:cursor-wait disabled:opacity-60 sm:w-auto"
+        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-navy px-8 py-3 font-bold text-white transition hover:bg-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep disabled:cursor-wait disabled:opacity-60 sm:w-auto"
       >
         {status === "submitting"
           ? demoMode

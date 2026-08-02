@@ -17,7 +17,7 @@ export default function SubscriptionCancelPage() {
       <div className="mx-auto flex max-w-3xl flex-col gap-3 px-4 py-14 sm:flex-row sm:px-6 sm:py-20">
         <Link
           href="/pricing"
-          className="flex min-h-12 items-center justify-center rounded-full bg-slate-950 px-6 py-3 font-bold text-white"
+          className="flex min-h-12 items-center justify-center rounded-full bg-navy-deep px-6 py-3 font-bold text-white"
         >
           料金を確認する
         </Link>

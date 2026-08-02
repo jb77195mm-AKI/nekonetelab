@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Camera, Menu, X as CloseIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { CatMark } from "@/components/brand/BrandCat";
 import { officialNavigation } from "@/data/official";
 
 const externalLinkProps = {
@@ -21,15 +22,9 @@ function BrandPawMark() {
   return (
     <span
       aria-hidden="true"
-      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-700 text-white shadow-sm"
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cat-beige bg-white shadow-sm"
     >
-      <svg viewBox="0 0 32 32" className="h-6 w-6" fill="currentColor">
-        <ellipse cx="8.5" cy="10.5" rx="2.8" ry="3.8" transform="rotate(-24 8.5 10.5)" />
-        <ellipse cx="14.4" cy="7.7" rx="2.8" ry="3.8" transform="rotate(-7 14.4 7.7)" />
-        <ellipse cx="20.6" cy="8.2" rx="2.8" ry="3.8" transform="rotate(10 20.6 8.2)" />
-        <ellipse cx="25" cy="12.2" rx="2.7" ry="3.7" transform="rotate(25 25 12.2)" />
-        <path d="M8.1 22.1c0-4.7 3.5-8.3 7.9-8.3s7.9 3.6 7.9 8.3c0 3.2-1.9 5.3-4.8 5.3-1.4 0-2.1-.8-3.1-.8s-1.8.8-3.1.8c-2.9 0-4.8-2.1-4.8-5.3Z" />
-      </svg>
+      <CatMark className="h-8 w-8" />
     </span>
   );
 }
@@ -83,7 +78,7 @@ export function OfficialHeader({
           <Link
             href="/"
             onClick={closeMenu}
-            className="flex min-w-0 items-center gap-2 font-black tracking-tight text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-800"
+            className="flex min-w-0 items-center gap-2 font-black tracking-tight text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy-deep"
           >
             <BrandPawMark />
             <span className="truncate text-[0.8125rem] sm:text-base">{businessName}</span>
@@ -94,7 +89,7 @@ export function OfficialHeader({
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-sm transition hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-800"
+                className="rounded-sm transition hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy-deep"
               >
                 {item.label}
               </Link>
@@ -105,7 +100,7 @@ export function OfficialHeader({
           <a
             href={instagramUrl}
             aria-label="Instagramを新しいタブで開く"
-            className="rounded-full p-2 text-slate-700 transition hover:bg-orange-50 hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+            className="rounded-full p-2 text-slate-700 transition hover:bg-cream-light hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
             {...externalLinkProps}
           >
             <Camera className="h-5 w-5" aria-hidden="true" />
@@ -113,7 +108,7 @@ export function OfficialHeader({
           <a
             href={xUrl}
             aria-label="Xを新しいタブで開く"
-            className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-black text-slate-700 transition hover:bg-orange-50 hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+            className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-black text-slate-700 transition hover:bg-cream-light hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
             {...externalLinkProps}
           >
             X
@@ -121,14 +116,14 @@ export function OfficialHeader({
           <a
             href={lineUrl}
             aria-label="公式LINEを新しいタブで開く"
-            className="flex min-h-11 items-center justify-center rounded-full px-3 text-xs font-black text-slate-700 transition hover:bg-orange-50 hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+            className="flex min-h-11 items-center justify-center rounded-full px-3 text-xs font-black text-slate-700 transition hover:bg-cream-light hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
             {...externalLinkProps}
           >
             LINE
           </a>
             <Link
               href="/contact"
-              className="ml-1 inline-flex min-h-11 items-center rounded-full bg-slate-950 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+              className="ml-1 inline-flex min-h-11 items-center rounded-full bg-navy-deep px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
             >
               無料相談
             </Link>
@@ -141,7 +136,7 @@ export function OfficialHeader({
             aria-expanded={open}
             aria-controls="official-mobile-menu"
             onClick={() => setOpen((current) => !current)}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-900 transition hover:border-orange-700 hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800 xl:hidden"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-900 transition hover:border-navy hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep xl:hidden"
           >
             {open ? (
               <CloseIcon className="h-5 w-5" aria-hidden="true" />
@@ -159,7 +154,7 @@ export function OfficialHeader({
             tabIndex={-1}
             aria-label="メニューを閉じる"
             onClick={closeMenu}
-            className="fixed inset-0 top-16 z-40 cursor-default bg-slate-950/40 xl:hidden"
+            className="fixed inset-0 top-16 z-40 cursor-default bg-navy-deep/40 xl:hidden"
           />
           <nav
             id="official-mobile-menu"
@@ -172,7 +167,7 @@ export function OfficialHeader({
                 ref={index === 0 ? firstMenuLinkRef : undefined}
                 href={item.href}
                 onClick={closeMenu}
-                className="flex min-h-11 items-center rounded-xl px-4 py-3 font-medium hover:bg-orange-50 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-orange-800"
+                className="flex min-h-11 items-center rounded-xl px-4 py-3 font-medium hover:bg-cream-light focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy-deep"
               >
                 {item.label}
               </Link>
@@ -181,7 +176,7 @@ export function OfficialHeader({
               href={lineUrl}
               aria-label="公式LINEを新しいタブで開く"
               onClick={closeMenu}
-              className="flex min-h-11 items-center rounded-xl px-4 py-3 font-medium hover:bg-orange-50 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-orange-800"
+              className="flex min-h-11 items-center rounded-xl px-4 py-3 font-medium hover:bg-cream-light focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy-deep"
               {...externalLinkProps}
             >
               公式LINE
@@ -189,7 +184,7 @@ export function OfficialHeader({
             <Link
               href="/contact"
               onClick={closeMenu}
-              className="mt-2 flex min-h-12 items-center justify-center rounded-xl bg-orange-700 px-4 py-3 text-center font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+              className="mt-2 flex min-h-12 items-center justify-center rounded-xl bg-navy px-4 py-3 text-center font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
             >
               無料相談
             </Link>

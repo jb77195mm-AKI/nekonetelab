@@ -48,7 +48,7 @@ export function SolutionCard({
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-sky-100 text-sky-900">
           <SolutionIcon name={solution.icon} />
         </span>
-        <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-bold text-orange-900">
+        <span className="rounded-full bg-cat-cream px-3 py-1 text-xs font-bold text-navy-deep">
           画面デモ
         </span>
       </div>
@@ -76,7 +76,7 @@ export function SolutionCard({
       <div className="mt-auto pt-6">
         <Link
           href={`/solutions/${solution.slug}`}
-          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-sky-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
+          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-navy-deep px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-sky-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
         >
           {buttonLabels[solution.slug]}
           <ArrowRight className="h-4 w-4" aria-hidden="true" />

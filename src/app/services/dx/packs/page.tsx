@@ -23,7 +23,7 @@ export default function DxPacksPage() {
         <div className="grid gap-6 lg:grid-cols-3">
           {dxPacks.map((pack) => (
             <article key={pack.slug} className="flex h-full flex-col rounded-3xl border border-slate-200 p-6 shadow-sm">
-              <span className="w-fit rounded-full bg-orange-100 px-3 py-1 text-xs font-black text-orange-950">{serviceStatusLabels[pack.status]}</span>
+              <span className="w-fit rounded-full bg-cat-cream px-3 py-1 text-xs font-black text-navy-deep">{serviceStatusLabels[pack.status]}</span>
               <h2 className="mt-5 text-xl font-black">{pack.name}</h2>
               <p className="mt-3 text-sm font-bold leading-6 text-sky-900">{pack.catchphrase}</p>
               <p className="mt-4 text-sm leading-7 text-slate-600">{pack.description}</p>

@@ -44,12 +44,12 @@ export default function PricingPage() {
                 key={plan.slug}
                 className={`flex h-full flex-col rounded-3xl border p-7 ${
                   plan.recommended
-                    ? "border-orange-400 shadow-xl shadow-orange-900/10"
+                    ? "border-amber-accent shadow-xl shadow-navy-deep/10"
                     : "border-slate-200"
                 }`}
               >
                 {plan.label ? (
-                  <p className="text-sm font-black text-orange-800">{plan.label}</p>
+                  <p className="text-sm font-black text-navy-deep">{plan.label}</p>
                 ) : (
                   <p className="text-sm font-black text-slate-500">選べる導入方法</p>
                 )}
@@ -58,7 +58,7 @@ export default function PricingPage() {
                   {plan.catchCopy}
                 </p>
 
-                <div className="mt-6 rounded-2xl bg-slate-950 p-5 text-white">
+                <div className="mt-6 rounded-2xl bg-navy-deep p-5 text-white">
                   {plan.regularPrice ? (
                     <p className="text-xs text-slate-300">
                       通常制作価格{" "}
@@ -67,7 +67,7 @@ export default function PricingPage() {
                       </span>
                     </p>
                   ) : null}
-                  <p className="mt-2 text-xs text-orange-300">初期制作費</p>
+                  <p className="mt-2 text-xs text-amber-soft">初期制作費</p>
                   <p className="mt-1 text-4xl font-black tabular-nums">
                     {formatYen(plan.initialPrice)}
                   </p>
@@ -87,7 +87,7 @@ export default function PricingPage() {
                     {plan.paymentOptions.map((option) => (
                       <div
                         key={option.name}
-                        className="rounded-xl border border-orange-200 bg-orange-50 px-4 py-3 text-xs leading-6 text-orange-950"
+                        className="rounded-xl border border-cat-beige bg-cream-light px-4 py-3 text-xs leading-6 text-navy-deep"
                       >
                         <p className="font-black">{option.name}</p>
                         <p>
@@ -108,7 +108,7 @@ export default function PricingPage() {
                       className="flex items-start gap-2 text-sm leading-6 text-slate-700"
                     >
                       <Check
-                        className="mt-1 h-4 w-4 shrink-0 text-orange-700"
+                        className="mt-1 h-4 w-4 shrink-0 text-navy"
                         aria-hidden="true"
                       />
                       {feature}
@@ -153,7 +153,7 @@ export default function PricingPage() {
                     href={plan.ctaHref}
                     className={`mt-5 flex min-h-12 items-center justify-center rounded-full px-5 py-3 text-center font-bold ${
                       plan.recommended
-                        ? "bg-orange-700 text-white"
+                        ? "bg-navy text-white"
                         : "border-2 border-slate-800"
                     }`}
                   >
@@ -180,7 +180,7 @@ export default function PricingPage() {
                 <th scope="col" className="p-4">
                   比較項目
                 </th>
-                <th scope="col" className="bg-orange-50 p-4">
+                <th scope="col" className="bg-cream-light p-4">
                   Webスタート
                 </th>
                 <th scope="col" className="p-4">
@@ -200,7 +200,7 @@ export default function PricingPage() {
                   <th scope="row" className="p-4 font-bold">
                     {row.label}
                   </th>
-                  <td className="bg-orange-50/60 p-4 font-bold">{row.webStart}</td>
+                  <td className="bg-cream-light/60 p-4 font-bold">{row.webStart}</td>
                   <td className="p-4">{row.webSupport}</td>
                   <td className="p-4">{row.buyout}</td>
                 </tr>
@@ -267,7 +267,7 @@ export default function PricingPage() {
                   <p className="font-black">{item.name}</p>
                   <p className="mt-1 text-xs text-slate-500">{item.note}</p>
                 </div>
-                <p className="font-black text-orange-800">{item.price}</p>
+                <p className="font-black text-navy-deep">{item.price}</p>
               </div>
             ))}
           </div>
@@ -276,7 +276,7 @@ export default function PricingPage() {
         <div className="mt-10 text-center">
           <Link
             href="/contact?plan=undecided"
-            className="inline-flex min-h-12 items-center gap-2 rounded-full bg-slate-950 px-7 py-3 font-bold text-white"
+            className="inline-flex min-h-12 items-center gap-2 rounded-full bg-navy-deep px-7 py-3 font-bold text-white"
           >
             自分に合うプランを相談する
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

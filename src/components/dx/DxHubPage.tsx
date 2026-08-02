@@ -78,7 +78,7 @@ export function DxHubPage() {
         />
       ) : null}
 
-      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#f0f9ff_0%,#ffffff_52%,#fff7ed_100%)]">
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#eef6fa_0%,#ffffff_52%,#faf6ee_100%)]">
         <div aria-hidden="true" className="absolute -right-28 -top-28 h-96 w-96 rounded-full bg-sky-200/50 blur-3xl" />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
@@ -110,7 +110,7 @@ export function DxHubPage() {
             </div>
           </div>
           <div className="rounded-[2rem] border border-white bg-white/95 p-6 shadow-2xl shadow-slate-900/10 sm:p-8">
-            <p className="text-xs font-black tracking-[0.16em] text-orange-800">CORE MESSAGE</p>
+            <p className="text-xs font-black tracking-[0.16em] text-navy-deep">CORE MESSAGE</p>
             <h2 className="mt-3 text-2xl font-black">すべてを入れ替えないDX</h2>
             <div className="mt-6 space-y-3">
               {[
@@ -131,7 +131,7 @@ export function DxHubPage() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-slate-950 py-20 text-white sm:py-24">
+      <section className="border-y border-slate-200 bg-navy-deep py-20 text-white sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionTitle eyebrow="KEEP & ADD" title="今あるものを活かし、必要な層だけを重ねます" inverted />
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
@@ -156,7 +156,7 @@ export function DxHubPage() {
             {dxTools.map((tool) => (
               <article key={tool.slug} className="flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                 <span className="w-fit rounded-full bg-sky-100 px-3 py-1 text-xs font-black text-sky-950">{serviceStatusLabels[tool.status]}</span>
-                <p className="mt-5 text-xs font-black tracking-[0.12em] text-orange-800">{tool.category}</p>
+                <p className="mt-5 text-xs font-black tracking-[0.12em] text-navy-deep">{tool.category}</p>
                 <h3 className="mt-2 text-xl font-black">{tool.name}</h3>
                 <p className="mt-3 text-sm font-bold leading-6 text-sky-900">{tool.catchphrase}</p>
                 <ul className="mt-5 space-y-2">
@@ -275,7 +275,7 @@ export function DxHubPage() {
           <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {dxIntroductionFlow.map(([title, description], index) => (
               <li key={title} className="rounded-3xl border border-sky-800 bg-sky-900 p-6">
-                <span className="text-xs font-black tracking-[0.16em] text-orange-300">STEP {index + 1}</span>
+                <span className="text-xs font-black tracking-[0.16em] text-amber-soft">STEP {index + 1}</span>
                 <h3 className="mt-3 text-lg font-black">{title}</h3>
                 <p className="mt-3 text-sm leading-7 text-sky-100">{description}</p>
               </li>
@@ -298,7 +298,7 @@ export function DxHubPage() {
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {industry.features.map((feature) => <li key={feature} className="rounded-full bg-sky-50 px-3 py-1.5 text-xs font-bold text-sky-950">{feature}</li>)}
                 </ul>
-                <p className="mt-5 text-xs font-black text-orange-800">関連：{industry.relatedPack}</p>
+                <p className="mt-5 text-xs font-black text-navy-deep">関連：{industry.relatedPack}</p>
                 <Link href={industry.relatedPackSlug ? `/services/dx/packs/${industry.relatedPackSlug}` : `/contact?plan=dx-consultation`} className="mt-auto inline-flex min-h-11 items-center gap-2 pt-4 text-sm font-bold text-sky-900 underline-offset-4 hover:underline">
                   相談・詳細を見る
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -309,7 +309,7 @@ export function DxHubPage() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-orange-50/60 py-20 sm:py-24">
+      <section className="border-y border-slate-200 bg-cream-light/60 py-20 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-2">
           <div className="rounded-3xl bg-white p-6 sm:p-8">
             <h2 className="text-2xl font-black">標準サポート</h2>
@@ -348,9 +348,9 @@ export function DxHubPage() {
         </div>
       </section>
 
-      <section className="bg-slate-950 py-20 text-white sm:py-24">
+      <section className="bg-navy-deep py-20 text-white sm:py-24">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-          <p className="text-xs font-black tracking-[0.18em] text-orange-300">FREE CONSULTATION</p>
+          <p className="text-xs font-black tracking-[0.18em] text-amber-soft">FREE CONSULTATION</p>
           <h2 className="mt-4 text-3xl font-black sm:text-4xl">今の業務と既存ツールから、一緒に整理します。</h2>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300">
             プランが決まっていなくても大丈夫です。困っている業務、店舗数、現在使っているサービスを専用フォームからお知らせください。
@@ -368,7 +368,7 @@ export function DxHubPage() {
 function SectionTitle({ eyebrow, title, description, inverted = false }: { eyebrow: string; title: string; description?: string; inverted?: boolean }) {
   return (
     <div className="max-w-3xl">
-      <p className={`text-xs font-black tracking-[0.18em] ${inverted ? "text-orange-300" : "text-orange-800"}`}>{eyebrow}</p>
+      <p className={`text-xs font-black tracking-[0.18em] ${inverted ? "text-amber-soft" : "text-navy-deep"}`}>{eyebrow}</p>
       <h2 className={`mt-3 text-[clamp(2rem,7vw,3rem)] font-black leading-tight ${inverted ? "text-white" : "text-slate-950"}`}>{title}</h2>
       {description ? <p className={`mt-4 text-sm leading-7 sm:text-base ${inverted ? "text-slate-300" : "text-slate-600"}`}>{description}</p> : null}
     </div>
@@ -380,18 +380,18 @@ function LayerCard({ icon: Icon, step, title, items }: { icon: typeof Database; 
     <article className="rounded-3xl border border-slate-700 bg-slate-900 p-6">
       <div className="flex items-center justify-between">
         <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-800 text-white"><Icon className="h-5 w-5" aria-hidden="true" /></span>
-        <span className="text-sm font-black text-orange-300">LAYER {step}</span>
+        <span className="text-sm font-black text-amber-soft">LAYER {step}</span>
       </div>
       <h3 className="mt-5 text-xl font-black">{title}</h3>
       <ul className="mt-5 flex flex-wrap gap-2">
-        {items.map((item) => <li key={item} className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1.5 text-xs font-bold text-slate-300">{item}</li>)}
+        {items.map((item) => <li key={item} className="rounded-full border border-slate-700 bg-navy-deep px-3 py-1.5 text-xs font-bold text-slate-300">{item}</li>)}
       </ul>
     </article>
   );
 }
 
 function RoleCard({ icon: Icon, title, items, tone }: { icon: typeof Bot; title: string; items: string[]; tone: "sky" | "orange" }) {
-  const styles = tone === "sky" ? "border-sky-200 bg-sky-50 text-sky-900" : "border-orange-200 bg-orange-50 text-orange-900";
+  const styles = tone === "sky" ? "border-sky-200 bg-sky-50 text-sky-900" : "border-cat-beige bg-cream-light text-navy-deep";
   return (
     <article className={`rounded-3xl border p-6 sm:p-8 ${styles}`}>
       <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white"><Icon className="h-6 w-6" aria-hidden="true" /></span>

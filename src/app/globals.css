@@ -2,11 +2,28 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #172331;
 }
 
 @theme inline {
   --font-sans: var(--font-noto-sans-jp);
+  --font-serif: var(--font-noto-serif-jp);
+}
+
+@theme {
+  /* ブランドカラートークン（docs/design-system.md 参照） */
+  --color-paper: #faf9f6;
+  --color-cream-light: #faf4e9;
+  --color-navy: #15365c;
+  --color-navy-deep: #0d2745;
+  --color-mist: #dfeef7;
+  --color-mist-light: #eef6fa;
+  --color-amber-accent: #d89a43;
+  --color-amber-soft: #e9c07e;
+  --color-cat-cream: #f3e7d4;
+  --color-cat-beige: #e4c7a2;
+  --color-cat-nose: #cf7f7b;
+  --color-cat-bluegray: #91a9bd;
 }
 
 body {
@@ -24,7 +41,21 @@ iframe {
 }
 
 :focus-visible {
-  outline-color: #9a3412;
+  outline-color: #15365c;
+}
+
+/* スクロールで要素が見えたら .is-visible を付与する控えめなフェードイン（Reveal.tsx） */
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -35,6 +66,11 @@ iframe {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 

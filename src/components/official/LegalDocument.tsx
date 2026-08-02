@@ -28,7 +28,7 @@ function renderInlineText(text: string): ReactNode[] {
       <a
         key={`${href}-${match.index}`}
         href={href}
-        className="break-all font-medium text-orange-800 underline underline-offset-2"
+        className="break-all font-medium text-navy-deep underline underline-offset-2"
         rel={external ? "noopener noreferrer" : undefined}
         target={external ? "_blank" : undefined}
       >

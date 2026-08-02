@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP } from "next/font/google";
+import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { headers } from "next/headers";
 import { GoogleAnalytics } from "@/components/official/GoogleAnalytics";
 import { siteConfig } from "@/config/site";
@@ -9,6 +9,13 @@ const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["400", "500", "700", "900"],
   variable: "--font-noto-sans-jp",
+  display: "swap",
+});
+
+const notoSerifJP = Noto_Serif_JP({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-noto-serif-jp",
   display: "swap",
 });
 
@@ -96,7 +103,7 @@ export default function RootLayout({
     <html
       lang="ja"
       data-scroll-behavior="smooth"
-      className={`${notoSansJP.variable} h-full antialiased`}
+      className={`${notoSansJP.variable} ${notoSerifJP.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         {children}

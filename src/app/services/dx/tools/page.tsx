@@ -23,7 +23,7 @@ export default function DxToolsPage() {
           {dxTools.map((tool) => (
             <article key={tool.slug} className="flex h-full flex-col rounded-3xl border border-slate-200 p-6 shadow-sm">
               <span className="w-fit rounded-full bg-sky-100 px-3 py-1 text-xs font-black text-sky-950">{serviceStatusLabels[tool.status]}</span>
-              <p className="mt-5 text-xs font-black text-orange-800">{tool.category}</p>
+              <p className="mt-5 text-xs font-black text-navy-deep">{tool.category}</p>
               <h2 className="mt-2 text-xl font-black">{tool.name}</h2>
               <p className="mt-3 text-sm font-bold leading-6 text-sky-900">{tool.catchphrase}</p>
               <ul className="mt-5 space-y-2">

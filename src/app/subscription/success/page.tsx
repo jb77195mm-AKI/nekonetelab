@@ -43,7 +43,7 @@ export default async function SubscriptionSuccessPage({
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
           <Link
             href="/"
-            className="flex min-h-12 items-center justify-center rounded-full bg-slate-950 px-6 py-3 font-bold text-white"
+            className="flex min-h-12 items-center justify-center rounded-full bg-navy-deep px-6 py-3 font-bold text-white"
           >
             ホームへ戻る
           </Link>

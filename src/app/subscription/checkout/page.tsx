@@ -36,7 +36,7 @@ export default async function SubscriptionCheckoutPage({
         <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
           <Link
             href="/pricing"
-            className="inline-flex min-h-12 items-center rounded-full bg-slate-950 px-6 py-3 font-bold text-white"
+            className="inline-flex min-h-12 items-center rounded-full bg-navy-deep px-6 py-3 font-bold text-white"
           >
             料金プランへ戻る
           </Link>
@@ -59,7 +59,7 @@ export default async function SubscriptionCheckoutPage({
         <section className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="text-xs font-black tracking-[0.14em] text-orange-800">
+              <p className="text-xs font-black tracking-[0.14em] text-navy-deep">
                 SELECTED PLAN
               </p>
               <h2 className="mt-2 text-2xl font-black">{plan.name}</h2>
@@ -97,7 +97,7 @@ export default async function SubscriptionCheckoutPage({
                 className="flex items-start gap-2 text-sm leading-6 text-slate-700"
               >
                 <Check
-                  className="mt-1 h-4 w-4 shrink-0 text-orange-700"
+                  className="mt-1 h-4 w-4 shrink-0 text-navy"
                   aria-hidden="true"
                 />
                 {feature}
@@ -117,9 +117,9 @@ export default async function SubscriptionCheckoutPage({
           </div>
         </section>
 
-        <section className="h-fit rounded-3xl border border-orange-200 bg-orange-50 p-7">
+        <section className="h-fit rounded-3xl border border-cat-beige bg-cream-light p-7">
           <ShieldCheck
-            className="h-9 w-9 text-orange-800"
+            className="h-9 w-9 text-navy-deep"
             aria-hidden="true"
           />
           <h2 className="mt-4 text-xl font-black">契約条件の確認</h2>
@@ -127,13 +127,13 @@ export default async function SubscriptionCheckoutPage({
             サービスは契約条件の合意、必要情報の受領、初回決済の確認後に開始します。未払利用料金、購入済みのドメイン・サーバー費用、依頼により発生した外部費用がある場合は、中途解約金とは別にお支払いが必要です。所有権・移管条件は個別契約を優先します。
           </p>
           <div className="mt-5 flex flex-wrap gap-3 text-sm font-bold">
-            <Link href="/terms" className="text-orange-900 underline underline-offset-4">
+            <Link href="/terms" className="text-navy-deep underline underline-offset-4">
               利用規約
             </Link>
-            <Link href="/privacy" className="text-orange-900 underline underline-offset-4">
+            <Link href="/privacy" className="text-navy-deep underline underline-offset-4">
               プライバシーポリシー
             </Link>
-            <Link href="/commerce" className="text-orange-900 underline underline-offset-4">
+            <Link href="/commerce" className="text-navy-deep underline underline-offset-4">
               特定商取引法表記
             </Link>
           </div>

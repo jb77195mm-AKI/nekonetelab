@@ -38,7 +38,7 @@ function DemoWindow({
   children: React.ReactNode;
 }) {
   return (
-    <div className="overflow-hidden rounded-3xl border border-slate-700 bg-slate-950 shadow-2xl">
+    <div className="overflow-hidden rounded-3xl border border-slate-700 bg-navy-deep shadow-2xl">
       <div className="flex items-center justify-between gap-4 border-b border-slate-700 px-4 py-3 sm:px-6">
         <div className="flex gap-1.5" aria-hidden="true">
           <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
@@ -161,7 +161,7 @@ function QueueDemo() {
               <button
                 type="button"
                 onClick={() => setScreen("form")}
-                className="mt-4 min-h-12 w-full whitespace-normal rounded-full bg-orange-700 px-5 py-3 font-bold leading-6 text-white transition hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+                className="mt-4 min-h-12 w-full whitespace-normal rounded-full bg-navy px-5 py-3 font-bold leading-6 text-white transition hover:bg-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
               >
                 {copy.queue.reception.accept}
               </button>
@@ -210,7 +210,7 @@ function QueueDemo() {
                 <button
                   type="button"
                   onClick={() => setScreen("review")}
-                  className="min-h-12 whitespace-normal rounded-full bg-orange-700 px-4 py-3 text-sm font-bold leading-5 text-white"
+                  className="min-h-12 whitespace-normal rounded-full bg-navy px-4 py-3 text-sm font-bold leading-5 text-white"
                 >
                   {copy.queue.reception.review}
                 </button>
@@ -246,7 +246,7 @@ function QueueDemo() {
                 <button
                   type="button"
                   onClick={confirmReception}
-                  className="min-h-12 whitespace-normal rounded-full bg-orange-700 px-4 py-3 text-sm font-bold leading-5 text-white"
+                  className="min-h-12 whitespace-normal rounded-full bg-navy px-4 py-3 text-sm font-bold leading-5 text-white"
                 >
                   {copy.queue.reception.confirm}
                 </button>
@@ -262,9 +262,9 @@ function QueueDemo() {
               <h3 className="mt-3 text-lg font-black text-slate-950">{copy.queue.completion.complete}</h3>
               <p className="mt-1 text-xs text-slate-500">{copy.queue.completion.keepOpen}</p>
               <div className="mt-4 grid grid-cols-2 gap-3">
-                <div className="rounded-2xl bg-orange-50 p-4">
+                <div className="rounded-2xl bg-cream-light p-4">
                   <p className="text-[0.6875rem] font-bold text-slate-600">{copy.queue.completion.yourNumber}</p>
-                  <p className="mt-1 text-4xl font-black tabular-nums text-orange-800">{numberFormatter.format(23)}</p>
+                  <p className="mt-1 text-4xl font-black tabular-nums text-navy-deep">{numberFormatter.format(23)}</p>
                 </div>
                 <div className="rounded-2xl bg-sky-50 p-4">
                   <p className="text-[0.6875rem] font-bold text-slate-600">{copy.queue.completion.currentCalling}</p>
@@ -283,7 +283,7 @@ function QueueDemo() {
               </div>
               <div className={`mt-4 rounded-2xl px-4 py-3 text-sm font-black ${
                 customerStatus === "calling"
-                  ? "bg-orange-100 text-orange-950"
+                  ? "bg-cat-cream text-navy-deep"
                   : customerStatus === "cancelled"
                     ? "bg-slate-200 text-slate-800"
                     : "bg-sky-100 text-sky-950"
@@ -360,7 +360,7 @@ function QueueDemo() {
                             : statuses[number] === "取消"
                               ? "bg-slate-200 text-slate-700"
                               : statuses[number] === "呼び出し中"
-                                ? "bg-orange-100 text-orange-900"
+                                ? "bg-cat-cream text-navy-deep"
                                 : "bg-sky-100 text-sky-900"
                         }`}
                       >
@@ -511,7 +511,7 @@ function LanguageSelector({
             type="button"
             aria-label="言語選択を閉じる"
             onClick={closeSelector}
-            className="absolute inset-0 bg-slate-950/60"
+            className="absolute inset-0 bg-navy-deep/60"
           />
           <div
             ref={dialogRef}
@@ -685,7 +685,7 @@ function ReviewReplyDemo() {
                 ))}
               </div>
             </div>
-            <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-bold text-orange-900">未返信</span>
+            <span className="rounded-full bg-cat-cream px-3 py-1 text-xs font-bold text-navy-deep">未返信</span>
           </div>
           <blockquote className="mt-4 rounded-2xl bg-slate-50 p-4 text-sm leading-7 text-slate-700">
             店内が明るく、スタッフの方も親切でした。待ち時間もゆっくり過ごせて良かったです。
@@ -784,7 +784,7 @@ function SkillShiftDemo() {
             type="button"
             onClick={createShift}
             disabled={loading}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-orange-700 px-5 py-3 text-sm font-bold text-white disabled:cursor-wait disabled:opacity-70"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-navy px-5 py-3 text-sm font-bold text-white disabled:cursor-wait disabled:opacity-70"
           >
             {loading ? (
               <>

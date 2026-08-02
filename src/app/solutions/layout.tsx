@@ -28,7 +28,7 @@ export default function SolutionsLayout({
         lineUrl={siteConfig.lineUrl}
       />
       {children}
-      <footer className="border-t border-slate-800 bg-slate-950 py-10 text-slate-300">
+      <footer className="border-t border-slate-800 bg-navy-deep py-10 text-slate-300">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <Link href="/" className="font-black text-white">
