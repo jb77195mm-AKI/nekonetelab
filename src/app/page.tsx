@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -52,6 +53,20 @@ const externalLinkProps = {
 } as const;
 
 const mainPlan = homepagePlans.find((plan) => plan.slug === "web-start")!;
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+    languages: {
+      ja: "/",
+      "x-default": "/",
+      en: "/en",
+      "zh-TW": "/zh-tw",
+      "zh-CN": "/zh-cn",
+      ko: "/ko",
+    },
+  },
+};
 
 export default function OfficialHomePage() {
   const organizationSchema = {

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 
 const inquiryTypes = ["ご予約について", "料金について", "取材・掲載について", "その他のお問い合わせ"];
@@ -112,9 +113,9 @@ export function ContactForm({ siteName }: { siteName: string }) {
             aria-describedby={errors.consent ? "consent-error" : undefined}
           />
           <span>
-            <a href="/privacy" className="underline underline-offset-2">
+            <Link href="/privacy" className="underline underline-offset-2">
               個人情報の取り扱い
-            </a>
+            </Link>
             に同意します。
           </span>
         </label>

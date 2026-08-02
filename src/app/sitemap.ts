@@ -2,12 +2,18 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 import { dxPacks } from "@/data/dx-packs";
 import { dxTools } from "@/data/dx-tools";
+import { localeSegments } from "@/i18n/locales";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!siteConfig.publicUrl || siteConfig.globalNoindex) return [];
 
   return [
     { url: siteConfig.publicUrl, changeFrequency: "monthly", priority: 1 },
+    ...localeSegments.map((segment) => ({
+      url: `${siteConfig.publicUrl}/${segment}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
     { url: `${siteConfig.publicUrl}/services`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.publicUrl}/industries`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.publicUrl}/pricing`, changeFrequency: "monthly", priority: 0.8 },

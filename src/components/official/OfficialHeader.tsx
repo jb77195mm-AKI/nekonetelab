@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Camera, Menu, X as CloseIcon } from "lucide-react";
+import { Camera, Globe2, Menu, X as CloseIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { CatMark } from "@/components/brand/BrandCat";
 import { officialNavigation } from "@/data/official";
+import { localeLabels, localePath, localeSegments } from "@/i18n/locales";
 
 const externalLinkProps = {
   target: "_blank",
@@ -121,6 +122,31 @@ export function OfficialHeader({
           >
             LINE
           </a>
+            <details className="group relative">
+              <summary
+                aria-label="言語を選択"
+                className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full text-slate-700 transition hover:bg-cream-light hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep [&::-webkit-details-marker]:hidden"
+              >
+                <Globe2 className="h-5 w-5" aria-hidden="true" />
+              </summary>
+              <div className="absolute right-0 top-12 z-50 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
+                <Link
+                  href="/"
+                  className="flex min-h-10 items-center rounded-xl px-3 py-2 text-sm font-bold text-navy-deep hover:bg-cream-light"
+                >
+                  日本語
+                </Link>
+                {localeSegments.map((segment) => (
+                  <Link
+                    key={segment}
+                    href={localePath(segment)}
+                    className="flex min-h-10 items-center rounded-xl px-3 py-2 text-sm font-medium hover:bg-cream-light"
+                  >
+                    {localeLabels[segment]}
+                  </Link>
+                ))}
+              </div>
+            </details>
             <Link
               href="/contact"
               className="ml-1 inline-flex min-h-11 items-center rounded-full bg-navy-deep px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
@@ -188,6 +214,24 @@ export function OfficialHeader({
             >
               無料相談
             </Link>
+            <div className="mt-3 border-t border-slate-200 pt-3">
+              <p className="flex items-center gap-1.5 px-4 text-xs font-bold text-slate-500">
+                <Globe2 className="h-3.5 w-3.5" aria-hidden="true" />
+                Language
+              </p>
+              <div className="mt-2 flex flex-wrap gap-1.5 px-3 pb-1">
+                {localeSegments.map((segment) => (
+                  <Link
+                    key={segment}
+                    href={localePath(segment)}
+                    onClick={closeMenu}
+                    className="inline-flex min-h-9 items-center rounded-full border border-slate-300 px-3 py-1.5 text-xs font-bold text-slate-700 hover:border-navy hover:text-navy"
+                  >
+                    {localeLabels[segment]}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </nav>
         </>
       ) : null}
