@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { CatHeroWorking, CatMark, CatSitting } from "@/components/brand/BrandCat";
+import { SetHtmlLang } from "@/components/common/SetHtmlLang";
 import { siteConfig } from "@/config/site";
 import { dxTools } from "@/data/dx-tools";
 import { webPlans } from "@/data/web-plans";
@@ -111,12 +112,7 @@ export default async function LocaleSummaryPage({
 
   return (
     <div lang={lang} className="bg-paper text-slate-950">
-      {/* 静的HTMLでも html[lang] を各言語に合わせる（レイアウトは ja 固定のため） */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `document.documentElement.lang=${JSON.stringify(lang)};`,
-        }}
-      />
+      <SetHtmlLang lang={lang} />
 
       <header className="border-b border-slate-200 bg-white/95">
         <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
