@@ -12,6 +12,7 @@ import {
   MapPin,
   MessageCircle,
   ShieldCheck,
+  Smartphone,
   Sparkles,
   Store,
   Wrench,
@@ -140,6 +141,7 @@ export default function OfficialHomePage() {
                   "全国オンライン対応",
                   "小規模事業者・個人事業主向け",
                   "公開後の更新・保守にも対応",
+                  "英語ページ制作 標準対応・追加料金なし",
                 ].map((badge) => (
                   <span
                     key={badge}
@@ -597,6 +599,142 @@ export default function OfficialHomePage() {
               料金と条件を詳しく見る
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
+          </div>
+        </section>
+
+        <section
+          id="multilingual"
+          className="scroll-mt-28 border-y border-sky-100 bg-gradient-to-b from-sky-50/70 via-white to-white py-20 sm:py-28"
+        >
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="flex flex-wrap items-center gap-3">
+              <span
+                aria-hidden="true"
+                className="grid h-10 w-10 place-items-center rounded-[46%_54%_52%_48%] bg-orange-700 text-lg text-white shadow-sm"
+              >
+                🐾
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-4 py-1.5 text-xs font-bold text-sky-950">
+                <Globe2 className="h-4 w-4" aria-hidden="true" />
+                多言語ページ制作
+              </span>
+            </div>
+            <SectionHeading
+              eyebrow="MULTILINGUAL"
+              title="追加料金なしで、英語ページ制作を標準対応"
+              description="訪日外国人のお客様にも、店舗やサービスの魅力が正しく伝わるホームページを制作します。英語ページ制作（AI翻訳・1言語）は、各プランのページ数上限内で追加料金なしの標準対応です。"
+            />
+            <p className="mt-6 max-w-3xl rounded-xl border border-sky-200 bg-white px-4 py-3 text-sm font-medium leading-6 text-sky-950">
+              標準対応の範囲: 各プランのページ数上限内で、英語1言語分のAI翻訳ページを追加料金なしで制作します。単純な自動翻訳の貼り付けではなく、メニュー・料金・アクセス・営業時間など、外国人のお客様が知りたい情報を整理して掲載します。中国語（簡体字）・韓国語への対応、ネイティブ翻訳者による校正、ページ数上限を超える追加翻訳は別途お見積もりです。
+            </p>
+
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  icon: Globe2,
+                  title: "対応言語",
+                  description:
+                    "英語ページ制作は標準対応・追加料金なし。中国語（簡体字）・韓国語は追加言語オプションとしてご相談いただけます。",
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "外国人向け情報整理",
+                  description:
+                    "サービス内容、メニュー・料金、営業時間、アクセス、支払い方法、予約方法、利用時の注意事項を分かりやすく整理して掲載します。",
+                },
+                {
+                  icon: Smartphone,
+                  title: "スマホ最適化",
+                  description:
+                    "訪日外国人のお客様の多くはスマートフォンで来店前に情報を確認します。既存の日本語ページと同じスマートフォン対応をそのまま適用します。",
+                },
+                {
+                  icon: MapPin,
+                  title: "Googleマップ・SNS連携",
+                  description:
+                    "Googleマップ、Instagram、公式LINE、問い合わせフォームへの導線を、英語ページでもそのまま利用できます。",
+                },
+                {
+                  icon: Handshake,
+                  title: "公開後の更新支援",
+                  description:
+                    "メニュー変更や料金変更などの軽微な英語ページの修正も、月額プランの更新枠内で承ります。",
+                },
+                {
+                  icon: Bot,
+                  title: "AI活用との組み合わせ",
+                  description:
+                    "多言語FAQの作成、外国語での問い合わせ返信文の下書き、SNS投稿文の多言語化なども、AI・業務効率化支援として別途ご相談いただけます。",
+                },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <article
+                    key={item.title}
+                    className="rounded-2xl border border-slate-200 bg-white p-6"
+                  >
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-900">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <h3 className="mt-4 text-base font-bold">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
+                  </article>
+                );
+              })}
+            </div>
+
+            <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-7">
+              <p className="text-xs font-black tracking-[0.16em] text-orange-800">
+                こんな業種のお客様に
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {[
+                  "飲食店",
+                  "宿泊施設",
+                  "観光施設",
+                  "美容室・サロン",
+                  "小売店・お土産店",
+                  "体験サービス",
+                  "地域事業者全般",
+                ].map((industry) => (
+                  <span
+                    key={industry}
+                    className="rounded-full border border-slate-300 bg-white px-3 py-1.5 text-xs font-bold text-slate-700"
+                  >
+                    {industry}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-5 text-xs leading-6 text-slate-500">
+                店頭QRコードでの多言語受付（順番待ち）は、別サービスの「多言語順番待ち」DXツールでご案内しています。ホームページ自体の英語ページ制作とは別の仕組みです。
+                <Link
+                  href="/solutions/queue"
+                  className="ml-1 font-bold text-orange-800 underline underline-offset-2"
+                >
+                  多言語順番待ちを見る
+                </Link>
+              </p>
+            </div>
+
+            <div className="mt-12 rounded-3xl border border-orange-200 bg-orange-50/60 p-7 sm:p-9">
+              <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+                <div>
+                  <h3 className="text-xl font-black sm:text-2xl">
+                    多言語ページ制作を、追加料金なしで始めませんか？
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-700">
+                    店舗やサービスの情報をもとに、外国人のお客様にも伝わるホームページをご提案します。制作費0円のWebスタートプランでも、英語ページ制作は標準対応です。
+                  </p>
+                </div>
+                <a
+                  href="#contact"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-orange-700 px-7 py-3 font-bold text-white transition hover:bg-orange-800"
+                >
+                  多言語ページ制作について相談する
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1106,7 +1244,7 @@ function PlanCard({ plan }: { plan: HomepagePlan }) {
       ) : null}
 
       <ul className="mt-6 space-y-2">
-        {plan.features.slice(0, 7).map((feature) => (
+        {plan.features.slice(0, 8).map((feature) => (
           <li
             key={feature}
             className="flex items-start gap-2 text-sm leading-6 text-slate-700"

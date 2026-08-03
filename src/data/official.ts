@@ -13,6 +13,7 @@ export const officialNavigation = [
   { label: "サービス", href: "/#services" },
   { label: "業種別DX", href: "/services/dx" },
   { label: "料金", href: "/#plans" },
+  { label: "多言語対応", href: "/#multilingual" },
   { label: "制作サンプル", href: "/#works" },
   { label: "FAQ", href: "/#faq" },
 ] as const;

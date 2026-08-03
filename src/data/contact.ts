@@ -10,6 +10,7 @@ export const officialInquiryTypes = [
   "サロン再来店DXパック",
   "現場案件管理DXパック",
   "小売・飲食バックオフィスDXパック",
+  "多言語ページ制作",
   "更新・保守",
   "Googleマップ",
   "LINE・SNS",
