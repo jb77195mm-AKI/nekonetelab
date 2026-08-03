@@ -38,15 +38,15 @@ function DemoWindow({
   children: React.ReactNode;
 }) {
   return (
-    <div className="overflow-hidden rounded-3xl border border-slate-700 bg-navy-deep shadow-2xl">
+    <div className="overflow-hidden rounded-2xl border border-slate-700 bg-ink shadow-sm">
       <div className="flex items-center justify-between gap-4 border-b border-slate-700 px-4 py-3 sm:px-6">
         <div className="flex gap-1.5" aria-hidden="true">
           <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
           <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
           <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
         </div>
-        <p className="text-xs font-bold text-slate-300">{title}</p>
-        <span className="rounded-full bg-sky-900 px-2.5 py-1 text-[0.6875rem] font-bold text-sky-100">
+        <p className="text-xs font-semibold text-slate-300">{title}</p>
+        <span className="rounded-full bg-sky-900 px-2.5 py-1 text-[0.6875rem] font-semibold text-sky-100">
           DEMO
         </span>
       </div>
@@ -130,15 +130,15 @@ function QueueDemo() {
     <DemoWindow title="順番待ちシステム・画面サンプル">
       <div className="grid gap-4 xl:grid-cols-[0.72fr_1.28fr]">
         <section
-          className="min-w-0 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5"
+          className="min-w-0 rounded-2xl border border-line-soft bg-white p-4 shadow-sm sm:p-5"
           aria-label="多言語受付デモ"
           lang={locale}
           dir={localeMeta.dir}
         >
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="text-xs font-bold text-sky-900">多言語受付デモ</p>
-              <p className="mt-1 text-sm font-black text-slate-950">{copy.queue.reception.title}</p>
+              <p className="text-xs font-semibold text-sky-900">多言語受付デモ</p>
+              <p className="mt-1 text-sm font-medium text-ink">{copy.queue.reception.title}</p>
             </div>
             <LanguageSelector locale={locale} onSelect={selectLocale} />
           </div>
@@ -146,22 +146,22 @@ function QueueDemo() {
           {screen === "overview" ? (
             <>
               <div className="mt-5 rounded-2xl bg-sky-50 p-5 text-center">
-                <p className="text-xs font-bold text-sky-900">{copy.queue.reception.currentWaiting}</p>
-                <p className="mt-1 text-5xl font-black tabular-nums text-slate-950">{numberFormatter.format(4)}</p>
-                <p className="mt-3 text-sm text-slate-600">
+                <p className="text-xs font-semibold text-sky-900">{copy.queue.reception.currentWaiting}</p>
+                <p className="mt-1 text-5xl font-medium tabular-nums text-ink">{numberFormatter.format(4)}</p>
+                <p className="mt-3 text-sm text-muted">
                   {copy.queue.reception.estimatedWait}：
-                  <strong className="text-slate-900">
+                  <strong className="text-ink">
                     {numberFormatter.format(20)} {copy.common.minutes}
                   </strong>
                 </p>
-                <p className="mt-2 text-xs text-slate-500">
+                <p className="mt-2 text-xs text-muted">
                   {timeFormatter.format(demoTime)}
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setScreen("form")}
-                className="mt-4 min-h-12 w-full whitespace-normal rounded-full bg-navy px-5 py-3 font-bold leading-6 text-white transition hover:bg-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
+                className="mt-4 min-h-12 w-full whitespace-normal rounded-sm bg-ink px-5 py-3 font-semibold leading-6 text-white transition hover:bg-ink-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
               >
                 {copy.queue.reception.accept}
               </button>
@@ -170,9 +170,9 @@ function QueueDemo() {
 
           {screen === "form" ? (
             <div className="mt-5">
-              <h3 className="text-lg font-black text-slate-950">{copy.queue.reception.startReception}</h3>
+              <h3 className="text-lg font-medium text-ink">{copy.queue.reception.startReception}</h3>
               <fieldset className="mt-5">
-                <legend className="text-sm font-bold text-slate-700">{copy.queue.reception.selectPartySize}</legend>
+                <legend className="text-sm font-semibold text-muted">{copy.queue.reception.selectPartySize}</legend>
                 <div className="mt-3 grid grid-cols-4 gap-2">
                   {[1, 2, 3, 4].map((size) => (
                     <button
@@ -180,8 +180,8 @@ function QueueDemo() {
                       type="button"
                       aria-pressed={partySize === size}
                       onClick={() => setPartySize(size)}
-                      className={`min-h-12 rounded-xl text-sm font-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800 ${
-                        partySize === size ? "bg-sky-900 text-white" : "bg-slate-100 text-slate-700"
+                      className={`min-h-12 rounded-xl text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800 ${
+                        partySize === size ? "bg-sky-900 text-white" : "bg-slate-100 text-muted"
                       }`}
                     >
                       {numberFormatter.format(size)}
@@ -189,13 +189,13 @@ function QueueDemo() {
                   ))}
                 </div>
               </fieldset>
-              <label className="mt-5 block text-sm font-bold text-slate-700">
+              <label className="mt-5 block text-sm font-semibold text-muted">
                 {copy.queue.reception.nameOrNickname}
-                <span className="mt-1 block text-xs font-normal text-slate-500">{copy.queue.reception.optional}</span>
+                <span className="mt-1 block text-xs font-normal text-muted">{copy.queue.reception.optional}</span>
                 <input
                   value={guestName}
                   onChange={(event) => setGuestName(event.target.value)}
-                  className="mt-2 min-h-12 w-full rounded-xl border border-slate-300 px-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
+                  className="mt-2 min-h-12 w-full rounded-xl border border-line-soft px-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
                   maxLength={30}
                 />
               </label>
@@ -203,14 +203,14 @@ function QueueDemo() {
                 <button
                   type="button"
                   onClick={() => setScreen("overview")}
-                  className="min-h-12 whitespace-normal rounded-full border border-slate-300 px-4 py-3 text-sm font-bold leading-5"
+                  className="min-h-12 whitespace-normal rounded-full border border-line-soft px-4 py-3 text-sm font-semibold leading-5"
                 >
                   {copy.queue.reception.back}
                 </button>
                 <button
                   type="button"
                   onClick={() => setScreen("review")}
-                  className="min-h-12 whitespace-normal rounded-full bg-navy px-4 py-3 text-sm font-bold leading-5 text-white"
+                  className="min-h-12 whitespace-normal rounded-sm bg-ink px-4 py-3 text-sm font-semibold leading-5 text-white"
                 >
                   {copy.queue.reception.review}
                 </button>
@@ -220,33 +220,33 @@ function QueueDemo() {
 
           {screen === "review" ? (
             <div className="mt-5">
-              <h3 className="text-lg font-black text-slate-950">{copy.queue.reception.review}</h3>
-              <dl className="mt-4 space-y-3 rounded-2xl bg-slate-50 p-4 text-sm">
+              <h3 className="text-lg font-medium text-ink">{copy.queue.reception.review}</h3>
+              <dl className="mt-4 space-y-3 rounded-2xl bg-cream-light p-4 text-sm">
                 <div className="flex items-start justify-between gap-4">
-                  <dt className="text-slate-500">{copy.queue.reception.selectPartySize}</dt>
-                  <dd className="font-black">{numberFormatter.format(partySize)}</dd>
+                  <dt className="text-muted">{copy.queue.reception.selectPartySize}</dt>
+                  <dd className="font-medium">{numberFormatter.format(partySize)}</dd>
                 </div>
                 <div className="flex items-start justify-between gap-4">
-                  <dt className="text-slate-500">{copy.queue.reception.nameOrNickname}</dt>
-                  <dd className="break-all text-right font-black">{guestName || "—"}</dd>
+                  <dt className="text-muted">{copy.queue.reception.nameOrNickname}</dt>
+                  <dd className="break-all text-right font-medium">{guestName || "—"}</dd>
                 </div>
                 <div className="flex items-start justify-between gap-4">
-                  <dt className="text-slate-500">{copy.queue.reception.estimatedWait}</dt>
-                  <dd className="font-black">{numberFormatter.format(20)} {copy.common.minutes}</dd>
+                  <dt className="text-muted">{copy.queue.reception.estimatedWait}</dt>
+                  <dd className="font-medium">{numberFormatter.format(20)} {copy.common.minutes}</dd>
                 </div>
               </dl>
               <div className="mt-5 grid gap-2 sm:grid-cols-2">
                 <button
                   type="button"
                   onClick={() => setScreen("form")}
-                  className="min-h-12 whitespace-normal rounded-full border border-slate-300 px-4 py-3 text-sm font-bold leading-5"
+                  className="min-h-12 whitespace-normal rounded-full border border-line-soft px-4 py-3 text-sm font-semibold leading-5"
                 >
                   {copy.queue.reception.back}
                 </button>
                 <button
                   type="button"
                   onClick={confirmReception}
-                  className="min-h-12 whitespace-normal rounded-full bg-navy px-4 py-3 text-sm font-bold leading-5 text-white"
+                  className="min-h-12 whitespace-normal rounded-sm bg-ink px-4 py-3 text-sm font-semibold leading-5 text-white"
                 >
                   {copy.queue.reception.confirm}
                 </button>
@@ -259,33 +259,33 @@ function QueueDemo() {
               <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-900">
                 <Check className="h-6 w-6" aria-hidden="true" />
               </span>
-              <h3 className="mt-3 text-lg font-black text-slate-950">{copy.queue.completion.complete}</h3>
-              <p className="mt-1 text-xs text-slate-500">{copy.queue.completion.keepOpen}</p>
+              <h3 className="mt-3 text-lg font-medium text-ink">{copy.queue.completion.complete}</h3>
+              <p className="mt-1 text-xs text-muted">{copy.queue.completion.keepOpen}</p>
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <div className="rounded-2xl bg-cream-light p-4">
-                  <p className="text-[0.6875rem] font-bold text-slate-600">{copy.queue.completion.yourNumber}</p>
-                  <p className="mt-1 text-4xl font-black tabular-nums text-navy-deep">{numberFormatter.format(23)}</p>
+                  <p className="text-[0.6875rem] font-semibold text-muted">{copy.queue.completion.yourNumber}</p>
+                  <p className="mt-1 text-4xl font-medium tabular-nums text-navy">{numberFormatter.format(23)}</p>
                 </div>
                 <div className="rounded-2xl bg-sky-50 p-4">
-                  <p className="text-[0.6875rem] font-bold text-slate-600">{copy.queue.completion.currentCalling}</p>
-                  <p className="mt-1 text-4xl font-black tabular-nums text-sky-950">{numberFormatter.format(18)}</p>
+                  <p className="text-[0.6875rem] font-semibold text-muted">{copy.queue.completion.currentCalling}</p>
+                  <p className="mt-1 text-4xl font-medium tabular-nums text-sky-950">{numberFormatter.format(18)}</p>
                 </div>
               </div>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-slate-200 p-3">
-                  <p className="text-xs text-slate-500">{copy.queue.completion.ahead}</p>
-                  <p className="mt-1 text-xl font-black">{numberFormatter.format(4)}</p>
+                <div className="rounded-2xl border border-line-soft p-3">
+                  <p className="text-xs text-muted">{copy.queue.completion.ahead}</p>
+                  <p className="mt-1 text-xl font-medium">{numberFormatter.format(4)}</p>
                 </div>
-                <div className="rounded-2xl border border-slate-200 p-3">
-                  <p className="text-xs text-slate-500">{copy.queue.completion.estimatedWait}</p>
-                  <p className="mt-1 text-xl font-black">{numberFormatter.format(20)} {copy.common.minutes}</p>
+                <div className="rounded-2xl border border-line-soft p-3">
+                  <p className="text-xs text-muted">{copy.queue.completion.estimatedWait}</p>
+                  <p className="mt-1 text-xl font-medium">{numberFormatter.format(20)} {copy.common.minutes}</p>
                 </div>
               </div>
-              <div className={`mt-4 rounded-2xl px-4 py-3 text-sm font-black ${
+              <div className={`mt-4 rounded-2xl px-4 py-3 text-sm font-medium ${
                 customerStatus === "calling"
-                  ? "bg-cat-cream text-navy-deep"
+                  ? "bg-cat-cream text-navy"
                   : customerStatus === "cancelled"
-                    ? "bg-slate-200 text-slate-800"
+                    ? "bg-slate-200 text-ink"
                     : "bg-sky-100 text-sky-950"
               }`}>
                 {copy.queue.status[customerStatus]}
@@ -293,11 +293,11 @@ function QueueDemo() {
                   <span className="mt-1 block text-xs font-medium">{copy.queue.status.askStaff}</span>
                 ) : null}
               </div>
-              <details className="mt-4 rounded-2xl border border-slate-200 p-3 text-left">
-                <summary className="min-h-11 cursor-pointer py-2 text-sm font-bold">
+              <details className="mt-4 rounded-2xl border border-line-soft p-3 text-left">
+                <summary className="min-h-11 cursor-pointer py-2 text-sm font-semibold">
                   {copy.queue.completion.review}
                 </summary>
-                <p className="mt-2 text-sm text-slate-600">
+                <p className="mt-2 text-sm text-muted">
                   {numberFormatter.format(partySize)} / {guestName || "—"} / {timeFormatter.format(demoTime)}
                 </p>
               </details>
@@ -305,7 +305,7 @@ function QueueDemo() {
                 type="button"
                 onClick={() => setCustomerStatus("cancelled")}
                 disabled={customerStatus === "cancelled"}
-                className="mt-3 min-h-12 w-full whitespace-normal rounded-full border border-slate-300 px-4 py-3 text-sm font-bold leading-5 disabled:cursor-not-allowed disabled:opacity-50"
+                className="mt-3 min-h-12 w-full whitespace-normal rounded-full border border-line-soft px-4 py-3 text-sm font-semibold leading-5 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {copy.queue.completion.cancel}
               </button>
@@ -313,54 +313,54 @@ function QueueDemo() {
                 type="button"
                 onClick={advanceCustomerStatus}
                 lang="ja"
-                className="mt-2 min-h-11 w-full rounded-full bg-slate-100 px-4 py-2 text-xs font-bold text-slate-700"
+                className="mt-2 min-h-11 w-full rounded-full bg-slate-100 px-4 py-2 text-xs font-semibold text-muted"
               >
                 呼び出し状態を切り替える（デモ）
               </button>
             </div>
           ) : null}
 
-          <p className="mt-5 border-t border-slate-200 pt-4 text-xs leading-5 text-slate-500" lang="ja">
+          <p className="mt-5 border-t border-line-soft pt-4 text-xs leading-5 text-muted" lang="ja">
             翻訳内容は開発中の参考表示です。正式提供時には利用用途に応じた確認を行います。
           </p>
         </section>
 
-        <section className="min-w-0 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5" aria-label="店舗向け画面デモ">
+        <section className="min-w-0 rounded-2xl border border-line-soft bg-white p-4 shadow-sm sm:p-5" aria-label="店舗向け画面デモ">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="text-xs font-bold text-sky-900">店舗管理画面</p>
-              <h3 className="mt-1 font-black text-slate-950">受付中一覧</h3>
+              <p className="text-xs font-semibold text-sky-900">店舗管理画面</p>
+              <h3 className="mt-1 font-medium text-ink">受付中一覧</h3>
             </div>
-            <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-900">
+            <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-900">
               受付中 3組
             </span>
           </div>
-          <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200">
+          <div className="mt-4 overflow-x-auto rounded-2xl border border-line-soft">
             <table className="min-w-[42rem] w-full text-left text-sm">
-              <thead className="bg-slate-100 text-xs text-slate-600">
+              <thead className="bg-slate-100 text-xs text-muted">
                 <tr>
-                  <th className="px-4 py-3 font-bold">受付番号</th>
-                  <th className="px-4 py-3 font-bold">受付時刻</th>
-                  <th className="px-4 py-3 font-bold">待ち時間</th>
-                  <th className="px-4 py-3 font-bold">状態</th>
-                  <th className="px-4 py-3 font-bold">操作</th>
+                  <th className="px-4 py-3 font-semibold">受付番号</th>
+                  <th className="px-4 py-3 font-semibold">受付時刻</th>
+                  <th className="px-4 py-3 font-semibold">待ち時間</th>
+                  <th className="px-4 py-3 font-semibold">状態</th>
+                  <th className="px-4 py-3 font-semibold">操作</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-200">
+              <tbody className="divide-y divide-line-soft">
                 {[19, 20, 21].map((number, index) => (
                   <tr key={number}>
-                    <td className="px-4 py-4 text-lg font-black tabular-nums">{number}</td>
-                    <td className="px-4 py-4 text-slate-600">{`11:${12 + index * 4}`}</td>
-                    <td className="px-4 py-4 text-slate-600">{`${8 + index * 4}分`}</td>
+                    <td className="px-4 py-4 text-lg font-medium tabular-nums">{number}</td>
+                    <td className="px-4 py-4 text-muted">{`11:${12 + index * 4}`}</td>
+                    <td className="px-4 py-4 text-muted">{`${8 + index * 4}分`}</td>
                     <td className="px-4 py-4">
                       <span
-                        className={`rounded-full px-2.5 py-1 text-xs font-bold ${
+                        className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
                           statuses[number] === "完了"
                             ? "bg-emerald-100 text-emerald-900"
                             : statuses[number] === "取消"
-                              ? "bg-slate-200 text-slate-700"
+                              ? "bg-slate-200 text-muted"
                               : statuses[number] === "呼び出し中"
-                                ? "bg-cat-cream text-navy-deep"
+                                ? "bg-cat-cream text-navy"
                                 : "bg-sky-100 text-sky-900"
                         }`}
                       >
@@ -372,21 +372,21 @@ function QueueDemo() {
                         <button
                           type="button"
                           onClick={() => updateStatus(number, "呼び出し中")}
-                          className="min-h-10 rounded-lg bg-sky-900 px-3 text-xs font-bold text-white"
+                          className="min-h-10 rounded-lg bg-sky-900 px-3 text-xs font-semibold text-white"
                         >
                           呼び出す
                         </button>
                         <button
                           type="button"
                           onClick={() => updateStatus(number, "完了")}
-                          className="min-h-10 rounded-lg border border-emerald-700 px-3 text-xs font-bold text-emerald-900"
+                          className="min-h-10 rounded-lg border border-emerald-700 px-3 text-xs font-semibold text-emerald-900"
                         >
                           完了
                         </button>
                         <button
                           type="button"
                           onClick={() => updateStatus(number, "取消")}
-                          className="min-h-10 rounded-lg border border-slate-300 px-3 text-xs font-bold text-slate-700"
+                          className="min-h-10 rounded-lg border border-line-soft px-3 text-xs font-semibold text-muted"
                         >
                           取消
                         </button>
@@ -397,7 +397,7 @@ function QueueDemo() {
               </tbody>
             </table>
           </div>
-          <p className="mt-3 text-xs leading-5 text-slate-500" aria-live="polite">
+          <p className="mt-3 text-xs leading-5 text-muted" aria-live="polite">
             ボタン操作はこの画面内だけで変化し、受付データは保存されません。
           </p>
         </section>
@@ -499,7 +499,7 @@ function LanguageSelector({
         aria-haspopup="dialog"
         aria-expanded={open}
         onClick={() => setOpen(true)}
-        className="inline-flex min-h-11 max-w-full items-center gap-2 rounded-full border border-slate-300 bg-white px-3 py-2 text-left text-xs font-bold text-slate-800 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
+        className="inline-flex min-h-11 max-w-full items-center gap-2 rounded-full border border-line-soft bg-white px-3 py-2 text-left text-xs font-semibold text-ink shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
       >
         <Globe2 className="h-4 w-4 shrink-0 text-sky-800" aria-hidden="true" />
         <span className="break-words">{selectedLocale.nativeName}</span>
@@ -511,7 +511,7 @@ function LanguageSelector({
             type="button"
             aria-label="言語選択を閉じる"
             onClick={closeSelector}
-            className="absolute inset-0 bg-navy-deep/60"
+            className="absolute inset-0 bg-ink/60"
           />
           <div
             ref={dialogRef}
@@ -519,26 +519,26 @@ function LanguageSelector({
             aria-modal="true"
             aria-labelledby="queue-language-dialog-title"
             onKeyDown={handleDialogKeyDown}
-            className="relative z-10 flex max-h-[92dvh] w-full flex-col rounded-t-3xl bg-white shadow-2xl sm:max-h-[86vh] sm:max-w-xl sm:rounded-3xl"
+            className="relative z-10 flex max-h-[92dvh] w-full flex-col rounded-t-3xl bg-white shadow-sm sm:max-h-[86vh] sm:max-w-xl sm:rounded-2xl"
           >
-            <div className="flex items-start justify-between gap-4 border-b border-slate-200 px-5 py-4 sm:px-6">
+            <div className="flex items-start justify-between gap-4 border-b border-line-soft px-5 py-4 sm:px-6">
               <div>
-                <h3 id="queue-language-dialog-title" className="text-lg font-black text-slate-950">
+                <h3 id="queue-language-dialog-title" className="text-lg font-medium text-ink">
                   {copy.languageSelector.choose}
                 </h3>
-                <p className="mt-1 text-xs text-slate-500">{copy.languageSelector.selected}</p>
+                <p className="mt-1 text-xs text-muted">{copy.languageSelector.selected}</p>
               </div>
               <button
                 type="button"
                 aria-label="言語選択を閉じる"
                 onClick={closeSelector}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-slate-100 text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
               >
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
 
-            <div className="border-b border-slate-200 px-5 py-4 sm:px-6">
+            <div className="border-b border-line-soft px-5 py-4 sm:px-6">
               <label className="relative block">
                 <span className="sr-only">{copy.languageSelector.search}</span>
                 <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" aria-hidden="true" />
@@ -548,7 +548,7 @@ function LanguageSelector({
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder={copy.languageSelector.search}
-                  className="min-h-12 w-full rounded-xl border border-slate-300 py-3 pl-12 pr-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
+                  className="min-h-12 w-full rounded-xl border border-line-soft py-3 pl-12 pr-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800"
                 />
               </label>
             </div>
@@ -561,7 +561,7 @@ function LanguageSelector({
                     if (!groupLocales.length) return null;
                     return (
                       <section key={group.id} aria-labelledby={`queue-locale-group-${group.id}`}>
-                        <h4 id={`queue-locale-group-${group.id}`} className="text-xs font-black uppercase tracking-[0.12em] text-slate-500">
+                        <h4 id={`queue-locale-group-${group.id}`} className="text-xs font-medium uppercase tracking-[0.12em] text-muted">
                           {group.id === "recommended"
                             ? copy.languageSelector.recommended
                             : group.id === "asia"
@@ -578,15 +578,15 @@ function LanguageSelector({
                               className={`flex min-h-12 w-full items-center justify-between gap-4 rounded-xl border px-4 py-3 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-800 ${
                                 item.code === locale
                                   ? "border-sky-700 bg-sky-50 text-sky-950"
-                                  : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50"
+                                  : "border-line-soft bg-white text-ink hover:bg-cream-light"
                               }`}
                             >
                               <span className="min-w-0">
-                                <span className="block break-words text-sm font-black" lang={item.code}>{item.nativeName}</span>
-                                <span className="mt-0.5 block break-words text-xs text-slate-500">{item.japaneseName} · {item.code}</span>
+                                <span className="block break-words text-sm font-medium" lang={item.code}>{item.nativeName}</span>
+                                <span className="mt-0.5 block break-words text-xs text-muted">{item.japaneseName} · {item.code}</span>
                               </span>
                               {item.code === locale ? (
-                                <span className="inline-flex shrink-0 items-center gap-1 text-xs font-bold">
+                                <span className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold">
                                   <Check className="h-4 w-4" aria-hidden="true" />
                                   <span>選択中</span>
                                 </span>
@@ -599,7 +599,7 @@ function LanguageSelector({
                   })}
                 </div>
               ) : (
-                <p className="rounded-2xl bg-slate-50 px-4 py-8 text-center text-sm font-bold text-slate-600">
+                <p className="rounded-2xl bg-cream-light px-4 py-8 text-center text-sm font-semibold text-muted">
                   {copy.languageSelector.noResults}
                 </p>
               )}
@@ -635,13 +635,13 @@ function ReviewReplyDemo() {
   return (
     <DemoWindow title="口コミ返信サポート・画面サンプル">
       <div className="grid gap-4 xl:grid-cols-[0.82fr_1.18fr]">
-        <aside className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-          <p className="text-xs font-bold text-sky-900">返信設定</p>
+        <aside className="rounded-2xl border border-line-soft bg-white p-5 shadow-sm">
+          <p className="text-xs font-semibold text-sky-900">返信設定</p>
           <fieldset className="mt-5">
-            <legend className="text-sm font-black text-slate-950">返信トーン</legend>
+            <legend className="text-sm font-medium text-ink">返信トーン</legend>
             <div className="mt-3 grid gap-2">
               {(["丁寧", "親しみやすい", "簡潔"] as const).map((item) => (
-                <label key={item} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-xl bg-slate-50 px-4 py-2 text-sm">
+                <label key={item} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-xl bg-cream-light px-4 py-2 text-sm">
                   <input
                     type="radio"
                     name="tone"
@@ -656,10 +656,10 @@ function ReviewReplyDemo() {
             </div>
           </fieldset>
           <fieldset className="mt-6">
-            <legend className="text-sm font-black text-slate-950">自動返信対象</legend>
+            <legend className="text-sm font-medium text-ink">自動返信対象</legend>
             <div className="mt-3 grid gap-2">
               {["星5", "星4以上", "すべて確認して返信"].map((item) => (
-                <label key={item} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-xl bg-slate-50 px-4 py-2 text-sm">
+                <label key={item} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-xl bg-cream-light px-4 py-2 text-sm">
                   <input
                     type="radio"
                     name="policy"
@@ -675,32 +675,32 @@ function ReviewReplyDemo() {
           </fieldset>
         </aside>
 
-        <section className="min-w-0 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm" aria-label="口コミ返信画面デモ">
+        <section className="min-w-0 rounded-2xl border border-line-soft bg-white p-5 shadow-sm" aria-label="口コミ返信画面デモ">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="text-sm font-black">山田 はな（ダミー）</p>
+              <p className="text-sm font-medium">山田 はな（ダミー）</p>
               <div className="mt-1 flex gap-0.5 text-amber-500" aria-label="星5の口コミ">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <Star key={index} className="h-4 w-4 fill-current" aria-hidden="true" />
                 ))}
               </div>
             </div>
-            <span className="rounded-full bg-cat-cream px-3 py-1 text-xs font-bold text-navy-deep">未返信</span>
+            <span className="rounded-full bg-cat-cream px-3 py-1 text-xs font-semibold text-navy">未返信</span>
           </div>
-          <blockquote className="mt-4 rounded-2xl bg-slate-50 p-4 text-sm leading-7 text-slate-700">
+          <blockquote className="mt-4 rounded-2xl bg-cream-light p-4 text-sm leading-7 text-muted">
             店内が明るく、スタッフの方も親切でした。待ち時間もゆっくり過ごせて良かったです。
           </blockquote>
 
           <div className="mt-5 rounded-2xl border border-sky-200 bg-sky-50 p-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="text-sm font-black text-sky-950">AIが作成した返信案</p>
+              <p className="text-sm font-medium text-sky-950">AIが作成した返信案</p>
               <span
-                className={`rounded-full px-3 py-1 text-xs font-bold ${
+                className={`rounded-full px-3 py-1 text-xs font-semibold ${
                   status === "承認済み"
                     ? "bg-emerald-100 text-emerald-900"
                     : status === "要確認"
                       ? "bg-red-100 text-red-900"
-                      : "bg-white text-slate-700"
+                      : "bg-white text-muted"
                 }`}
                 aria-live="polite"
               >
@@ -713,13 +713,13 @@ function ReviewReplyDemo() {
               readOnly={!editing}
               aria-label="AIが作成した返信案"
               rows={6}
-              className="mt-3 w-full resize-y rounded-xl border border-sky-200 bg-white p-3 text-sm leading-7 text-slate-700 outline-none focus:border-sky-700 focus:ring-2 focus:ring-sky-700/20"
+              className="mt-3 w-full resize-y rounded-xl border border-sky-200 bg-white p-3 text-sm leading-7 text-muted outline-none focus:border-sky-700 focus:ring-2 focus:ring-sky-700/20"
             />
             <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
               <button
                 type="button"
                 onClick={regenerate}
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-sky-900 px-4 text-sm font-bold text-white"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-sky-900 px-4 text-sm font-semibold text-white"
               >
                 <RefreshCw className="h-4 w-4" aria-hidden="true" />
                 文章を再作成
@@ -728,21 +728,21 @@ function ReviewReplyDemo() {
                 type="button"
                 onClick={() => setEditing((current) => !current)}
                 aria-pressed={editing}
-                className="min-h-11 rounded-full border border-slate-300 bg-white px-4 text-sm font-bold text-slate-800"
+                className="min-h-11 rounded-full border border-line-soft bg-white px-4 text-sm font-semibold text-ink"
               >
                 {editing ? "編集を終える" : "内容を編集"}
               </button>
               <button
                 type="button"
                 onClick={() => setStatus("承認済み")}
-                className="min-h-11 rounded-full border border-emerald-700 bg-white px-4 text-sm font-bold text-emerald-900"
+                className="min-h-11 rounded-full border border-emerald-700 bg-white px-4 text-sm font-semibold text-emerald-900"
               >
                 承認する
               </button>
               <button
                 type="button"
                 onClick={() => setStatus("要確認")}
-                className="min-h-11 rounded-full border border-red-700 bg-white px-4 text-sm font-bold text-red-900"
+                className="min-h-11 rounded-full border border-red-700 bg-white px-4 text-sm font-semibold text-red-900"
               >
                 要確認
               </button>
@@ -774,17 +774,17 @@ function SkillShiftDemo() {
 
   return (
     <DemoWindow title="スキル別AIシフト・画面サンプル">
-      <div className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+      <div className="rounded-2xl border border-line-soft bg-white p-4 shadow-sm sm:p-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-bold text-sky-900">条件設定画面</p>
-            <h3 className="mt-1 text-lg font-black text-slate-950">2026年8月 シフト条件</h3>
+            <p className="text-xs font-semibold text-sky-900">条件設定画面</p>
+            <h3 className="mt-1 text-lg font-medium text-ink">2026年8月 シフト条件</h3>
           </div>
           <button
             type="button"
             onClick={createShift}
             disabled={loading}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-navy px-5 py-3 text-sm font-bold text-white disabled:cursor-wait disabled:opacity-70"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-sm bg-ink px-5 py-3 text-sm font-semibold text-white disabled:cursor-wait disabled:opacity-70"
           >
             {loading ? (
               <>
@@ -803,66 +803,66 @@ function SkillShiftDemo() {
             { name: "鈴木", skill: "接客 Lv.2", request: "平日17時まで", limit: "週32時間" },
             { name: "田中", skill: "新人・接客 Lv.1", request: "8/12 希望休", limit: "週24時間" },
           ].map((staff) => (
-            <article key={staff.name} className="rounded-2xl bg-slate-50 p-4">
+            <article key={staff.name} className="rounded-2xl bg-cream-light p-4">
               <div className="flex items-center gap-2">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-sky-100 text-sky-900">
                   <Users className="h-4 w-4" aria-hidden="true" />
                 </span>
-                <p className="font-black">{staff.name}</p>
+                <p className="font-medium">{staff.name}</p>
               </div>
               <dl className="mt-3 space-y-2 text-xs leading-5">
                 <div>
-                  <dt className="font-bold text-slate-500">スキルレベル</dt>
-                  <dd className="text-slate-800">{staff.skill}</dd>
+                  <dt className="font-semibold text-muted">スキルレベル</dt>
+                  <dd className="text-ink">{staff.skill}</dd>
                 </div>
                 <div>
-                  <dt className="font-bold text-slate-500">希望・勤務可能時間</dt>
-                  <dd className="text-slate-800">{staff.request}</dd>
+                  <dt className="font-semibold text-muted">希望・勤務可能時間</dt>
+                  <dd className="text-ink">{staff.request}</dd>
                 </div>
                 <div>
-                  <dt className="font-bold text-slate-500">勤務上限</dt>
-                  <dd className="text-slate-800">{staff.limit}</dd>
+                  <dt className="font-semibold text-muted">勤務上限</dt>
+                  <dd className="text-ink">{staff.limit}</dd>
                 </div>
               </dl>
             </article>
           ))}
         </div>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 p-4">
-            <p className="text-xs font-bold text-slate-500">必要人数</p>
-            <p className="mt-1 text-sm font-black">平日 3名／土日 4名</p>
+          <div className="rounded-2xl border border-line-soft p-4">
+            <p className="text-xs font-semibold text-muted">必要人数</p>
+            <p className="mt-1 text-sm font-medium">平日 3名／土日 4名</p>
           </div>
-          <div className="rounded-2xl border border-slate-200 p-4">
-            <p className="text-xs font-bold text-slate-500">必要スキル</p>
-            <p className="mt-1 text-sm font-black">各時間帯に責任者または接客 Lv.3</p>
+          <div className="rounded-2xl border border-line-soft p-4">
+            <p className="text-xs font-semibold text-muted">必要スキル</p>
+            <p className="mt-1 text-sm font-medium">各時間帯に責任者または接客 Lv.3</p>
           </div>
         </div>
       </div>
 
-      <div className="mt-4 min-h-48 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6" aria-live="polite">
+      <div className="mt-4 min-h-48 rounded-2xl border border-line-soft bg-white p-4 shadow-sm sm:p-6" aria-live="polite">
         {loading ? (
           <div className="flex min-h-36 flex-col items-center justify-center text-center">
             <LoaderCircle className="h-8 w-8 animate-spin text-sky-900 motion-reduce:animate-none" aria-hidden="true" />
-            <p className="mt-3 text-sm font-bold">固定のサンプル条件を確認しています</p>
+            <p className="mt-3 text-sm font-semibold">固定のサンプル条件を確認しています</p>
           </div>
         ) : showResult ? (
           <>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="text-xs font-bold text-sky-900">シフト結果画面</p>
-                <h3 className="mt-1 font-black">サンプルシフト案</h3>
+                <p className="text-xs font-semibold text-sky-900">シフト結果画面</p>
+                <h3 className="mt-1 font-medium">サンプルシフト案</h3>
               </div>
               <button
                 type="button"
                 onClick={() => setAdjusted((current) => !current)}
-                className="min-h-11 rounded-full border border-slate-300 px-4 text-sm font-bold"
+                className="min-h-11 rounded-full border border-line-soft px-4 text-sm font-semibold"
               >
                 {adjusted ? "変更を戻す" : "手動変更"}
               </button>
             </div>
-            <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200">
+            <div className="mt-4 overflow-x-auto rounded-2xl border border-line-soft">
               <table className="min-w-[46rem] w-full text-left text-sm">
-                <thead className="bg-slate-100 text-xs text-slate-600">
+                <thead className="bg-slate-100 text-xs text-muted">
                   <tr>
                     <th className="px-4 py-3">日付</th>
                     <th className="px-4 py-3">時間帯</th>
@@ -870,35 +870,35 @@ function SkillShiftDemo() {
                     <th className="px-4 py-3">確認事項</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-200">
+                <tbody className="divide-y divide-line-soft">
                   <tr>
-                    <td className="px-4 py-4 font-bold">8/3（月）</td>
+                    <td className="px-4 py-4 font-semibold">8/3（月）</td>
                     <td className="px-4 py-4">9:00〜17:00</td>
                     <td className="px-4 py-4">{adjusted ? "佐藤・鈴木・田中" : "佐藤・鈴木・高橋"}</td>
                     <td className="px-4 py-4">
-                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-900">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-900">
                         <Check className="h-3.5 w-3.5" aria-hidden="true" />
                         条件内
                       </span>
                     </td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-4 font-bold">8/4（火）</td>
+                    <td className="px-4 py-4 font-semibold">8/4（火）</td>
                     <td className="px-4 py-4">17:00〜22:00</td>
                     <td className="px-4 py-4">鈴木・田中</td>
                     <td className="px-4 py-4">
-                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-950">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-950">
                         <AlertTriangle className="h-3.5 w-3.5" aria-hidden="true" />
                         スキル不足
                       </span>
                     </td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-4 font-bold">8/8（土）</td>
+                    <td className="px-4 py-4 font-semibold">8/8（土）</td>
                     <td className="px-4 py-4">10:00〜18:00</td>
                     <td className="px-4 py-4">佐藤・鈴木・田中</td>
                     <td className="px-4 py-4">
-                      <span className="inline-flex items-center gap-1 rounded-full bg-red-100 px-2.5 py-1 text-xs font-bold text-red-900">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-red-100 px-2.5 py-1 text-xs font-semibold text-red-900">
                         <AlertTriangle className="h-3.5 w-3.5" aria-hidden="true" />
                         1名不足
                       </span>
@@ -909,7 +909,7 @@ function SkillShiftDemo() {
             </div>
             <div className="mt-4 grid gap-2 sm:grid-cols-3">
               {["不足人数：1件", "スキル不足：1件", "勤務偏り：0件"].map((warning) => (
-                <div key={warning} className="flex items-center gap-2 rounded-xl bg-slate-50 px-3 py-2 text-xs font-bold text-slate-700">
+                <div key={warning} className="flex items-center gap-2 rounded-xl bg-cream-light px-3 py-2 text-xs font-semibold text-muted">
                   <Clock3 className="h-4 w-4 text-sky-800" aria-hidden="true" />
                   {warning}
                 </div>
@@ -917,9 +917,9 @@ function SkillShiftDemo() {
             </div>
           </>
         ) : (
-          <div className="flex min-h-36 flex-col items-center justify-center text-center text-slate-500">
+          <div className="flex min-h-36 flex-col items-center justify-center text-center text-muted">
             <Clock3 className="h-8 w-8" aria-hidden="true" />
-            <p className="mt-3 text-sm font-bold">「シフト案を作成」を押すと、固定の結果例を表示します。</p>
+            <p className="mt-3 text-sm font-semibold">「シフト案を作成」を押すと、固定の結果例を表示します。</p>
           </div>
         )}
       </div>

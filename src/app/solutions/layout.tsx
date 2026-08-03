@@ -20,7 +20,7 @@ export default function SolutionsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div id="top" className="min-h-screen bg-white text-slate-950">
+    <div id="top" className="min-h-screen bg-white text-ink">
       <OfficialHeader
         businessName={siteConfig.businessName}
         instagramUrl={siteConfig.instagramUrl}
@@ -28,10 +28,10 @@ export default function SolutionsLayout({
         lineUrl={siteConfig.lineUrl}
       />
       {children}
-      <footer className="border-t border-slate-800 bg-navy-deep py-10 text-slate-300">
+      <footer className="border-t border-slate-800 bg-ink py-10 text-slate-300">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <Link href="/" className="font-black text-white">
+            <Link href="/" className="font-medium text-white">
               {siteConfig.businessName}
             </Link>
             <p className="mt-3 max-w-xl text-sm leading-6 text-slate-400">

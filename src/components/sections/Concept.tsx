@@ -12,8 +12,8 @@ export function Concept({
           <PlaceholderImage src={concept.image} alt="" sizes="(min-width: 640px) 50vw, 100vw" />
         </div>
         <div>
-          <p className="mb-2 text-xs font-bold tracking-[0.2em] text-[var(--primary)]">CONCEPT</p>
-          <h2 className="text-2xl font-bold text-[var(--text)] sm:text-3xl">{concept.title}</h2>
+          <p className="mb-2 text-xs font-semibold tracking-[0.2em] text-[var(--primary)]">CONCEPT</p>
+          <h2 className="text-2xl font-semibold text-[var(--text)] sm:text-3xl">{concept.title}</h2>
           <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-[var(--muted)] sm:text-base">
             {concept.body}
           </p>

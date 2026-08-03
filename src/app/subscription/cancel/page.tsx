@@ -17,13 +17,13 @@ export default function SubscriptionCancelPage() {
       <div className="mx-auto flex max-w-3xl flex-col gap-3 px-4 py-14 sm:flex-row sm:px-6 sm:py-20">
         <Link
           href="/pricing"
-          className="flex min-h-12 items-center justify-center rounded-full bg-navy-deep px-6 py-3 font-bold text-white"
+          className="flex min-h-12 items-center justify-center rounded-sm bg-ink px-6 py-3 font-semibold text-white"
         >
           料金を確認する
         </Link>
         <Link
           href="/contact?plan=web-start"
-          className="flex min-h-12 items-center justify-center rounded-full border-2 border-slate-800 px-6 py-3 font-bold"
+          className="flex min-h-12 items-center justify-center rounded-full border-2 border-slate-800 px-6 py-3 font-semibold"
         >
           無料相談デモへ
         </Link>

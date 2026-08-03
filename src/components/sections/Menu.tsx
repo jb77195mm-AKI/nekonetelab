@@ -13,7 +13,7 @@ export function Menu({ menuItems }: { menuItems: MenuItem[] }) {
               <div className="relative aspect-[4/3]">
                 <PlaceholderImage src={item.image} alt="" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
                 {item.tag ? (
-                  <span className="absolute left-3 top-3 rounded-full bg-[var(--accent)] px-3 py-1 text-xs font-bold text-white">
+                  <span className="absolute left-3 top-3 rounded-full bg-[var(--accent)] px-3 py-1 text-xs font-semibold text-white">
                     {item.tag}
                   </span>
                 ) : null}
@@ -21,8 +21,8 @@ export function Menu({ menuItems }: { menuItems: MenuItem[] }) {
             ) : null}
             <div className="p-5">
               <div className="flex items-baseline justify-between gap-2">
-                <h3 className="text-base font-bold text-[var(--text)]">{item.name}</h3>
-                <span className="whitespace-nowrap text-sm font-bold text-[var(--primary)]">{item.price}</span>
+                <h3 className="text-base font-semibold text-[var(--text)]">{item.name}</h3>
+                <span className="whitespace-nowrap text-sm font-semibold text-[var(--primary)]">{item.price}</span>
               </div>
               {item.description ? (
                 <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{item.description}</p>

@@ -27,12 +27,12 @@ export function Company({
         <dl className="mt-10 divide-y divide-[var(--muted)]/15 rounded-2xl border border-[var(--muted)]/15 bg-[var(--background)]">
           {rows.map(([label, value]) => (
             <div key={label} className="grid grid-cols-3 gap-4 px-6 py-4">
-              <dt className="text-sm font-bold text-[var(--text)]">{label}</dt>
+              <dt className="text-sm font-semibold text-[var(--text)]">{label}</dt>
               <dd className="col-span-2 text-sm text-[var(--muted)]">{value}</dd>
             </div>
           ))}
           <div className="grid grid-cols-3 gap-4 px-6 py-4">
-            <dt className="text-sm font-bold text-[var(--text)]">営業時間</dt>
+            <dt className="text-sm font-semibold text-[var(--text)]">営業時間</dt>
             <dd className="col-span-2 text-sm text-[var(--muted)]">
               {openingHours.map((hour) => (
                 <div key={hour.label}>

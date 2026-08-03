@@ -28,7 +28,7 @@ function renderInlineText(text: string): ReactNode[] {
       <a
         key={`${href}-${match.index}`}
         href={href}
-        className="break-all font-medium text-navy-deep underline underline-offset-2"
+        className="break-all font-medium text-navy underline underline-offset-2"
         rel={external ? "noopener noreferrer" : undefined}
         target={external ? "_blank" : undefined}
       >
@@ -56,7 +56,7 @@ export function LegalDocument({ content }: LegalDocumentProps) {
     if (paragraph.length === 0) return;
     const text = paragraph.join(" ");
     nodes.push(
-      <p key={`paragraph-${key++}`} className="text-sm leading-8 text-slate-700">
+      <p key={`paragraph-${key++}`} className="text-sm leading-8 text-muted">
         {renderInlineText(text)}
       </p>,
     );
@@ -66,7 +66,7 @@ export function LegalDocument({ content }: LegalDocumentProps) {
   function flushList() {
     if (!list) return;
     const className =
-      "space-y-2 pl-6 text-sm leading-7 text-slate-700 marker:font-bold marker:text-slate-900";
+      "space-y-2 pl-6 text-sm leading-7 text-muted marker:font-semibold marker:text-ink";
     if (list.kind === "ordered") {
       nodes.push(
         <ol
@@ -112,14 +112,14 @@ export function LegalDocument({ content }: LegalDocumentProps) {
         isSection ? (
           <h2
             key={`heading-${key++}`}
-            className="border-t border-slate-200 pt-8 text-xl font-black leading-8 text-slate-950 first:border-0 first:pt-0 sm:text-2xl"
+            className="border-t border-line-soft pt-8 text-xl font-medium leading-8 text-ink first:border-0 first:pt-0 sm:text-2xl"
           >
             {heading[2]}
           </h2>
         ) : (
           <h3
             key={`heading-${key++}`}
-            className="pt-2 text-base font-black leading-7 text-slate-900 sm:text-lg"
+            className="pt-2 text-base font-medium leading-7 text-ink sm:text-lg"
           >
             {heading[2]}
           </h3>

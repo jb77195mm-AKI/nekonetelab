@@ -21,11 +21,11 @@ export function Services({
             key={service.title}
             className="flex gap-5 rounded-2xl border border-[var(--muted)]/15 bg-[var(--surface)] p-6"
           >
-            <span className="text-3xl font-bold text-[var(--primary)]/30">
+            <span className="text-3xl font-semibold text-[var(--primary)]/30">
               {String(index + 1).padStart(2, "0")}
             </span>
             <div>
-              <h3 className="text-base font-bold text-[var(--text)]">{service.title}</h3>
+              <h3 className="text-base font-semibold text-[var(--text)]">{service.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{service.description}</p>
             </div>
           </div>

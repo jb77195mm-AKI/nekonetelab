@@ -87,7 +87,7 @@ export function CheckoutAgreementForm({
         type="button"
         disabled={!ready}
         onClick={beginCheckout}
-        className="mt-6 flex min-h-12 w-full items-center justify-center rounded-full bg-navy px-6 py-3 font-black text-white transition hover:bg-navy-deep disabled:cursor-not-allowed disabled:opacity-45"
+        className="mt-6 flex min-h-12 w-full items-center justify-center rounded-sm bg-ink px-6 py-3 font-medium text-white transition hover:bg-ink-soft disabled:cursor-not-allowed disabled:opacity-45"
       >
         {loading
           ? "テスト申込を準備中…"
@@ -112,7 +112,7 @@ function AgreementCheckbox({
   label: string;
 }) {
   return (
-    <label className="flex min-h-12 cursor-pointer items-start gap-3 rounded-xl border border-slate-200 p-4 text-sm leading-6 text-slate-700 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-navy-deep">
+    <label className="flex min-h-12 cursor-pointer items-start gap-3 rounded-xl border border-line-soft p-4 text-sm leading-6 text-muted focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-navy">
       <input
         type="checkbox"
         checked={checked}

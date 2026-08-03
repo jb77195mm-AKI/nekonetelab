@@ -68,32 +68,32 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-950">
-      <header className="border-b border-slate-200 bg-white">
+    <div className="min-h-screen bg-cream-light text-ink">
+      <header className="border-b border-line-soft bg-white">
         <div className="mx-auto flex min-h-16 max-w-4xl items-center justify-between px-4 sm:px-6">
-          <Link href="/" className="font-black">
+          <Link href="/" className="font-medium">
             {siteConfig.businessName}
           </Link>
-          <Link href="/contact" className="text-sm font-bold text-navy-deep underline underline-offset-4">
+          <Link href="/contact" className="text-sm font-semibold text-navy underline underline-offset-4">
             無料相談
           </Link>
         </div>
       </header>
 
       <main className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20">
-        <p className="text-xs font-bold tracking-[0.18em] text-navy-deep">PRIVACY POLICY</p>
-        <h1 className="mt-3 text-3xl font-black sm:text-4xl">プライバシーポリシー</h1>
-        <p className="mt-6 text-sm leading-7 text-slate-600">
+        <p className="text-xs font-semibold tracking-[0.18em] text-navy">PRIVACY POLICY</p>
+        <h1 className="mt-3 text-3xl font-medium sm:text-4xl">プライバシーポリシー</h1>
+        <p className="mt-6 text-sm leading-7 text-muted">
           {siteConfig.businessName}
           （以下「当事業者」といいます）は、本サイトおよび提供するサービスにおいて取り扱う個人情報を、以下の方針に基づき適切に管理します。
         </p>
 
         <div className="mt-10 space-y-5">
           {sections.map((section) => (
-            <section key={section.title} className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-              <h2 className="text-lg font-bold">{section.title}</h2>
+            <section key={section.title} className="rounded-2xl border border-line-soft bg-white p-6 sm:p-8">
+              <h2 className="text-lg font-semibold">{section.title}</h2>
               {section.body.map((paragraph) => (
-                <p key={paragraph} className="mt-3 text-sm leading-7 text-slate-600">
+                <p key={paragraph} className="mt-3 text-sm leading-7 text-muted">
                   {paragraph}
                 </p>
               ))}
@@ -101,24 +101,24 @@ export default function PrivacyPage() {
           ))}
 
           <section className="rounded-2xl border border-cat-beige bg-cream-light p-6 sm:p-8">
-            <h2 className="text-lg font-bold">9. お問い合わせ窓口</h2>
-            <p className="mt-3 text-sm leading-7 text-slate-700">
+            <h2 className="text-lg font-semibold">9. お問い合わせ窓口</h2>
+            <p className="mt-3 text-sm leading-7 text-muted">
               本ポリシーおよび個人情報の取り扱いに関するお問い合わせは、以下までご連絡ください。
             </p>
             <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-[8rem_1fr]">
-              <dt className="font-bold">事業者名</dt>
+              <dt className="font-semibold">事業者名</dt>
               <dd>{siteConfig.businessName}</dd>
-              <dt className="font-bold">メール</dt>
+              <dt className="font-semibold">メール</dt>
               <dd>
-                <a href={`mailto:${siteConfig.email}`} className="font-medium text-navy-deep underline underline-offset-2">
+                <a href={`mailto:${siteConfig.email}`} className="font-medium text-navy underline underline-offset-2">
                   {siteConfig.email}
                 </a>
               </dd>
               {siteConfig.phone && siteConfig.phoneHref ? (
                 <>
-                  <dt className="font-bold">電話番号</dt>
+                  <dt className="font-semibold">電話番号</dt>
                   <dd>
-                    <a href={siteConfig.phoneHref} className="font-medium text-navy-deep underline underline-offset-2">
+                    <a href={siteConfig.phoneHref} className="font-medium text-navy underline underline-offset-2">
                       {siteConfig.phone}
                     </a>
                   </dd>
@@ -126,7 +126,7 @@ export default function PrivacyPage() {
               ) : null}
               {siteConfig.address ? (
                 <>
-                  <dt className="font-bold">所在地</dt>
+                  <dt className="font-semibold">所在地</dt>
                   <dd>{siteConfig.address}</dd>
                 </>
               ) : null}
@@ -134,10 +134,10 @@ export default function PrivacyPage() {
           </section>
         </div>
 
-        <p className="mt-8 text-right text-xs text-slate-500">制定日：2026年7月27日</p>
+        <p className="mt-8 text-right text-xs text-muted">制定日：2026年7月27日</p>
         <Link
           href="/"
-          className="mt-10 inline-flex rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-bold hover:border-navy hover:text-navy-deep"
+          className="mt-10 inline-flex rounded-full border border-line-soft bg-white px-5 py-2.5 text-sm font-semibold hover:border-navy hover:text-navy"
         >
           トップページへ戻る
         </Link>

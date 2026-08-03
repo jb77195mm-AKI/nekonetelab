@@ -64,7 +64,7 @@ export function ContactForm({ siteName }: { siteName: string }) {
         role="status"
         className="rounded-2xl border border-[var(--primary)]/30 bg-[var(--surface)] p-6 text-center text-sm text-[var(--text)]"
       >
-        <p className="font-bold">お問い合わせありがとうございます。</p>
+        <p className="font-semibold">お問い合わせありがとうございます。</p>
         {status === "demo" ? (
           <p className="mt-2 text-[var(--muted)]">
             こちらはデモサイトのため、実際の送信は行われません。
@@ -133,7 +133,7 @@ export function ContactForm({ siteName }: { siteName: string }) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center justify-center rounded-full bg-[var(--primary)] px-8 py-3 text-sm font-bold text-white transition hover:opacity-90 disabled:opacity-60"
+        className="inline-flex items-center justify-center rounded-full bg-[var(--primary)] px-8 py-3 text-sm font-semibold text-white transition hover:opacity-90 disabled:opacity-60"
       >
         {status === "submitting" ? "送信中..." : "送信する"}
       </button>
@@ -159,7 +159,7 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-bold text-[var(--text)]">
+      <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-semibold text-[var(--text)]">
         {label}
         {required ? <span className="ml-1 text-red-600">*</span> : null}
       </label>

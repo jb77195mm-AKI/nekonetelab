@@ -9,11 +9,11 @@ export function Flow({ flow, title }: { flow: FlowStep[]; title?: string }) {
         <ol className="mt-12 space-y-6">
           {flow.map((step) => (
             <li key={step.step} className="flex gap-5">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--primary)] text-sm font-bold text-white">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--primary)] text-sm font-semibold text-white">
                 {step.step}
               </span>
               <div>
-                <h3 className="text-base font-bold text-[var(--text)]">{step.title}</h3>
+                <h3 className="text-base font-semibold text-[var(--text)]">{step.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-[var(--muted)]">{step.description}</p>
               </div>
             </li>

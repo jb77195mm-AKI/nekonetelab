@@ -10,13 +10,13 @@ export function Price({ priceItems, note }: { priceItems: PriceItem[]; note?: st
           {priceItems.map((item) => (
             <div key={item.name} className="flex items-center justify-between gap-4 px-6 py-4">
               <div>
-                <p className="font-bold text-[var(--text)]">{item.name}</p>
+                <p className="font-semibold text-[var(--text)]">{item.name}</p>
                 {item.description ? (
                   <p className="mt-1 text-xs text-[var(--muted)]">{item.description}</p>
                 ) : null}
               </div>
               <div className="text-right">
-                <p className="text-lg font-bold text-[var(--primary)]">{item.price}</p>
+                <p className="text-lg font-semibold text-[var(--primary)]">{item.price}</p>
                 {item.duration ? <p className="text-xs text-[var(--muted)]">{item.duration}</p> : null}
               </div>
             </div>

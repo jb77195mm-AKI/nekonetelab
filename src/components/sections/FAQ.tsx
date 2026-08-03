@@ -23,7 +23,7 @@ export function FAQ({ faq }: { faq: FaqItem[] }) {
                 onClick={() => setOpenIndex(open ? null : index)}
                 className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
               >
-                <span className="text-sm font-bold text-[var(--text)] sm:text-base">
+                <span className="text-sm font-semibold text-[var(--text)] sm:text-base">
                   Q. {item.question}
                 </span>
                 <ChevronDown

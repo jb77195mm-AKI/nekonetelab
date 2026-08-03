@@ -32,7 +32,7 @@ export function Features({
                     <IconComp className="h-5 w-5" aria-hidden="true" />
                   </div>
                 ) : null}
-                <h3 className="text-base font-bold text-[var(--text)]">{feature.title}</h3>
+                <h3 className="text-base font-semibold text-[var(--text)]">{feature.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{feature.description}</p>
               </div>
             );

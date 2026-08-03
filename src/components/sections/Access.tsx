@@ -19,7 +19,7 @@ export function Access({
       <div className="mt-12 grid gap-10 sm:grid-cols-2">
         <dl className="space-y-4 text-sm">
           <div>
-            <dt className="font-bold text-[var(--text)]">住所</dt>
+            <dt className="font-semibold text-[var(--text)]">住所</dt>
             <dd className="mt-1 text-[var(--muted)]">
               〒{address.postalCode} {address.prefecture}
               {address.city}
@@ -27,7 +27,7 @@ export function Access({
             </dd>
           </div>
           <div>
-            <dt className="font-bold text-[var(--text)]">営業時間</dt>
+            <dt className="font-semibold text-[var(--text)]">営業時間</dt>
             <dd className="mt-1 space-y-0.5 text-[var(--muted)]">
               {openingHours.map((hour) => (
                 <div key={hour.label}>
@@ -37,7 +37,7 @@ export function Access({
             </dd>
           </div>
           <div>
-            <dt className="font-bold text-[var(--text)]">定休日</dt>
+            <dt className="font-semibold text-[var(--text)]">定休日</dt>
             <dd className="mt-1 text-[var(--muted)]">{holidays}</dd>
           </div>
         </dl>

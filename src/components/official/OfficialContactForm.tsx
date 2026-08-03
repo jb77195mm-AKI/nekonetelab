@@ -33,7 +33,7 @@ type FormErrors = Partial<Record<FieldName, string>>;
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const inputClass =
-  "w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-navy focus:ring-2 focus:ring-navy/20";
+  "w-full rounded-xl border border-line-soft bg-white px-4 py-3 text-base text-ink outline-none transition placeholder:text-slate-400 focus:border-navy focus:ring-2 focus:ring-navy/20";
 
 export function OfficialContactForm({
   contactEmail,
@@ -170,7 +170,7 @@ export function OfficialContactForm({
         role="status"
         className="rounded-2xl border border-emerald-300 bg-emerald-50 p-6 text-emerald-950"
       >
-        <p className="font-bold">
+        <p className="font-semibold">
           {isDemoResult ? "デモフォームの入力確認が完了しました。" : "お問い合わせを受け付けました。"}
         </p>
         <p className="mt-2 text-sm leading-relaxed">
@@ -504,7 +504,7 @@ export function OfficialContactForm({
           }
           className={inputClass}
         />
-        <p id="official-message-help" className="mt-1 text-xs text-slate-500">
+        <p id="official-message-help" className="mt-1 text-xs text-muted">
           ご相談内容や現在お困りのことを、分かる範囲でご記入ください。
         </p>
       </Field>
@@ -526,7 +526,7 @@ export function OfficialContactForm({
       <div>
         <label
           htmlFor="official-consent"
-          className="flex min-h-11 cursor-pointer items-start gap-3 rounded-lg py-2 text-sm leading-relaxed text-slate-700 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-navy-deep"
+          className="flex min-h-11 cursor-pointer items-start gap-3 rounded-lg py-2 text-sm leading-relaxed text-muted focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-navy"
         >
           <input
             id="official-consent"
@@ -541,7 +541,7 @@ export function OfficialContactForm({
           <span>
             <Link
               href="/privacy"
-              className="font-medium text-navy-deep underline underline-offset-2"
+              className="font-medium text-navy underline underline-offset-2"
             >
               個人情報の取り扱い
             </Link>
@@ -564,14 +564,14 @@ export function OfficialContactForm({
           role="alert"
           className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm leading-relaxed text-red-900"
         >
-          <p className="font-bold">
+          <p className="font-semibold">
             {status === "unavailable"
               ? "現在フォーム送信の準備中です。"
               : "入力確認に失敗しました。時間をおいて再度お試しください。"}
           </p>
           <p className="mt-1">
             お急ぎの場合は
-            <span className="mx-1 font-bold">{contactEmail}</span>
+            <span className="mx-1 font-semibold">{contactEmail}</span>
             へメールでお問い合わせください。
           </p>
         </div>
@@ -580,7 +580,7 @@ export function OfficialContactForm({
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-navy px-8 py-3 font-bold text-white transition hover:bg-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep disabled:cursor-wait disabled:opacity-60 sm:w-auto"
+        className="inline-flex min-h-12 w-full items-center justify-center rounded-sm bg-ink px-8 py-3 font-semibold text-white transition hover:bg-ink-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy disabled:cursor-wait disabled:opacity-60 sm:w-auto"
       >
         {status === "submitting"
           ? demoMode
@@ -638,7 +638,7 @@ function ConditionalServiceFields({ plan }: { plan: string }) {
 
   return (
     <fieldset className="rounded-2xl border border-sky-200 bg-sky-50/70 p-5">
-      <legend className="px-2 text-sm font-black text-sky-950">
+      <legend className="px-2 text-sm font-medium text-sky-950">
         選択したサービスの確認項目
       </legend>
       <p className="mb-5 text-xs leading-6 text-sky-900">
@@ -649,10 +649,10 @@ function ConditionalServiceFields({ plan }: { plan: string }) {
           <div key={field.key}>
             <label
               htmlFor={`official-service-${field.key}`}
-              className="mb-2 block text-sm font-bold text-slate-800"
+              className="mb-2 block text-sm font-semibold text-ink"
             >
               {field.label}
-              <span className="ml-2 text-xs font-normal text-slate-500">任意</span>
+              <span className="ml-2 text-xs font-normal text-muted">任意</span>
             </label>
             <input
               id={`official-service-${field.key}`}
@@ -686,7 +686,7 @@ function Field({
     <div>
       <label
         htmlFor={`official-${name}`}
-        className="mb-2 block text-sm font-bold text-slate-800"
+        className="mb-2 block text-sm font-semibold text-ink"
       >
         {label}
         {required ? (
@@ -694,7 +694,7 @@ function Field({
             必須
           </span>
         ) : (
-          <span className="ml-2 text-xs font-normal text-slate-500">任意</span>
+          <span className="ml-2 text-xs font-normal text-muted">任意</span>
         )}
       </label>
       {children}

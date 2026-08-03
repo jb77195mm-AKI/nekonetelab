@@ -34,7 +34,7 @@ export default async function ContactPage({
       }
     >
       <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20">
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-900/5 sm:p-10">
+        <div className="rounded-3xl border border-line-soft bg-white p-6 shadow-xl shadow-slate-900/5 sm:p-10">
         <OfficialContactForm
           contactEmail={siteConfig.email}
           initialPlan={initialPlan}

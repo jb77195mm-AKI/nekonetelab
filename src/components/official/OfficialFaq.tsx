@@ -23,14 +23,14 @@ export function OfficialFaq({ items }: { items: readonly FaqItem[] }) {
         const answerId = `official-faq-answer-${index}`;
 
         return (
-          <section key={item.question} className="rounded-2xl border border-slate-200 bg-white">
+          <section key={item.question} className="rounded-2xl border border-line-soft bg-white">
             <h3>
               <button
                 type="button"
                 aria-expanded={open}
                 aria-controls={answerId}
                 onClick={() => toggleItem(index)}
-                className="flex min-h-14 w-full items-start justify-between gap-4 rounded-2xl p-5 text-left font-bold hover:bg-cream-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
+                className="flex min-h-14 w-full items-start justify-between gap-4 rounded-2xl p-5 text-left font-semibold hover:bg-cream-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
               >
                 <span>Q. {item.question}</span>
                 <ChevronDown
@@ -40,7 +40,7 @@ export function OfficialFaq({ items }: { items: readonly FaqItem[] }) {
               </button>
             </h3>
             <div id={answerId} hidden={!open}>
-              <p className="mx-5 border-t border-slate-100 pb-5 pt-4 text-sm leading-7 text-slate-600">
+              <p className="mx-5 border-t border-slate-100 pb-5 pt-4 text-sm leading-7 text-muted">
                 A. {item.answer}
               </p>
             </div>

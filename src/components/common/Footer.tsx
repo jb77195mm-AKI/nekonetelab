@@ -8,7 +8,7 @@ export function Footer({ site }: { site: SiteData }) {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="flex flex-col gap-8 sm:flex-row sm:justify-between">
           <div>
-            <p className="text-lg font-bold">{site.logoText}</p>
+            <p className="text-lg font-semibold">{site.logoText}</p>
             <p className="mt-2 max-w-sm text-sm text-[var(--muted)]">{site.tagline}</p>
             <SocialLinks contact={site.contact} className="mt-4 flex items-center gap-3" />
           </div>

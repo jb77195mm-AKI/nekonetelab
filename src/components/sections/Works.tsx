@@ -12,13 +12,13 @@ export function Works({ works }: { works: WorkItem[] }) {
             <div className="relative aspect-[4/3]">
               <PlaceholderImage src={work.image} alt="" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
               {work.tag ? (
-                <span className="absolute left-3 top-3 rounded-full bg-[var(--primary)] px-3 py-1 text-xs font-bold text-white">
+                <span className="absolute left-3 top-3 rounded-full bg-[var(--primary)] px-3 py-1 text-xs font-semibold text-white">
                   {work.tag}
                 </span>
               ) : null}
             </div>
             <div className="p-5">
-              <h3 className="text-base font-bold text-[var(--text)]">{work.title}</h3>
+              <h3 className="text-base font-semibold text-[var(--text)]">{work.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{work.description}</p>
             </div>
           </div>

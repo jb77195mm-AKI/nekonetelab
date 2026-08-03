@@ -42,23 +42,23 @@ export default function PricingPage() {
             .map((plan) => (
               <article
                 key={plan.slug}
-                className={`flex h-full flex-col rounded-3xl border p-7 ${
+                className={`flex h-full flex-col rounded-2xl border p-7 ${
                   plan.recommended
-                    ? "border-amber-accent shadow-xl shadow-navy-deep/10"
-                    : "border-slate-200"
+                    ? "border-amber-accent shadow-xl shadow-ink/10"
+                    : "border-line-soft"
                 }`}
               >
                 {plan.label ? (
-                  <p className="text-sm font-black text-navy-deep">{plan.label}</p>
+                  <p className="text-sm font-medium text-navy">{plan.label}</p>
                 ) : (
-                  <p className="text-sm font-black text-slate-500">選べる導入方法</p>
+                  <p className="text-sm font-medium text-muted">選べる導入方法</p>
                 )}
-                <h2 className="mt-2 text-xl font-black">{plan.name}</h2>
-                <p className="mt-3 text-sm leading-6 text-slate-600">
+                <h2 className="mt-2 text-xl font-medium">{plan.name}</h2>
+                <p className="mt-3 text-sm leading-6 text-muted">
                   {plan.catchCopy}
                 </p>
 
-                <div className="mt-6 rounded-2xl bg-navy-deep p-5 text-white">
+                <div className="mt-6 rounded-2xl bg-ink p-5 text-white">
                   {plan.regularPrice ? (
                     <p className="text-xs text-slate-300">
                       通常制作価格{" "}
@@ -68,10 +68,10 @@ export default function PricingPage() {
                     </p>
                   ) : null}
                   <p className="mt-2 text-xs text-amber-soft">初期制作費</p>
-                  <p className="mt-1 text-4xl font-black tabular-nums">
+                  <p className="mt-1 text-4xl font-medium tabular-nums">
                     {formatYen(plan.initialPrice)}
                   </p>
-                  <p className="mt-4 border-t border-slate-700 pt-4 text-lg font-black">
+                  <p className="mt-4 border-t border-slate-700 pt-4 text-lg font-medium">
                     月額：
                     {plan.monthlyPrice
                       ? `${formatYen(plan.monthlyPrice)}（税込）`
@@ -87,9 +87,9 @@ export default function PricingPage() {
                     {plan.paymentOptions.map((option) => (
                       <div
                         key={option.name}
-                        className="rounded-xl border border-cat-beige bg-cream-light px-4 py-3 text-xs leading-6 text-navy-deep"
+                        className="rounded-xl border border-cat-beige bg-cream-light px-4 py-3 text-xs leading-6 text-navy"
                       >
-                        <p className="font-black">{option.name}</p>
+                        <p className="font-medium">{option.name}</p>
                         <p>
                           初期 {formatYen(option.initialPrice)}・月額{" "}
                           {formatYen(option.monthlyPrice)}
@@ -105,7 +105,7 @@ export default function PricingPage() {
                   {plan.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-start gap-2 text-sm leading-6 text-slate-700"
+                      className="flex items-start gap-2 text-sm leading-6 text-muted"
                     >
                       <Check
                         className="mt-1 h-4 w-4 shrink-0 text-navy"
@@ -117,8 +117,8 @@ export default function PricingPage() {
                 </ul>
 
                 <div className="mt-auto pt-6">
-                  <h3 className="text-sm font-black">別途費用</h3>
-                  <p className="mt-2 text-xs leading-6 text-slate-600">
+                  <h3 className="text-sm font-medium">別途費用</h3>
+                  <p className="mt-2 text-xs leading-6 text-muted">
                     {plan.extraCosts.join("、")}
                   </p>
                   <div className="mt-4 space-y-2">
@@ -142,7 +142,7 @@ export default function PricingPage() {
                         return (
                           <p
                             key={displayedNotice}
-                            className="rounded-xl bg-slate-50 px-4 py-3 text-xs leading-5 text-slate-600"
+                            className="rounded-xl bg-cream-light px-4 py-3 text-xs leading-5 text-muted"
                           >
                             {displayedNotice}
                           </p>
@@ -151,7 +151,7 @@ export default function PricingPage() {
                   </div>
                   <Link
                     href={plan.ctaHref}
-                    className={`mt-5 flex min-h-12 items-center justify-center rounded-full px-5 py-3 text-center font-bold ${
+                    className={`mt-5 flex min-h-12 items-center justify-center rounded-full px-5 py-3 text-center font-semibold ${
                       plan.recommended
                         ? "bg-navy text-white"
                         : "border-2 border-slate-800"
@@ -162,7 +162,7 @@ export default function PricingPage() {
                   {plan.stripeCheckoutEnabled && siteConfig.demoMode ? (
                     <Link
                       href={`/subscription/checkout?plan=${plan.slug}`}
-                      className="mt-3 flex min-h-11 items-center justify-center text-sm font-bold text-sky-900 underline underline-offset-4"
+                      className="mt-3 flex min-h-11 items-center justify-center text-sm font-semibold text-sky-900 underline underline-offset-4"
                     >
                       Stripeテスト申込を確認
                     </Link>
@@ -172,11 +172,11 @@ export default function PricingPage() {
             ))}
         </div>
 
-        <div className="mt-12 overflow-x-auto rounded-2xl border border-slate-200">
+        <div className="mt-12 overflow-x-auto rounded-2xl border border-line-soft">
           <table className="min-w-[760px] w-full border-collapse bg-white text-left text-sm">
             <caption className="sr-only">ホームページ制作3プランの比較</caption>
             <thead>
-              <tr className="border-b border-slate-200">
+              <tr className="border-b border-line-soft">
                 <th scope="col" className="p-4">
                   比較項目
                 </th>
@@ -197,10 +197,10 @@ export default function PricingPage() {
                 : productionComparisonRows
               ).map((row) => (
                 <tr key={row.label} className="border-b border-slate-100 last:border-0">
-                  <th scope="row" className="p-4 font-bold">
+                  <th scope="row" className="p-4 font-semibold">
                     {row.label}
                   </th>
-                  <td className="bg-cream-light/60 p-4 font-bold">{row.webStart}</td>
+                  <td className="bg-cream-light/60 p-4 font-semibold">{row.webStart}</td>
                   <td className="p-4">{row.webSupport}</td>
                   <td className="p-4">{row.buyout}</td>
                 </tr>
@@ -209,65 +209,65 @@ export default function PricingPage() {
           </table>
         </div>
 
-        <div className="mt-8 rounded-3xl border border-sky-200 bg-sky-50 p-7 sm:p-10">
-          <h2 className="text-2xl font-black">買い切り向けの任意保守</h2>
-          <p className="mt-3 text-sm leading-7 text-slate-600">
+        <div className="mt-8 rounded-2xl border border-sky-200 bg-sky-50 p-7 sm:p-10">
+          <h2 className="text-2xl font-medium">買い切り向けの任意保守</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
             買い切りプランの公開後は、技術保守または軽微な更新付き保守を必要に応じて追加できます。
           </p>
           <div className="mt-6 grid gap-5 lg:grid-cols-2">
             {buyoutMaintenancePlans.map((plan) => (
               <article key={plan.name} className="rounded-2xl bg-white p-6">
-                <h3 className="text-lg font-black">{plan.name}</h3>
-                <p className="mt-2 text-2xl font-black text-sky-900">
+                <h3 className="text-lg font-medium">{plan.name}</h3>
+                <p className="mt-2 text-2xl font-medium text-sky-900">
                   月額{formatYen(plan.monthlyPrice)}（税込）
                 </p>
                 <ul className="mt-5 space-y-2">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                    <li key={feature} className="flex items-start gap-2 text-sm leading-6 text-muted">
                       <Check className="mt-1 h-4 w-4 shrink-0 text-sky-800" aria-hidden="true" />
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <p className="mt-4 text-xs leading-6 text-slate-500">{plan.note}</p>
+                <p className="mt-4 text-xs leading-6 text-muted">{plan.note}</p>
               </article>
             ))}
           </div>
         </div>
 
-        <div className="mt-12 rounded-3xl bg-slate-50 p-7 sm:p-10">
-          <h2 className="text-2xl font-black">全プラン共通の別途費用</h2>
+        <div className="mt-12 rounded-2xl bg-cream-light p-7 sm:p-10">
+          <h2 className="text-2xl font-medium">全プラン共通の別途費用</h2>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {additionalCosts.map((item) => (
               <div
                 key={item}
-                className="rounded-xl bg-white px-4 py-3 text-sm font-bold"
+                className="rounded-xl bg-white px-4 py-3 text-sm font-semibold"
               >
                 {item}
               </div>
             ))}
           </div>
-          <p className="mt-6 text-sm leading-7 text-slate-600">
+          <p className="mt-6 text-sm leading-7 text-muted">
             独自ドメインや外部サービスの利用料は、原則としてお客様のご負担となります。追加料金が発生する作業は事前にお見積もりします。
           </p>
         </div>
 
-        <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-7 sm:p-10">
-          <h2 className="text-2xl font-black">追加作業の料金目安</h2>
-          <p className="mt-3 text-sm leading-7 text-slate-600">
+        <div className="mt-8 rounded-2xl border border-line-soft bg-white p-7 sm:p-10">
+          <h2 className="text-2xl font-medium">追加作業の料金目安</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
             大幅な修正、ページ追加、新機能の実装、更新回数を超える作業は、内容を確認のうえ別途お見積もりします。
           </p>
-          <div className="mt-6 divide-y divide-slate-200 overflow-hidden rounded-2xl border border-slate-200">
+          <div className="mt-6 divide-y divide-line-soft overflow-hidden rounded-2xl border border-line-soft">
             {additionalWorkPricing.map((item) => (
               <div
                 key={item.name}
                 className="grid gap-2 p-5 text-sm sm:grid-cols-[1fr_auto] sm:items-center"
               >
                 <div>
-                  <p className="font-black">{item.name}</p>
-                  <p className="mt-1 text-xs text-slate-500">{item.note}</p>
+                  <p className="font-medium">{item.name}</p>
+                  <p className="mt-1 text-xs text-muted">{item.note}</p>
                 </div>
-                <p className="font-black text-navy-deep">{item.price}</p>
+                <p className="font-medium text-navy">{item.price}</p>
               </div>
             ))}
           </div>
@@ -276,7 +276,7 @@ export default function PricingPage() {
         <div className="mt-10 text-center">
           <Link
             href="/contact?plan=undecided"
-            className="inline-flex min-h-12 items-center gap-2 rounded-full bg-navy-deep px-7 py-3 font-bold text-white"
+            className="inline-flex min-h-12 items-center gap-2 rounded-sm bg-ink px-7 py-3 font-semibold text-white"
           >
             自分に合うプランを相談する
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

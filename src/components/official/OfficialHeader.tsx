@@ -74,12 +74,12 @@ export function OfficialHeader({
 
   return (
     <>
-      <header className="sticky top-0 z-[60] border-b border-slate-200 bg-white/95 backdrop-blur">
+      <header className="sticky top-0 z-[60] border-b border-line-soft bg-white/95 backdrop-blur">
         <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
           <Link
             href="/"
             onClick={closeMenu}
-            className="flex min-w-0 items-center gap-2 font-black tracking-tight text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy-deep"
+            className="flex min-w-0 items-center gap-2 font-medium tracking-tight text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy"
           >
             <BrandPawMark />
             <span className="truncate text-[0.8125rem] sm:text-base">{businessName}</span>
@@ -90,7 +90,7 @@ export function OfficialHeader({
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-sm transition hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy-deep"
+                className="rounded-sm transition hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy"
               >
                 {item.label}
               </Link>
@@ -101,7 +101,7 @@ export function OfficialHeader({
           <a
             href={instagramUrl}
             aria-label="Instagramを新しいタブで開く"
-            className="rounded-full p-2 text-slate-700 transition hover:bg-cream-light hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
+            className="rounded-full p-2 text-muted transition hover:bg-cream-light hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
             {...externalLinkProps}
           >
             <Camera className="h-5 w-5" aria-hidden="true" />
@@ -109,7 +109,7 @@ export function OfficialHeader({
           <a
             href={xUrl}
             aria-label="Xを新しいタブで開く"
-            className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-black text-slate-700 transition hover:bg-cream-light hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
+            className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-medium text-muted transition hover:bg-cream-light hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
             {...externalLinkProps}
           >
             X
@@ -117,7 +117,7 @@ export function OfficialHeader({
           <a
             href={lineUrl}
             aria-label="公式LINEを新しいタブで開く"
-            className="flex min-h-11 items-center justify-center rounded-full px-3 text-xs font-black text-slate-700 transition hover:bg-cream-light hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
+            className="flex min-h-11 items-center justify-center rounded-full px-3 text-xs font-medium text-muted transition hover:bg-cream-light hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
             {...externalLinkProps}
           >
             LINE
@@ -125,14 +125,14 @@ export function OfficialHeader({
             <details className="group relative">
               <summary
                 aria-label="言語を選択"
-                className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full text-slate-700 transition hover:bg-cream-light hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep [&::-webkit-details-marker]:hidden"
+                className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full text-muted transition hover:bg-cream-light hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy [&::-webkit-details-marker]:hidden"
               >
                 <Globe2 className="h-5 w-5" aria-hidden="true" />
               </summary>
-              <div className="absolute right-0 top-12 z-50 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
+              <div className="absolute right-0 top-12 z-50 w-40 rounded-2xl border border-line-soft bg-white p-2 shadow-xl">
                 <Link
                   href="/"
-                  className="flex min-h-10 items-center rounded-xl px-3 py-2 text-sm font-bold text-navy-deep hover:bg-cream-light"
+                  className="flex min-h-10 items-center rounded-xl px-3 py-2 text-sm font-semibold text-navy hover:bg-cream-light"
                 >
                   日本語
                 </Link>
@@ -149,7 +149,7 @@ export function OfficialHeader({
             </details>
             <Link
               href="/contact"
-              className="ml-1 inline-flex min-h-11 items-center rounded-full bg-navy-deep px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
+              className="ml-1 inline-flex min-h-11 items-center rounded-sm bg-ink px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
             >
               無料相談
             </Link>
@@ -162,7 +162,7 @@ export function OfficialHeader({
             aria-expanded={open}
             aria-controls="official-mobile-menu"
             onClick={() => setOpen((current) => !current)}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-900 transition hover:border-navy hover:text-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep xl:hidden"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line-soft bg-white text-ink transition hover:border-navy hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy xl:hidden"
           >
             {open ? (
               <CloseIcon className="h-5 w-5" aria-hidden="true" />
@@ -180,12 +180,12 @@ export function OfficialHeader({
             tabIndex={-1}
             aria-label="メニューを閉じる"
             onClick={closeMenu}
-            className="fixed inset-0 top-16 z-40 cursor-default bg-navy-deep/40 xl:hidden"
+            className="fixed inset-0 top-16 z-40 cursor-default bg-ink/40 xl:hidden"
           />
           <nav
             id="official-mobile-menu"
             aria-label="モバイルナビゲーション"
-            className="fixed inset-x-4 top-20 z-50 max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl border border-slate-200 bg-white p-3 text-sm shadow-2xl sm:left-auto sm:w-80 xl:hidden"
+            className="fixed inset-x-4 top-20 z-50 max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl border border-line-soft bg-white p-3 text-sm shadow-sm sm:left-auto sm:w-80 xl:hidden"
           >
             {officialNavigation.map((item, index) => (
               <Link
@@ -193,7 +193,7 @@ export function OfficialHeader({
                 ref={index === 0 ? firstMenuLinkRef : undefined}
                 href={item.href}
                 onClick={closeMenu}
-                className="flex min-h-11 items-center rounded-xl px-4 py-3 font-medium hover:bg-cream-light focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy-deep"
+                className="flex min-h-11 items-center rounded-xl px-4 py-3 font-medium hover:bg-cream-light focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy"
               >
                 {item.label}
               </Link>
@@ -202,7 +202,7 @@ export function OfficialHeader({
               href={lineUrl}
               aria-label="公式LINEを新しいタブで開く"
               onClick={closeMenu}
-              className="flex min-h-11 items-center rounded-xl px-4 py-3 font-medium hover:bg-cream-light focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy-deep"
+              className="flex min-h-11 items-center rounded-xl px-4 py-3 font-medium hover:bg-cream-light focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy"
               {...externalLinkProps}
             >
               公式LINE
@@ -210,12 +210,12 @@ export function OfficialHeader({
             <Link
               href="/contact"
               onClick={closeMenu}
-              className="mt-2 flex min-h-12 items-center justify-center rounded-xl bg-navy px-4 py-3 text-center font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-deep"
+              className="mt-2 flex min-h-12 items-center justify-center rounded-xl bg-navy px-4 py-3 text-center font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
             >
               無料相談
             </Link>
-            <div className="mt-3 border-t border-slate-200 pt-3">
-              <p className="flex items-center gap-1.5 px-4 text-xs font-bold text-slate-500">
+            <div className="mt-3 border-t border-line-soft pt-3">
+              <p className="flex items-center gap-1.5 px-4 text-xs font-semibold text-muted">
                 <Globe2 className="h-3.5 w-3.5" aria-hidden="true" />
                 Language
               </p>
@@ -225,7 +225,7 @@ export function OfficialHeader({
                     key={segment}
                     href={localePath(segment)}
                     onClick={closeMenu}
-                    className="inline-flex min-h-9 items-center rounded-full border border-slate-300 px-3 py-1.5 text-xs font-bold text-slate-700 hover:border-navy hover:text-navy"
+                    className="inline-flex min-h-9 items-center rounded-full border border-line-soft px-3 py-1.5 text-xs font-semibold text-muted hover:border-navy hover:text-navy"
                   >
                     {localeLabels[segment]}
                   </Link>

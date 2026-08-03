@@ -11,7 +11,7 @@ export function Hero({ hero }: { hero: HeroConfig }) {
       </div>
 
       <div className="relative mx-auto w-full max-w-6xl px-4 pb-14 pt-24 sm:px-6 sm:pb-20">
-        <h1 className="max-w-2xl text-3xl font-bold leading-snug text-white sm:text-5xl">
+        <h1 className="max-w-2xl text-3xl font-semibold leading-snug text-white sm:text-5xl">
           {hero.title}
         </h1>
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/90 sm:text-lg">

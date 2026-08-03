@@ -26,7 +26,7 @@ export function Header({
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--muted)]/15 bg-[var(--background)]/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href={basePath} className="text-lg font-bold tracking-wide text-[var(--text)]">
+        <Link href={basePath} className="text-lg font-semibold tracking-wide text-[var(--text)]">
           {logoText}
         </Link>
 
@@ -45,7 +45,7 @@ export function Header({
         <div className="hidden items-center gap-3 md:flex">
           <a
             href={`tel:${contact.phone}`}
-            className="flex items-center gap-1.5 rounded-full bg-[var(--primary)] px-4 py-2 text-sm font-bold text-white transition hover:opacity-90"
+            className="flex items-center gap-1.5 rounded-full bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             {contact.phoneDisplay}

@@ -36,7 +36,7 @@ export default async function SubscriptionCheckoutPage({
         <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
           <Link
             href="/pricing"
-            className="inline-flex min-h-12 items-center rounded-full bg-navy-deep px-6 py-3 font-bold text-white"
+            className="inline-flex min-h-12 items-center rounded-sm bg-ink px-6 py-3 font-semibold text-white"
           >
             料金プランへ戻る
           </Link>
@@ -56,22 +56,22 @@ export default async function SubscriptionCheckoutPage({
       }
     >
       <div className="mx-auto grid max-w-5xl gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_0.95fr]">
-        <section className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+        <section className="rounded-2xl border border-line-soft bg-white p-7 shadow-sm">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="text-xs font-black tracking-[0.14em] text-navy-deep">
+              <p className="text-xs font-medium tracking-[0.14em] text-navy">
                 SELECTED PLAN
               </p>
-              <h2 className="mt-2 text-2xl font-black">{plan.name}</h2>
+              <h2 className="mt-2 text-2xl font-medium">{plan.name}</h2>
             </div>
             {siteConfig.demoMode ? (
-              <span className="rounded-full bg-amber-300 px-3 py-1 text-xs font-black">
+              <span className="rounded-full bg-amber-300 px-3 py-1 text-xs font-medium">
                 テスト
               </span>
             ) : null}
           </div>
 
-          <dl className="mt-7 divide-y divide-slate-200 rounded-2xl border border-slate-200">
+          <dl className="mt-7 divide-y divide-line-soft rounded-2xl border border-line-soft">
             <PriceRow label="初期制作費" value={`${formatYen(plan.initialPrice)}（税込）`} />
             <PriceRow label="月額" value={`${formatYen(plan.monthlyPrice)}（税込）`} />
             <PriceRow label="初回決済額" value={`${formatYen(plan.monthlyPrice)}（税込）予定`} />
@@ -89,12 +89,12 @@ export default async function SubscriptionCheckoutPage({
             <PriceRow label="外部有料サービス" value="別途" />
           </dl>
 
-          <h3 className="mt-7 font-black">含まれる主な内容</h3>
+          <h3 className="mt-7 font-medium">含まれる主な内容</h3>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {plan.features.map((feature) => (
               <li
                 key={feature}
-                className="flex items-start gap-2 text-sm leading-6 text-slate-700"
+                className="flex items-start gap-2 text-sm leading-6 text-muted"
               >
                 <Check
                   className="mt-1 h-4 w-4 shrink-0 text-navy"
@@ -109,7 +109,7 @@ export default async function SubscriptionCheckoutPage({
             {plan.notices.map((notice) => (
               <p
                 key={notice}
-                className="rounded-xl bg-slate-50 px-4 py-3 text-xs leading-6 text-slate-600"
+                className="rounded-xl bg-cream-light px-4 py-3 text-xs leading-6 text-muted"
               >
                 {notice}
               </p>
@@ -117,23 +117,23 @@ export default async function SubscriptionCheckoutPage({
           </div>
         </section>
 
-        <section className="h-fit rounded-3xl border border-cat-beige bg-cream-light p-7">
+        <section className="h-fit rounded-2xl border border-cat-beige bg-cream-light p-7">
           <ShieldCheck
-            className="h-9 w-9 text-navy-deep"
+            className="h-9 w-9 text-navy"
             aria-hidden="true"
           />
-          <h2 className="mt-4 text-xl font-black">契約条件の確認</h2>
-          <p className="mt-3 text-sm leading-7 text-slate-700">
+          <h2 className="mt-4 text-xl font-medium">契約条件の確認</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
             サービスは契約条件の合意、必要情報の受領、初回決済の確認後に開始します。未払利用料金、購入済みのドメイン・サーバー費用、依頼により発生した外部費用がある場合は、中途解約金とは別にお支払いが必要です。所有権・移管条件は個別契約を優先します。
           </p>
-          <div className="mt-5 flex flex-wrap gap-3 text-sm font-bold">
-            <Link href="/terms" className="text-navy-deep underline underline-offset-4">
+          <div className="mt-5 flex flex-wrap gap-3 text-sm font-semibold">
+            <Link href="/terms" className="text-navy underline underline-offset-4">
               利用規約
             </Link>
-            <Link href="/privacy" className="text-navy-deep underline underline-offset-4">
+            <Link href="/privacy" className="text-navy underline underline-offset-4">
               プライバシーポリシー
             </Link>
-            <Link href="/commerce" className="text-navy-deep underline underline-offset-4">
+            <Link href="/commerce" className="text-navy underline underline-offset-4">
               特定商取引法表記
             </Link>
           </div>
@@ -149,8 +149,8 @@ export default async function SubscriptionCheckoutPage({
 function PriceRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="grid gap-1 px-4 py-3 text-sm sm:grid-cols-[8rem_1fr] sm:gap-4">
-      <dt className="font-bold text-slate-600">{label}</dt>
-      <dd className="font-black text-slate-950">{value}</dd>
+      <dt className="font-semibold text-muted">{label}</dt>
+      <dd className="font-medium text-ink">{value}</dd>
     </div>
   );
 }

@@ -12,8 +12,8 @@ export function Staff({ staff }: { staff: StaffMember[] }) {
             <div className="relative mx-auto aspect-[3/4] w-full max-w-[240px] overflow-hidden rounded-2xl">
               <PlaceholderImage src={member.image} alt={`${member.name}の写真`} sizes="240px" />
             </div>
-            <p className="mt-4 text-base font-bold text-[var(--text)]">{member.name}</p>
-            <p className="text-xs font-bold text-[var(--primary)]">{member.role}</p>
+            <p className="mt-4 text-base font-semibold text-[var(--text)]">{member.name}</p>
+            <p className="text-xs font-semibold text-[var(--primary)]">{member.role}</p>
             <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{member.message}</p>
           </div>
         ))}

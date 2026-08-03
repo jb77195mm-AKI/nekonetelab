@@ -27,7 +27,7 @@ export function FloatingActions({
             href={href}
             target={href.startsWith("http") ? "_blank" : undefined}
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-0.5 border-r border-[var(--muted)]/20 py-2.5 text-[11px] font-bold text-[var(--text)] last:border-r-0"
+            className="flex flex-col items-center gap-0.5 border-r border-[var(--muted)]/20 py-2.5 text-[11px] font-semibold text-[var(--text)] last:border-r-0"
           >
             <Icon className="h-5 w-5" aria-hidden="true" />
             {label}
@@ -35,7 +35,7 @@ export function FloatingActions({
         ))}
         <a
           href={mobileCtaHref}
-          className="flex flex-col items-center justify-center gap-0.5 bg-[var(--primary)] py-2.5 text-[11px] font-bold text-white"
+          className="flex flex-col items-center justify-center gap-0.5 bg-[var(--primary)] py-2.5 text-[11px] font-semibold text-white"
         >
           {mobileCtaLabel}
         </a>

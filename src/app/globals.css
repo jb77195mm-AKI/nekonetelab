@@ -2,32 +2,37 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #172331;
+  --foreground: #0a0a0b;
 }
 
 @theme inline {
   --font-sans: var(--font-noto-sans-jp);
-  --font-serif: var(--font-noto-serif-jp);
 }
 
 @theme {
   /* ブランドカラートークン（docs/design-system.md 参照） */
-  --color-paper: #faf9f6;
-  --color-cream-light: #faf4e9;
-  --color-navy: #15365c;
-  --color-navy-deep: #0d2745;
-  --color-mist: #dfeef7;
-  --color-mist-light: #eef6fa;
-  --color-amber-accent: #d89a43;
-  --color-amber-soft: #e9c07e;
-  --color-cat-cream: #f3e7d4;
-  --color-cat-beige: #e4c7a2;
-  --color-cat-nose: #cf7f7b;
-  --color-cat-bluegray: #91a9bd;
+  --color-ink: #0a0a0b;
+  --color-ink-soft: #242424;
+  --color-navy: #4d6bd5;
+  --color-navy-deep: #3a53ab;
+  --color-mist: #eaeefb;
+  --color-mist-light: #f5f7fd;
+  --color-amber-accent: #f97316;
+  --color-amber-soft: #fdba74;
+  --color-paper: #ffffff;
+  --color-cream-light: #f7f8fc;
+  --color-surface-mute: #f1f0f0;
+  --color-line-soft: #e5e5e5;
+  --color-muted: #7d7d7d;
+  --color-cat-cream: #f6efe4;
+  --color-cat-beige: #eddfc8;
+  --color-cat-nose: #e79f9c;
+  --color-cat-bluegray: #9fb2cc;
 }
 
 body {
   font-family: var(--font-sans), "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  color: var(--color-ink);
 }
 
 img,
@@ -41,7 +46,7 @@ iframe {
 }
 
 :focus-visible {
-  outline-color: #15365c;
+  outline-color: #4d6bd5;
 }
 
 /* スクロールで要素が見えたら .is-visible を付与する控えめなフェードイン（Reveal.tsx） */
