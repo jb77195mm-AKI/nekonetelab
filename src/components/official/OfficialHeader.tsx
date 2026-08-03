@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Camera, Globe2, Menu, X as CloseIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { CatMark } from "@/components/brand/BrandCat";
+import { CatFace } from "@/components/brand/Cat";
 import { officialNavigation } from "@/data/official";
 import { localeLabels, localePath, localeSegments } from "@/i18n/locales";
 
@@ -20,14 +20,7 @@ interface OfficialHeaderProps {
 }
 
 function BrandPawMark() {
-  return (
-    <span
-      aria-hidden="true"
-      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cat-beige bg-white shadow-sm"
-    >
-      <CatMark className="h-8 w-8" />
-    </span>
-  );
+  return <CatFace className="h-10 w-10 shrink-0" />;
 }
 
 export function OfficialHeader({

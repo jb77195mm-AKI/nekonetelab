@@ -1,13 +1,18 @@
 /**
- * ブランド猫の生成画像パス管理。
- * ChatGPT で生成した画像（docs/image-generation-prompts.md 参照）を
- * public/images/generated/ に保存し、null をパス文字列に差し替えると
- * 内蔵SVGイラスト（components/brand/BrandCat.tsx）から置換される。
+ * ブランド猫のイラスト画像。
+ * 運営者の愛猫（白〜クリームの毛、耳と顔のアプリコット色のポイント、青灰色の丸い瞳、
+ * 小さなピンクの鼻）をモデルに、ChatGPT で同一キャラクターとして生成したもの。
+ * 追加・差し替えの手順は docs/brand-cat.md を参照。
  */
-export const imageAssets = {
-  heroCat: null as string | null, // "/images/generated/hero-cat-working.webp"
-  ctaCat: null as string | null, // "/images/generated/cat-cta-wave.webp"
-  notFoundCat: null as string | null, // "/images/generated/cat-404.webp"
-  footerCat: null as string | null, // "/images/generated/cat-footer-sitting.webp"
-  ogImage: null as string | null, // "/images/generated/og-brand-cat.webp"
+export const catImages = {
+  /** ノートパソコンで作業する猫 */
+  working: "/images/cat/cat-working.webp",
+  /** しっぽを巻いてきちんと座る猫 */
+  sitting: "/images/cat/cat-sitting.webp",
+  /** 前足を上げて手を振る猫 */
+  waving: "/images/cat/cat-waving.webp",
+  /** 首をかしげて不思議がる猫 */
+  tilting: "/images/cat/cat-tilting.webp",
 } as const;
+
+export type CatImageKey = keyof typeof catImages;

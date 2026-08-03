@@ -17,7 +17,7 @@ import {
   Store,
   Wrench,
 } from "lucide-react";
-import { CatMark, CatSitting } from "@/components/brand/BrandCat";
+import { Cat } from "@/components/brand/Cat";
 import { PlaceholderImage } from "@/components/common/PlaceholderImage";
 import { DxHomePreview } from "@/components/dx/DxHomePreview";
 import { OfficialContactForm } from "@/components/official/OfficialContactForm";
@@ -106,7 +106,7 @@ export default function OfficialHomePage() {
       <main>
         <section
           id="homepage"
-          className="scroll-mt-28 relative overflow-hidden border-b border-line-soft bg-cream-light"
+          className="scroll-mt-28 relative border-b border-line-soft bg-cream-light"
         >
           <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
             <div>
@@ -216,9 +216,9 @@ export default function OfficialHomePage() {
               </div>
               <div
                 aria-hidden="true"
-                className="absolute -bottom-5 -right-3 grid h-20 w-20 rotate-6 place-items-center rounded-full border-2 border-cat-beige bg-white shadow-lg"
+                className="pointer-events-none absolute -top-14 right-4 w-24 sm:-top-16 sm:w-28"
               >
-                <CatMark className="h-14 w-14" />
+                <Cat variant="working" size={224} className="h-auto w-full" priority />
               </div>
             </div>
           </div>
@@ -243,11 +243,18 @@ export default function OfficialHomePage() {
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
-          <SectionHeading
-            question="どんな悩みを相談できるの？"
-            title="こんなお悩みを、一つずつ整理します"
-            description="何を頼めばよいか決まっていなくても大丈夫です。今の事業に必要な優先順位から一緒に考えます。"
-          />
+          <div className="flex items-end justify-between gap-6">
+            <SectionHeading
+              question="どんな悩みを相談できるの？"
+              title="こんなお悩みを、一つずつ整理します"
+              description="何を頼めばよいか決まっていなくても大丈夫です。今の事業に必要な優先順位から一緒に考えます。"
+            />
+            <Cat
+              variant="tilting"
+              size={224}
+              className="hidden h-auto w-28 shrink-0 lg:block"
+            />
+          </div>
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {painPoints.map((point) => (
               <div
@@ -512,10 +519,17 @@ export default function OfficialHomePage() {
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
-          <SectionHeading
-            question="なぜ猫の手デジタルラボなの？"
-            title="小規模事業者が相談しやすい6つの理由"
-          />
+          <div className="flex items-end justify-between gap-6">
+            <SectionHeading
+              question="なぜ猫の手デジタルラボなの？"
+              title="小規模事業者が相談しやすい6つの理由"
+            />
+            <Cat
+              variant="sitting"
+              size={224}
+              className="hidden h-auto w-24 shrink-0 lg:block"
+            />
+          </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {reasons.map((reason, index) => (
               <div
@@ -821,7 +835,14 @@ export default function OfficialHomePage() {
         <section id="faq" className="scroll-mt-28 mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
             <div>
-              <SectionHeading question="ほかに知っておくことは？" title="よくあるご質問" />
+              <div className="flex items-end justify-between gap-6">
+                <SectionHeading question="ほかに知っておくことは？" title="よくあるご質問" />
+                <Cat
+                  variant="waving"
+                  size={192}
+                  className="hidden h-auto w-20 shrink-0 sm:block"
+                />
+              </div>
               <OfficialFaq
                 items={siteConfig.demoMode ? faqItems : productionFaqItems}
               />
@@ -909,7 +930,7 @@ export default function OfficialHomePage() {
                 <p className="text-xs font-medium tracking-[0.18em] text-navy">
                   FREE CONSULTATION
                 </p>
-                <CatSitting className="h-16 w-auto shrink-0 sm:h-20" />
+                <Cat variant="waving" size={160} className="h-16 w-auto shrink-0 sm:h-20" />
               </div>
               <h2 className="mt-3 text-3xl font-medium sm:text-4xl">
                 まずは、お困りごとをお聞かせください
@@ -971,7 +992,7 @@ export default function OfficialHomePage() {
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <Link href="#top" className="inline-flex items-center gap-3 font-medium text-white">
-              <CatSitting className="h-12 w-auto" />
+              <Cat variant="sitting" size={96} className="h-12 w-auto" />
               {siteConfig.businessName}
             </Link>
             <p className="mt-3 max-w-lg text-sm leading-6 text-slate-400">

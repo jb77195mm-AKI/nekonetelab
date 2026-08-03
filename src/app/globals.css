@@ -35,14 +35,17 @@ body {
   color: var(--color-ink);
 }
 
-img,
-video {
-  max-width: 100%;
-  height: auto;
-}
+/* base レイヤーに置くことで、個別の Tailwind ユーティリティ（max-w-none 等）が優先される */
+@layer base {
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
 
-iframe {
-  max-width: 100%;
+  iframe {
+    max-width: 100%;
+  }
 }
 
 :focus-visible {

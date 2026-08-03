@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CatTilt } from "@/components/brand/BrandCat";
+import { Cat } from "@/components/brand/Cat";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export default function NotFound() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-cream-light via-white to-sky-50 px-4 py-16 text-ink">
       <div className="w-full max-w-xl rounded-2xl border border-cat-cream bg-white p-8 text-center shadow-xl shadow-cat-cream/50 sm:p-12">
-        <CatTilt className="mx-auto h-36 w-auto" label="首をかしげて迷っている猫のイラスト" />
+        <Cat variant="tilting" size={288} className="mx-auto h-36 w-auto" alt="首をかしげて迷っている猫のイラスト" />
         <p className="mt-4 text-sm font-medium tracking-[0.24em] text-navy">404</p>
         <h1 className="mt-4 text-3xl font-medium sm:text-4xl">
           ページが見つかりません

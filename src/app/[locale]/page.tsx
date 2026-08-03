@@ -17,7 +17,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { notFound } from "next/navigation";
-import { CatHeroWorking, CatMark, CatSitting } from "@/components/brand/BrandCat";
+import { Cat, CatFace } from "@/components/brand/Cat";
 import { SetHtmlLang } from "@/components/common/SetHtmlLang";
 import { siteConfig } from "@/config/site";
 import { dxTools } from "@/data/dx-tools";
@@ -117,9 +117,7 @@ export default async function LocaleSummaryPage({
       <header className="border-b border-line-soft bg-white/95">
         <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
           <Link href="/" className="flex min-w-0 items-center gap-2 font-medium tracking-tight">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cat-beige bg-white shadow-sm">
-              <CatMark className="h-8 w-8" />
-            </span>
+            <CatFace className="h-10 w-10 shrink-0" />
             <span className="truncate text-sm sm:text-base">{siteConfig.businessName}</span>
           </Link>
           <nav aria-label="Language" className="flex flex-wrap items-center gap-1.5">
@@ -177,7 +175,7 @@ export default async function LocaleSummaryPage({
               </div>
             </div>
             <div className="mx-auto w-full max-w-xs lg:max-w-sm">
-              <CatHeroWorking className="w-full" label={dict.hero.catAlt} />
+              <Cat variant="working" size={640} className="w-full" alt={dict.hero.catAlt} priority />
             </div>
           </div>
         </section>
@@ -323,7 +321,7 @@ export default async function LocaleSummaryPage({
               </h2>
               <p className="mt-4 max-w-3xl text-sm leading-8 text-muted">{dict.area.body}</p>
             </div>
-            <CatSitting className="mx-auto h-32 w-auto lg:h-40" />
+            <Cat variant="sitting" size={320} className="mx-auto h-32 w-auto lg:h-40" />
           </div>
         </section>
 
