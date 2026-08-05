@@ -43,8 +43,8 @@ async function requestBaseUrl(): Promise<URL> {
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = await requestBaseUrl();
   const ogImageUrl = new URL("/og.png", baseUrl);
-  const title = `${siteConfig.businessName}｜制作費0円からのホームページ制作・Web・AI支援`;
-  const socialTitle = `${siteConfig.businessName}｜ホームページ制作費0円`;
+  const title = `${siteConfig.businessName}｜モニター価格・制作費0円からのホームページ制作・Web・AI支援`;
+  const socialTitle = `${siteConfig.businessName}｜ホームページ制作費モニター価格0円`;
 
   return {
     metadataBase: baseUrl,
@@ -69,7 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: `${siteConfig.businessName} ホームページ制作費0円プラン`,
+          alt: `${siteConfig.businessName} ホームページ制作費モニター価格0円プラン`,
         },
       ],
     },

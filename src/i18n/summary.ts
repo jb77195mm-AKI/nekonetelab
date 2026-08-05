@@ -33,8 +33,15 @@ export interface SummaryDict {
     taxNote: string;
     noMinimumTerm: string;
     minimumTerm: string;
-    webStart: { name: string; tagline: string; features: string[]; cancelNote: string };
-    webSupport: { name: string; tagline: string; features: string[] };
+    monitorBadge: string;
+    webStart: {
+      name: string;
+      tagline: string;
+      features: string[];
+      cancelNote: string;
+      priceNote: string;
+    };
+    webSupport: { name: string; tagline: string; features: string[]; priceNote: string };
     buyout: {
       name: string;
       tagline: string;
@@ -77,12 +84,12 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
     meta: {
       title: "Nekonote Digital Lab | Websites, Web marketing & AI support for small businesses",
       description:
-        "Website production starting at ¥0 upfront (monthly plan), Google Maps, LINE, social media, generative AI, and workflow automation. Based in Nabari & Iga, Mie — online support nationwide in Japan.",
+        "Website production starting at ¥0 upfront on a monthly plan (monitor price; regular ¥198,000), Google Maps, LINE, social media, generative AI, and workflow automation. Based in Nabari & Iga, Mie — online support nationwide in Japan.",
     },
     langNote: "This is a summary page in English. Full details are on the Japanese site.",
     hero: {
       badge: "Nabari & Iga, Mie | Online support across Japan",
-      title1: "Websites from ¥0 upfront.",
+      title1: "Websites from ¥0 upfront (monitor price).",
       title2: "Your outside web & AI team.",
       lead: "We build and manage websites for small businesses on a monthly plan, and support Google Maps, LINE, social media, generative AI, and everyday workflow improvements — all through one contact.",
       ctaContact: "Contact by email",
@@ -134,9 +141,12 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
       taxNote: "All prices include Japanese consumption tax.",
       noMinimumTerm: "No minimum term",
       minimumTerm: "Minimum term: 24 months",
+      monitorBadge: "Monitor price",
       webStart: {
         name: "Web Start Plan",
         tagline: "Up to 4 pages, produced and managed for you",
+        priceNote:
+          "Initial production fee: regular ¥198,000 → monitor price ¥0 (tax incl.).",
         features: [
           "Up to 4 pages, industry-based design",
           "Smartphone support & contact form",
@@ -150,6 +160,8 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
       webSupport: {
         name: "Web Support Plan",
         tagline: "Adds hearing, AI-drafted copy, and twice-monthly updates",
+        priceNote:
+          "Initial production fee: regular ¥198,000 → monitor price ¥0 (tax incl.).",
         features: [
           "Up to 6 pages, semi-original design",
           "60-min online hearing (once)",
@@ -223,12 +235,12 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
     meta: {
       title: "貓手數位實驗室｜小型企業的網站製作・網路行銷・AI 支援",
       description:
-        "初期製作費 0 日圓起的月費制網站製作，並支援 Google 地圖、LINE、社群媒體、生成式 AI 與業務效率化。據點位於日本三重縣名張市・伊賀市，全日本線上對應。",
+        "初期製作費原價 198,000 日圓、體驗價 0 日圓起的月費制網站製作，並支援 Google 地圖、LINE、社群媒體、生成式 AI 與業務效率化。據點位於日本三重縣名張市・伊賀市，全日本線上對應。",
     },
     langNote: "本頁為繁體中文摘要。完整內容請參閱日文網站。",
     hero: {
       badge: "日本三重縣 名張市・伊賀市｜全日本線上對應",
-      title1: "網站製作，初期費用 0 日圓起。",
+      title1: "網站製作，初期費用體驗價 0 日圓起。",
       title2: "成為貴公司的外部 Web・AI 夥伴。",
       lead: "以月費制為小型企業製作並管理網站，並透過同一個窗口支援 Google 地圖、LINE、社群媒體、生成式 AI 與日常業務改善。",
       ctaContact: "以電子郵件聯絡",
@@ -256,9 +268,11 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
       taxNote: "所有價格均含日本消費稅。",
       noMinimumTerm: "無最低使用期間",
       minimumTerm: "最低使用期間：24 個月",
+      monitorBadge: "體驗價",
       webStart: {
         name: "Web Start 方案",
         tagline: "由我們製作並管理最多 4 頁的官方網站",
+        priceNote: "初期製作費原價 198,000 日圓 → 體驗價 0 日圓（含稅）。",
         features: [
           "最多 4 頁・業種別基礎設計",
           "支援智慧型手機・洽詢表單",
@@ -272,6 +286,7 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
       webSupport: {
         name: "Web Support 方案",
         tagline: "加上訪談、AI 文案草稿與每月 2 次更新",
+        priceNote: "初期製作費原價 198,000 日圓 → 體驗價 0 日圓（含稅）。",
         features: [
           "最多 6 頁・半客製化設計",
           "首次線上訪談 60 分鐘（1 次）",
@@ -342,12 +357,12 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
     meta: {
       title: "猫手数字实验室｜小微企业的网站制作・网络营销・AI 支持",
       description:
-        "初期制作费 0 日元起的月费制网站制作，并支持谷歌地图、LINE、社交媒体、生成式 AI 与业务效率化。总部位于日本三重县名张市・伊贺市，全日本在线对应。",
+        "初期制作费原价 198,000 日元、体验价 0 日元起的月费制网站制作，并支持谷歌地图、LINE、社交媒体、生成式 AI 与业务效率化。总部位于日本三重县名张市・伊贺市，全日本在线对应。",
     },
     langNote: "本页为简体中文摘要。完整内容请参阅日文网站。",
     hero: {
       badge: "日本三重县 名张市・伊贺市｜全日本在线对应",
-      title1: "网站制作，初期费用 0 日元起。",
+      title1: "网站制作，初期费用体验价 0 日元起。",
       title2: "成为贵公司的外部 Web・AI 伙伴。",
       lead: "以月费制为小微企业制作并管理网站，并通过同一个窗口支持谷歌地图、LINE、社交媒体、生成式 AI 与日常业务改善。",
       ctaContact: "通过电子邮件联系",
@@ -375,9 +390,11 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
       taxNote: "所有价格均含日本消费税。",
       noMinimumTerm: "无最低使用期限",
       minimumTerm: "最低使用期限：24 个月",
+      monitorBadge: "体验价",
       webStart: {
         name: "Web Start 方案",
         tagline: "由我们制作并管理最多 4 页的官方网站",
+        priceNote: "初期制作费原价 198,000 日元 → 体验价 0 日元（含税）。",
         features: [
           "最多 4 页・按行业的基础设计",
           "适配智能手机・咨询表单",
@@ -391,6 +408,7 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
       webSupport: {
         name: "Web Support 方案",
         tagline: "增加访谈、AI 文案草稿与每月 2 次更新",
+        priceNote: "初期制作费原价 198,000 日元 → 体验价 0 日元（含税）。",
         features: [
           "最多 6 页・半定制设计",
           "首次在线访谈 60 分钟（1 次）",
@@ -461,12 +479,12 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
     meta: {
       title: "네코노테 디지털 랩｜소규모 사업자를 위한 홈페이지 제작・웹 마케팅・AI 지원",
       description:
-        "초기 제작비 0엔부터 시작하는 월정액 홈페이지 제작과 구글 지도, LINE, SNS, 생성형 AI, 업무 효율화 지원. 일본 미에현 나바리시・이가시 거점, 일본 전역 온라인 대응.",
+        "초기 제작비 정가 198,000엔 → 모니터 가격 0엔부터 시작하는 월정액 홈페이지 제작과 구글 지도, LINE, SNS, 생성형 AI, 업무 효율화 지원. 일본 미에현 나바리시・이가시 거점, 일본 전역 온라인 대응.",
     },
     langNote: "이 페이지는 한국어 요약본입니다. 자세한 내용은 일본어 사이트를 참고해 주세요.",
     hero: {
       badge: "일본 미에현 나바리・이가｜일본 전역 온라인 대응",
-      title1: "홈페이지 제작, 초기 비용 0엔부터.",
+      title1: "홈페이지 제작, 초기 비용 모니터 가격 0엔부터.",
       title2: "귀사의 외부 Web・AI 담당이 되어 드립니다.",
       lead: "월정액으로 소규모 사업자의 홈페이지를 제작・관리하고, 구글 지도, LINE, SNS, 생성형 AI, 일상 업무 개선까지 하나의 창구로 지원합니다.",
       ctaContact: "이메일로 문의하기",
@@ -494,9 +512,11 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
       taxNote: "모든 가격은 일본 소비세 포함입니다.",
       noMinimumTerm: "최소 이용 기간 없음",
       minimumTerm: "최소 이용 기간: 24개월",
+      monitorBadge: "모니터 가격",
       webStart: {
         name: "Web Start 플랜",
         tagline: "최대 4페이지의 공식 사이트를 제작하고 관리해 드립니다",
+        priceNote: "초기 제작비 정가 198,000엔 → 모니터 가격 0엔(세금 포함).",
         features: [
           "최대 4페이지・업종별 기본 디자인",
           "스마트폰 대응・문의 폼",
@@ -510,6 +530,7 @@ export const summaries: Record<LocaleSegment, SummaryDict> = {
       webSupport: {
         name: "Web Support 플랜",
         tagline: "히어링, AI 원고 초안, 월 2회 업데이트까지 지원",
+        priceNote: "초기 제작비 정가 198,000엔 → 모니터 가격 0엔(세금 포함).",
         features: [
           "최대 6페이지・세미 오리지널 디자인",
           "첫 온라인 히어링 60분(1회)",

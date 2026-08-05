@@ -72,7 +72,14 @@ export default async function SubscriptionCheckoutPage({
           </div>
 
           <dl className="mt-7 divide-y divide-line-soft rounded-2xl border border-line-soft">
-            <PriceRow label="初期制作費" value={`${formatYen(plan.initialPrice)}（税込）`} />
+            <PriceRow
+              label="初期制作費"
+              value={
+                plan.regularPrice
+                  ? `モニター価格 ${formatYen(plan.initialPrice)}（税込）／通常${formatYen(plan.regularPrice)}（税込）`
+                  : `${formatYen(plan.initialPrice)}（税込）`
+              }
+            />
             <PriceRow label="月額" value={`${formatYen(plan.monthlyPrice)}（税込）`} />
             <PriceRow label="初回決済額" value={`${formatYen(plan.monthlyPrice)}（税込）予定`} />
             <PriceRow label="翌月以降" value={`${formatYen(plan.monthlyPrice)}（税込）／月`} />

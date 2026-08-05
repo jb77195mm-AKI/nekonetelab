@@ -37,9 +37,11 @@ export const webPlans: WebPlan[] = [
   {
     slug: "web-start",
     name: "Webスタートプラン",
-    label: "初期制作費0円から",
+    label: "モニター価格 初期制作費0円",
     catchCopy: "必要な情報をいただき、4ページまでの公式サイトを制作・管理",
     initialPrice: 0,
+    regularPrice: 198_000,
+    monitorPrice: 0,
     monthlyPrice: 9_800,
     taxIncluded: true,
     minimumTermMonths: 24,
@@ -86,6 +88,7 @@ export const webPlans: WebPlan[] = [
     stripeCheckoutEnabled: true,
     stripePriceEnvKey: "STRIPE_PRICE_ID_WEB_START",
     notices: [
+      "初期制作費は通常198,000円（税込）のところ、モニター価格0円（税込）でご提供しています。",
       "サービス内容は2つの支払い方法で共通です。",
       "初期費用0円型の24か月支払総額は235,200円（税込）です。",
       "初期費用0円型を24か月未満で解約する場合、中途解約金は残契約月数×9,800円（税込）です。24か月経過後の解約金はありません。",
@@ -98,9 +101,11 @@ export const webPlans: WebPlan[] = [
   {
     slug: "web-support",
     name: "Webサポートプラン",
-    label: "運用サポートを強化",
+    label: "モニター価格 初期制作費0円",
     catchCopy: "ヒアリングとAI原稿下書き、月2回の軽微な更新まで支援",
     initialPrice: 0,
+    regularPrice: 198_000,
+    monitorPrice: 0,
     monthlyPrice: 14_800,
     taxIncluded: true,
     minimumTermMonths: 24,
@@ -130,6 +135,7 @@ export const webPlans: WebPlan[] = [
     displayOrderMobile: 2,
     stripeCheckoutEnabled: false,
     notices: [
+      "初期制作費は通常198,000円（税込）のところ、モニター価格0円（税込）でご提供しています。",
       "詳細レポート、定例会議、電話相談は標準に含みません。",
       "AI原稿は下書きとして作成し、公開前にお客様と内容を確認します。",
     ],
@@ -172,14 +178,19 @@ export const webPlans: WebPlan[] = [
     displayOrderMobile: 3,
     stripeCheckoutEnabled: false,
     notices: [
-      "通常価格148,000円（税込）、モニター価格98,000円（税込）です。",
+      "初期制作費は通常価格148,000円（税込）のところ、モニター価格98,000円（税込）でご提供しています。",
       "公開後の技術保守・更新サポートは任意で追加できます。",
     ],
   },
 ];
 
 export const webPlanComparisonRows = [
-  { label: "初期制作費", webStart: "0円 または 49,800円", webSupport: "0円", buyout: "通常148,000円／モニター98,000円" },
+  {
+    label: "初期制作費",
+    webStart: "通常198,000円／モニター価格0円 または 49,800円",
+    webSupport: "通常198,000円／モニター価格0円",
+    buyout: "通常148,000円／モニター価格98,000円",
+  },
   { label: "月額料金", webStart: "9,800円 または 5,980円", webSupport: "14,800円", buyout: "0円（任意保守あり）" },
   { label: "ページ数", webStart: "最大4ページ", webSupport: "最大6ページ", buyout: "最大5ページ" },
   { label: "原稿支援", webStart: "お客様が用意", webSupport: "AI下書きあり", buyout: "お客様が用意" },

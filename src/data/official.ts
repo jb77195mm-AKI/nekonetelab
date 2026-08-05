@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 export const officialNavigation = [
-  { label: "制作費0円", href: "/#homepage" },
+  { label: "モニター価格0円", href: "/#homepage" },
   { label: "サービス", href: "/#services" },
   { label: "業種別DX", href: "/services/dx" },
   { label: "料金", href: "/#plans" },

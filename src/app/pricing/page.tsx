@@ -16,7 +16,7 @@ import { buyoutMaintenancePlans } from "@/data/web-options";
 export const metadata: Metadata = {
   title: "ホームページ制作料金",
   description:
-    "Webスタート、Webサポート、買い切りの3プランと、標準範囲、支払い方法、保守、追加オプションを比較できます。",
+    "初期制作費は通常198,000円のところモニター価格0円。Webスタート、Webサポート、買い切りの3プランと、標準範囲、支払い方法、保守、追加オプションを比較できます。",
 };
 
 export default function PricingPage() {
@@ -27,13 +27,13 @@ export default function PricingPage() {
       description={
         siteConfig.demoMode
           ? "Webスタートは初期費用0円型と月額負担軽減型から選択。Webサポート、買い切りと、公開後の保守範囲も一緒にご確認ください。"
-          : "初期制作費0円のWebスタート、Webサポート、買い切りと、公開後の保守範囲を比較できます。"
+          : "初期制作費がモニター価格0円（通常198,000円）のWebスタート、Webサポート、買い切りと、公開後の保守範囲を比較できます。"
       }
     >
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-amber-950">
           <strong>Webスタートの契約条件：</strong>
-          月額9,800円（税込）、最低利用期間24か月、24か月総額235,200円（税込）です。期間内の中途解約金は残契約月数×9,800円（税込）。24か月経過後は1か月単位で自動更新し、解約金はありません。解約は次回決済日の10日前までにお申し出ください。
+          初期制作費は通常198,000円（税込）のところモニター価格0円（税込）。月額9,800円（税込）、最低利用期間24か月、24か月総額235,200円（税込）です。期間内の中途解約金は残契約月数×9,800円（税込）。24か月経過後は1か月単位で自動更新し、解約金はありません。解約は次回決済日の10日前までにお申し出ください。
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -60,7 +60,10 @@ export default function PricingPage() {
 
                 <div className="mt-6 rounded-2xl bg-ink p-5 text-white">
                   {plan.regularPrice ? (
-                    <p className="text-xs text-slate-300">
+                    <p className="flex flex-wrap items-center gap-2 text-xs text-slate-300">
+                      <span className="rounded-full bg-amber-accent px-2.5 py-1 text-xs font-semibold text-ink">
+                        モニター価格
+                      </span>
                       通常制作価格{" "}
                       <span className="line-through">
                         {formatYen(plan.regularPrice)}

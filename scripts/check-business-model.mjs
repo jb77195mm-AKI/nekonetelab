@@ -57,6 +57,12 @@ assertIncludes(
   "minimumTermMonths: 24",
   "Webスタート最低利用期間",
 );
+assertIncludes(webPlans, "regularPrice: 198_000", "初期制作費の通常価格");
+assertIncludes(
+  webPlans,
+  "初期制作費は通常198,000円（税込）のところ、モニター価格0円（税込）でご提供しています。",
+  "初期制作費のモニター価格表記",
+);
 assertIncludes(webPlans, 'slug: "web-support"', "Webサポートプラン");
 assertIncludes(webPlans, "monthlyPrice: 14_800", "Webサポート月額");
 assertIncludes(webPlans, 'slug: "buyout"', "買い切りプラン");
@@ -116,6 +122,11 @@ assertIncludes(
   "特商法の所在地",
 );
 assertIncludes(legalDocuments, "070-8933-4067", "特商法の電話番号");
+assertIncludes(
+  legalDocuments,
+  "初期制作費：0円（モニター価格。通常198,000円（税込））",
+  "特商法の初期制作費モニター価格",
+);
 assertIncludes(
   legalDocuments,
   "24か月の支払総額：235,200円（税込）",

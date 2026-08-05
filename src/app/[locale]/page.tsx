@@ -214,8 +214,15 @@ export default async function LocaleSummaryPage({
                 <h3 className="text-xl font-medium">{dict.plans.webStart.name}</h3>
                 <p className="mt-2 text-sm leading-6 text-muted">{dict.plans.webStart.tagline}</p>
                 <div className="mt-5 rounded-2xl bg-ink p-5 text-white">
-                  <p className="text-xs font-semibold text-amber-soft">{dict.plans.initialLabel}</p>
+                  <p className="flex flex-wrap items-center gap-2 text-xs text-slate-300">
+                    <span className="rounded-full bg-amber-accent px-2.5 py-1 text-xs font-semibold text-ink">
+                      {dict.plans.monitorBadge}
+                    </span>
+                    <span className="line-through">{formatJpy(webStart.regularPrice ?? 198_000)}</span>
+                  </p>
+                  <p className="mt-2 text-xs font-semibold text-amber-soft">{dict.plans.initialLabel}</p>
                   <p className="mt-1 text-4xl font-medium tabular-nums">{formatJpy(webStart.initialPrice)}</p>
+                  <p className="mt-2 text-xs leading-5 text-slate-300">{dict.plans.webStart.priceNote}</p>
                   <p className="mt-3 border-t border-slate-700 pt-3 text-sm font-semibold">
                     {dict.plans.monthlyLabel}: {formatJpy(webStart.monthlyPrice)}
                     {dict.plans.monthlyUnit}
@@ -239,10 +246,17 @@ export default async function LocaleSummaryPage({
                 <h3 className="text-xl font-medium">{dict.plans.webSupport.name}</h3>
                 <p className="mt-2 text-sm leading-6 text-muted">{dict.plans.webSupport.tagline}</p>
                 <div className="mt-5 rounded-2xl bg-cream-light p-5">
-                  <p className="text-xs font-semibold text-muted">{dict.plans.initialLabel}</p>
+                  <p className="flex flex-wrap items-center gap-2 text-xs text-muted">
+                    <span className="rounded-full bg-ink px-2.5 py-1 text-xs font-semibold text-white">
+                      {dict.plans.monitorBadge}
+                    </span>
+                    <span className="line-through">{formatJpy(webSupport.regularPrice ?? 198_000)}</span>
+                  </p>
+                  <p className="mt-2 text-xs font-semibold text-muted">{dict.plans.initialLabel}</p>
                   <p className="mt-1 text-3xl font-medium tabular-nums text-navy">
                     {formatJpy(webSupport.initialPrice)}
                   </p>
+                  <p className="mt-2 text-xs leading-5 text-muted">{dict.plans.webSupport.priceNote}</p>
                   <p className="mt-3 border-t border-line-soft pt-3 text-sm font-semibold text-ink">
                     {dict.plans.monthlyLabel}: {formatJpy(webSupport.monthlyPrice)}
                     {dict.plans.monthlyUnit}
@@ -263,7 +277,15 @@ export default async function LocaleSummaryPage({
                 <h3 className="text-xl font-medium">{dict.plans.buyout.name}</h3>
                 <p className="mt-2 text-sm leading-6 text-muted">{dict.plans.buyout.tagline}</p>
                 <div className="mt-5 rounded-2xl bg-cream-light p-5">
-                  <p className="text-xs font-semibold text-muted">{dict.plans.initialLabel}</p>
+                  <p className="flex flex-wrap items-center gap-2 text-xs text-muted">
+                    <span className="rounded-full bg-ink px-2.5 py-1 text-xs font-semibold text-white">
+                      {dict.plans.monitorBadge}
+                    </span>
+                    {buyout.regularPrice ? (
+                      <span className="line-through">{formatJpy(buyout.regularPrice)}</span>
+                    ) : null}
+                  </p>
+                  <p className="mt-2 text-xs font-semibold text-muted">{dict.plans.initialLabel}</p>
                   <p className="mt-1 text-3xl font-medium tabular-nums text-navy">
                     {formatJpy(buyout.monitorPrice ?? buyout.initialPrice)}
                   </p>

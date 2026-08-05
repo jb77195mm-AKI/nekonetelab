@@ -13,7 +13,7 @@ export const homepagePlans = webPlans;
 export const comparisonRows = webPlanComparisonRows;
 export const productionComparisonRows = comparisonRows.map((row) => {
   if (row.label === "初期制作費") {
-    return { ...row, webStart: "0円" };
+    return { ...row, webStart: "通常198,000円／モニター価格0円" };
   }
 
   if (row.label === "月額料金") {
@@ -25,8 +25,11 @@ export const productionComparisonRows = comparisonRows.map((row) => {
 export const additionalWorkPricing = webOptions;
 
 export const businessModel = {
-  primaryMessage: "ホームページ制作費0円",
-  heroTitle: "制作費0円から。あなたの会社のWeb・AI担当になります。",
+  primaryMessage: "ホームページ制作費モニター価格0円",
+  heroTitle: "モニター価格・制作費0円から。あなたの会社のWeb・AI担当になります。",
+  monitorPriceLabel: "モニター価格",
+  monitorPriceNote:
+    "初期制作費は通常198,000円（税込）のところ、モニター価格0円（税込）でご提供しています。",
   heroDescription:
     "名張市・伊賀市を拠点に全国対応。ホームページ制作、更新、Googleマップ、LINE、SNS、生成AI、業務効率化までまとめて支援します。",
   positioning: "小規模事業者のための、月額制Web・AI担当",
@@ -153,7 +156,7 @@ export const painPoints = [
 ] as const;
 
 export const reasons = [
-  "制作費0円から始められ、買い切り型も選べる",
+  "モニター価格で制作費0円から始められ、買い切り型も選べる",
   "名張市・伊賀市を拠点に全国オンライン対応",
   "制作後の更新・保守・運用にも対応",
   "WebとAIを一つの窓口で相談できる",
@@ -201,7 +204,7 @@ export const faqItems: readonly FaqItem[] = [
   {
     question: "本当に制作費は0円ですか？",
     answer:
-      "はい。Webスタートプランの初期費用0円型は月額9,800円（税込）、最低利用期間24か月です。月額負担軽減型も選べます。独自ドメインや外部有料サービスは別途です。",
+      "はい。初期制作費は通常198,000円（税込）のところ、モニター価格0円（税込）でご提供しています。Webスタートプランの初期費用0円型は月額9,800円（税込）、最低利用期間24か月です。月額負担軽減型も選べます。独自ドメインや外部有料サービスは別途です。",
   },
   {
     question: "Webスタートの2つの支払い方法で内容は変わりますか？",
@@ -250,7 +253,7 @@ export const productionFaqItems: readonly FaqItem[] = faqItems
       ? {
           ...item,
           answer:
-            "はい。Webスタートプランは初期制作費0円、月額9,800円（税込）、最低利用期間24か月です。独自ドメインや外部有料サービスは別途です。",
+            "はい。初期制作費は通常198,000円（税込）のところ、モニター価格0円（税込）です。Webスタートプランは月額9,800円（税込）、最低利用期間24か月です。独自ドメインや外部有料サービスは別途です。",
         }
       : item,
   );

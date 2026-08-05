@@ -121,6 +121,12 @@ export default function OfficialHomePage() {
                   あなたの会社のWeb・AI担当になります
                 </span>
               </h1>
+              <p className="mt-5 inline-flex flex-wrap items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-ink sm:text-sm">
+                <span className="rounded-full bg-ink px-2.5 py-1 text-xs font-semibold text-white">
+                  モニター価格
+                </span>
+                初期制作費 通常{formatYen(mainPlan.regularPrice ?? 198_000)}（税込）→ 0円
+              </p>
               <p className="mt-6 max-w-2xl text-base leading-8 text-muted">
                 {businessModel.heroDescription}
               </p>
@@ -130,7 +136,7 @@ export default function OfficialHomePage() {
                   href="/contact?plan=web-start"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-sm bg-ink px-7 py-3 font-semibold text-white transition hover:bg-ink-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
                 >
-                  制作費0円で無料相談する
+                  モニター価格0円で無料相談する
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <a
@@ -171,7 +177,16 @@ export default function OfficialHomePage() {
                   </span>
                 </div>
                 <div className="mt-6 rounded-2xl bg-ink p-6 text-white">
-                  <p className="text-sm font-semibold text-amber-soft">初期制作費</p>
+                  <p className="flex flex-wrap items-center gap-2 text-xs text-slate-300">
+                    <span className="rounded-full bg-amber-accent px-2.5 py-1 text-xs font-semibold text-ink">
+                      モニター価格
+                    </span>
+                    通常制作価格{" "}
+                    <span className="line-through">
+                      {formatYen(mainPlan.regularPrice ?? 198_000)}
+                    </span>
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-amber-soft">初期制作費</p>
                   <p className="mt-1 flex items-baseline gap-2 tabular-nums">
                     <span className="text-6xl font-medium">0</span>
                     <span className="text-xl font-medium">円</span>
@@ -556,7 +571,7 @@ export default function OfficialHomePage() {
               description={
                 siteConfig.demoMode
                   ? "Webスタートは2つの支払い方法から選択。原稿下書きと更新支援を厚くしたWebサポート、データを引き渡す買い切りも用意しています。"
-                  : "初期制作費0円のWebスタート、原稿下書きと更新支援を厚くしたWebサポート、データを引き渡す買い切りを用意しています。"
+                  : "初期制作費がモニター価格0円（通常198,000円）のWebスタート、原稿下書きと更新支援を厚くしたWebサポート、データを引き渡す買い切りを用意しています。"
               }
             />
             <p className="mt-6 max-w-3xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium leading-6 text-amber-950">
@@ -710,14 +725,14 @@ export default function OfficialHomePage() {
                 WHY ZERO YEN?
               </p>
               <h2 className="mt-3 text-3xl font-medium">
-                なぜ制作費0円で
+                なぜモニター価格0円で
                 <br />
                 始められるのですか？
               </h2>
             </div>
             <div>
               <p className="text-base leading-8 text-muted">
-                制作費を最初にまとめていただくのではなく、制作後のサーバー管理、保守、バックアップ、軽微な更新サポートを含む月額制でご利用いただく仕組みです。初期投資を抑えながら、公開後も継続してサポートを受けられます。
+                通常198,000円（税込）の初期制作費を、モニター価格として0円でご提供しています。制作費を最初にまとめていただくのではなく、制作後のサーバー管理、保守、バックアップ、軽微な更新サポートを含む月額制でご利用いただく仕組みです。初期投資を抑えながら、公開後も継続してサポートを受けられます。
               </p>
               <p className="mt-5 rounded-2xl bg-white px-5 py-4 font-semibold leading-7 text-ink shadow-sm">
                 月額9,800円（税込）・最低利用期間24か月・24か月総額235,200円（税込）。24か月経過後は1か月単位で自動更新し、解約金はありません。解約は次回決済日の10日前までにお申し出ください。期間内の中途解約金は残契約月数×9,800円（税込）です。
@@ -1041,7 +1056,7 @@ export default function OfficialHomePage() {
           href="/contact?plan=web-start"
           className="flex min-h-12 items-center justify-center gap-2 rounded-full border border-amber-soft bg-navy px-5 py-3 text-sm font-medium text-white shadow-sm"
         >
-          制作費0円で相談
+          モニター価格0円で相談
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       </div>
@@ -1101,12 +1116,15 @@ function PlanCard({ plan }: { plan: HomepagePlan }) {
 
       <div className="mt-6 rounded-2xl bg-ink p-5 text-white">
         {plan.regularPrice ? (
-          <p className="text-xs text-slate-300">
+          <p className="flex flex-wrap items-center gap-2 text-xs text-slate-300">
+            <span className="rounded-full bg-amber-accent px-2.5 py-1 text-xs font-semibold text-ink">
+              モニター価格
+            </span>
             通常制作価格{" "}
             <span className="line-through">{formatYen(plan.regularPrice)}</span>
           </p>
         ) : null}
-        <p className="mt-1 text-xs font-semibold text-amber-soft">初期制作費</p>
+        <p className="mt-2 text-xs font-semibold text-amber-soft">初期制作費</p>
         <p className="mt-1 flex flex-wrap items-baseline gap-1 tabular-nums">
           <span className="text-4xl font-medium">{formatYen(plan.initialPrice)}</span>
           <span className="text-xs">（税込）</span>
