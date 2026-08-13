@@ -36,6 +36,7 @@ import {
   rakurakuMonitorBadge,
   rakurakuNoWebsite,
   rakurakuPains,
+  rakurakuPaymentOptions,
   rakurakuPricing,
   rakurakuTerms,
 } from "@/data/rakuraku-sencho";
@@ -354,6 +355,35 @@ export default function RakurakuSenchoPage() {
                   </li>
                 ))}
               </ul>
+
+              {/* 支払い方法は船長が選べる */}
+              <div className="mt-7 rounded-2xl border border-sea-line bg-sea-ivory p-6 sm:p-7">
+                <h3 className="text-lg font-bold sm:text-xl">
+                  {rakurakuPaymentOptions.heading}
+                </h3>
+                <p className="mt-3 text-base leading-7 text-sea-body">
+                  {rakurakuPaymentOptions.description}
+                </p>
+                <ul className="mt-5 grid gap-3 sm:grid-cols-3">
+                  {rakurakuPaymentOptions.options.map((option) => (
+                    <li
+                      key={option.title}
+                      className="rounded-2xl border border-sea-line bg-white p-5"
+                    >
+                      <p className="inline-flex rounded-full bg-sea-gold-soft px-3 py-1 text-xs font-bold text-sea-navy">
+                        {option.summary}
+                      </p>
+                      <p className="mt-3 text-lg font-bold">{option.title}</p>
+                      <p className="mt-2 text-sm leading-6 text-sea-body">
+                        {option.description}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 text-sm leading-6 text-sea-body">
+                  {rakurakuPaymentOptions.note}
+                </p>
+              </div>
 
               <p className="mt-6 text-sm leading-6 text-sea-body">
                 {rakurakuNoWebsite.note}
