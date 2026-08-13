@@ -166,6 +166,16 @@ export const rakurakuNoWebsite = {
   note: "※HP制作費については内容に応じて個別見積。",
 } as const;
 
+/**
+ * 契約条件。通常・モニターで共通。
+ * 特定商取引法表記（src/data/legal-documents.ts の「## ラクラク船長」）と必ず一致させる。
+ */
+export const rakurakuTerms = [
+  { label: "最低利用期間", value: "なし（1か月単位で自動更新）" },
+  { label: "解約申出期限", value: "次回決済日の10日前まで" },
+  { label: "中途解約金", value: "なし" },
+] as const;
+
 /** SECTION 08: 料金 */
 export const rakurakuPricing = {
   regular: {

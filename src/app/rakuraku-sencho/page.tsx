@@ -35,6 +35,7 @@ import {
   rakurakuNoWebsite,
   rakurakuPains,
   rakurakuPricing,
+  rakurakuTerms,
 } from "@/data/rakuraku-sencho";
 
 export const metadata: Metadata = {
@@ -471,6 +472,32 @@ export default function RakurakuSenchoPage() {
                   {rakurakuPricing.regular.note}
                 </p>
               </div>
+            </div>
+
+            {/* 契約条件。通常・モニター共通 */}
+            <div className="mt-6 rounded-3xl border border-sea-line bg-sea-ivory p-7 sm:p-10">
+              <h3 className="text-lg font-bold">契約条件（通常・モニター共通）</h3>
+              <dl className="mt-5 grid gap-4 sm:grid-cols-3">
+                {rakurakuTerms.map((term) => (
+                  <div key={term.label}>
+                    <dt className="text-sm font-semibold text-sea-body">
+                      {term.label}
+                    </dt>
+                    <dd className="mt-1 text-lg font-bold">{term.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-6 text-sm leading-6 text-sea-body">
+                しばりの期間はありません。合わないと感じたら、いつでもやめられます。
+                詳しい条件は
+                <Link
+                  href="/commerce"
+                  className="mx-1 inline-block min-h-6 py-0.5 font-semibold text-sea-blue underline underline-offset-4"
+                >
+                  特定商取引法に基づく表記
+                </Link>
+                をご覧ください。
+              </p>
             </div>
           </div>
         </section>
