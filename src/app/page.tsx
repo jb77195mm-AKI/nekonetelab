@@ -46,6 +46,7 @@ import {
   type HomepagePlan,
 } from "@/data/business-model";
 import { businessActivities } from "@/data/official";
+import { rakurakuMonitorBadge } from "@/data/rakuraku-sencho";
 import { solutions } from "@/data/solutions";
 
 const externalLinkProps = {
@@ -290,7 +291,7 @@ export default function OfficialHomePage() {
                     </Link>
                   </div>
                   <p className="mt-4 text-sm font-semibold text-sea-body">
-                    先着5船｜初期費用0円｜月額4,980円（税込）
+                    {rakurakuMonitorBadge}
                   </p>
                 </div>
 

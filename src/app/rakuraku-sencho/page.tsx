@@ -10,6 +10,7 @@ import {
   Phone,
   RefreshCcw,
   Ship,
+  Sparkles,
   Users,
 } from "lucide-react";
 import { RakurakuFaq } from "@/components/rakuraku/RakurakuFaq";
@@ -32,6 +33,7 @@ import {
   rakurakuFlowNote,
   rakurakuHero,
   rakurakuMeta,
+  rakurakuMonitorBadge,
   rakurakuNoWebsite,
   rakurakuPains,
   rakurakuPricing,
@@ -84,10 +86,14 @@ export default function RakurakuSenchoPage() {
       {
         "@type": "Offer",
         name: "モニター料金（先着5船）",
-        price: rakurakuPricing.monitor.monthlyPrice,
+        price: rakurakuPricing.monitor.monthlyPriceAfterFree,
         priceCurrency: "JPY",
-        description: `初期費用0円、月額${formatRakurakuYen(
-          rakurakuPricing.monitor.monthlyPrice,
+        description: `初期費用0円、最初の${
+          rakurakuPricing.monitor.freeMonths
+        }か月無料。${
+          rakurakuPricing.monitor.freeMonths + 1
+        }か月目から月額${formatRakurakuYen(
+          rakurakuPricing.monitor.monthlyPriceAfterFree,
         )}（税込）`,
       },
     ],
@@ -150,7 +156,7 @@ export default function RakurakuSenchoPage() {
                 </Link>
               </div>
               <p className="mt-4 text-sm font-semibold text-sea-body">
-                先着5船｜初期費用0円｜月額4,980円（税込）
+                {rakurakuMonitorBadge}
               </p>
             </div>
           </div>
@@ -320,17 +326,36 @@ export default function RakurakuSenchoPage() {
           </div>
         </section>
 
-        {/* SECTION 07 ホームページがなくても相談できます */}
+        {/* SECTION 07 ホームページがない船長向け（簡易HP込み） */}
         <section className="bg-sea-ivory py-16 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <div className="rounded-3xl border border-sea-line bg-white p-7 sm:p-10">
-              <h2 className="text-[clamp(1.375rem,4.5vw,1.875rem)] font-bold leading-snug">
+              <p className="inline-flex items-center gap-2 rounded-full bg-sea-gold px-4 py-2 text-sm font-bold text-sea-navy">
+                <Sparkles className="h-4 w-4" aria-hidden="true" />
+                料金にコミコミ
+              </p>
+              <h2 className="mt-5 text-[clamp(1.375rem,4.5vw,1.875rem)] font-bold leading-snug">
                 {rakurakuNoWebsite.heading}
               </h2>
               <p className="mt-5 text-[1.0625rem] leading-8 text-sea-body">
                 {rakurakuNoWebsite.body}
               </p>
-              <p className="mt-4 text-sm text-sea-body">
+
+              <ul className="mt-7 grid gap-4 sm:grid-cols-3">
+                {rakurakuNoWebsite.features.map((item) => (
+                  <li
+                    key={item.title}
+                    className="rounded-2xl bg-sea-blue-soft p-5"
+                  >
+                    <p className="font-bold text-sea-navy">{item.title}</p>
+                    <p className="mt-2 text-sm leading-6 text-sea-body">
+                      {item.description}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mt-6 text-sm leading-6 text-sea-body">
                 {rakurakuNoWebsite.note}
               </p>
               <Link
@@ -373,18 +398,25 @@ export default function RakurakuSenchoPage() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-base font-semibold text-white/80">月額</p>
+                  <p className="text-base font-semibold text-white/80">
+                    最初の{rakurakuPricing.monitor.freeMonths}か月
+                  </p>
                   <p className="mt-1 flex items-baseline gap-2">
-                    <span className="text-5xl font-bold tabular-nums">
-                      {rakurakuPricing.monitor.monthlyPrice.toLocaleString(
-                        "ja-JP",
-                      )}
-                    </span>
-                    <span className="text-2xl font-bold">円</span>
-                    <span className="text-base font-semibold">（税込）</span>
+                    <span className="text-6xl font-bold">無料</span>
                   </p>
                 </div>
               </div>
+
+              <p className="mt-6 flex flex-wrap items-baseline gap-x-2 gap-y-1 border-t border-white/20 pt-6 text-base font-semibold text-white/90">
+                {rakurakuPricing.monitor.freeMonths + 1}か月目から
+                <span className="text-3xl font-bold tabular-nums text-white">
+                  {rakurakuPricing.monitor.monthlyPriceAfterFree.toLocaleString(
+                    "ja-JP",
+                  )}
+                </span>
+                <span className="text-xl font-bold text-white">円</span>
+                （税込）／月
+              </p>
 
               <p className="mt-6 rounded-2xl bg-white/10 px-5 py-4 text-base font-semibold leading-7">
                 {rakurakuPricing.monitor.note}
