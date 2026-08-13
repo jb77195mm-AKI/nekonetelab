@@ -10,6 +10,7 @@ import {
 
 export const officialNavigation = [
   { label: "モニター価格0円", href: "/#homepage" },
+  { label: "ラクラク船長", href: "/rakuraku-sencho" },
   { label: "サービス", href: "/#services" },
   { label: "業種別DX", href: "/services/dx" },
   { label: "料金", href: "/#plans" },

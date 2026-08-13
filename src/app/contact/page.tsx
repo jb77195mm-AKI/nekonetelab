@@ -22,6 +22,7 @@ export default async function ContactPage({
   )
     ? requestedPlan
     : "undecided";
+  const isRakurakuSencho = initialPlan?.startsWith("rakuraku-sencho") ?? false;
 
   return (
     <SubpageShell
@@ -34,6 +35,27 @@ export default async function ContactPage({
       }
     >
       <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20">
+        {isRakurakuSencho ? (
+          <div className="mb-6 rounded-3xl border-2 border-sea-blue bg-sea-blue-soft p-6 sm:p-8">
+            <h2 className="text-xl font-bold text-sea-navy">
+              ラクラク船長のお申し込み・ご相談
+            </h2>
+            <p className="mt-3 text-base leading-7 text-sea-body">
+              下のフォームからご連絡ください。分かる範囲で構いません。
+              入力が難しい場合は、お電話でも受け付けています。
+            </p>
+            <ul className="mt-4 space-y-2 text-base leading-7 text-sea-body">
+              <li>・「事業者名・屋号」に船名をご記入ください</li>
+              <li>・「現在のホームページ」でHPの有無をお選びください</li>
+              <li>
+                ・「現在使用中のサービス」に今の予約方法（電話・LINE・Googleカレンダーなど）をご記入ください
+              </li>
+              <li>
+                ・外国人のお客様からの問い合わせがあるかも、あわせてお書きください
+              </li>
+            </ul>
+          </div>
+        ) : null}
         <div className="rounded-3xl border border-line-soft bg-white p-6 shadow-xl shadow-slate-900/5 sm:p-10">
         <OfficialContactForm
           contactEmail={siteConfig.email}

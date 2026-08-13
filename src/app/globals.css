@@ -28,6 +28,18 @@
   --color-cat-beige: #eddfc8;
   --color-cat-nose: #e79f9c;
   --color-cat-bluegray: #9fb2cc;
+
+  /* ラクラク船長（釣り船向けサービス）専用の海カラー。既存トークンは変更しない */
+  --color-sea-navy: #12345b;
+  --color-sea-navy-deep: #0b2140;
+  --color-sea-blue: #2388d9;
+  --color-sea-blue-soft: #e6f2fb;
+  --color-sea-ivory: #fbf8f2;
+  --color-sea-sand: #f3ece0;
+  --color-sea-gold: #f0a020;
+  --color-sea-gold-soft: #fde8c4;
+  --color-sea-body: #41506a;
+  --color-sea-line: #dfe5ee;
 }
 
 body {

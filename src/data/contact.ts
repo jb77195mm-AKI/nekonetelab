@@ -4,6 +4,7 @@ export const officialInquiryTypes = [
   "Webスタートプラン",
   "Webサポートプラン",
   "買い切りプラン",
+  "ラクラク船長（釣り船の予約サポート）",
   "インバウンド対応 かんたん順番待ち",
   "口コミ返信サポート",
   "スキル別AIシフト",
@@ -23,6 +24,14 @@ export const consultationPlans = [
   { value: "web-start", label: "Webスタート（月額9,800円・24か月）" },
   { value: "web-support", label: "Webサポート（月額14,800円・24か月）" },
   { value: "buyout", label: "買い切り" },
+  {
+    value: "rakuraku-sencho",
+    label: "ラクラク船長 モニター（初期0円・月額4,980円）",
+  },
+  {
+    value: "rakuraku-sencho-regular",
+    label: "ラクラク船長 通常（初期55,000円・月額9,800円）",
+  },
   { value: "inbound-queue", label: "インバウンド対応 かんたん順番待ち" },
   { value: "review-support", label: "口コミ返信サポート" },
   { value: "skill-shift", label: "スキル別AIシフト" },
