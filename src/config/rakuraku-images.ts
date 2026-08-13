@@ -9,7 +9,7 @@
  * レイアウトを崩さずに確認できる。画像を配置したら `ready: true` に変更する。
  */
 
-export const rakurakuImagesReady = false;
+export const rakurakuImagesReady = true;
 
 export const rakurakuImageDir = "/images/rakuraku-sencho";
 
@@ -28,22 +28,22 @@ export const rakurakuImages = {
   /** ファーストビュー。船長＋猫＋釣り船＋港 */
   hero: {
     src: `${rakurakuImageDir}/hero.webp`,
-    aspectRatio: "4 / 3",
+    aspectRatio: "16 / 9",
   },
   /** 予約管理・スケジュール管理 */
   reservation: {
     src: `${rakurakuImageDir}/reservation.webp`,
-    aspectRatio: "4 / 3",
+    aspectRatio: "16 / 9",
   },
   /** 時化・悪天候時の欠航一斉連絡 */
   cancellation: {
     src: `${rakurakuImageDir}/cancellation.webp`,
-    aspectRatio: "4 / 3",
+    aspectRatio: "16 / 9",
   },
   /** 外国人との多言語コミュニケーション */
   multilingual: {
     src: `${rakurakuImageDir}/multilingual.webp`,
-    aspectRatio: "4 / 3",
+    aspectRatio: "16 / 9",
   },
 } as const satisfies Record<string, RakurakuImageAsset>;
 

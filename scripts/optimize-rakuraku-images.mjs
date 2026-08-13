@@ -7,7 +7,7 @@
  *
  *   node scripts/optimize-rakuraku-images.mjs
  *
- * 入力: public/images/rakuraku-sencho/original/<name>.png
+ * 入力: assets/rakuraku-sencho/<name>.png（配信対象外。元画像の保管場所）
  * 出力: public/images/rakuraku-sencho/<name>.webp
  */
 import fs from "node:fs";
@@ -16,7 +16,7 @@ import sharp from "sharp";
 
 const projectRoot = process.cwd();
 const outputDir = path.join(projectRoot, "public", "images", "rakuraku-sencho");
-const inputDir = path.join(outputDir, "original");
+const inputDir = path.join(projectRoot, "assets", "rakuraku-sencho");
 
 /** 長辺の上限。ヒーローだけ大きめ、説明用は控えめにする */
 const maxWidths = {
@@ -29,7 +29,7 @@ const maxWidths = {
 
 if (!fs.existsSync(inputDir)) {
   console.error(`元画像のディレクトリがありません: ${inputDir}`);
-  console.error("PNG を original/ へ置いてから実行してください。");
+  console.error("PNG を assets/rakuraku-sencho/ へ置いてから実行してください。");
   process.exit(1);
 }
 
