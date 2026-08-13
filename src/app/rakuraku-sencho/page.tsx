@@ -12,6 +12,7 @@ import {
   Ship,
   Sparkles,
   Users,
+  Wallet,
 } from "lucide-react";
 import { RakurakuFaq } from "@/components/rakuraku/RakurakuFaq";
 import { RakurakuFooter } from "@/components/rakuraku/RakurakuFooter";
@@ -380,6 +381,20 @@ export default function RakurakuSenchoPage() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-5 flex flex-col gap-4 rounded-2xl border-2 border-sea-blue bg-white p-5 sm:flex-row sm:items-start">
+                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sea-blue-soft">
+                    <Wallet className="h-6 w-6 text-sea-blue" aria-hidden="true" />
+                  </span>
+                  <div>
+                    <p className="text-lg font-bold">
+                      {rakurakuPaymentOptions.settlement.title}
+                    </p>
+                    <p className="mt-2 text-base leading-7 text-sea-body">
+                      {rakurakuPaymentOptions.settlement.description}
+                    </p>
+                  </div>
+                </div>
+
                 <p className="mt-5 text-sm leading-6 text-sea-body">
                   {rakurakuPaymentOptions.note}
                 </p>
