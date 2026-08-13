@@ -28,8 +28,18 @@ export const rakurakuCta = {
   secondaryHref: "/contact?plan=rakuraku-sencho-regular",
 } as const;
 
+/**
+ * モニターの無料期間（月数）。
+ * ここを変えると、LP・要約バッジ・注記・構造化データがすべて追従する。
+ * 特定商取引法表記（src/data/legal-documents.ts）だけは手動で合わせること。
+ */
+export const rakurakuFreeMonths = 2;
+
+/** 無料期間の終了後、最初に請求が発生する月 */
+export const rakurakuFirstBillingMonth = rakurakuFreeMonths + 1;
+
 /** モニター条件の要約。ヘッダー下・料金・最終CTA・トップページ導線で共通に使う */
-export const rakurakuMonitorBadge = "先着5船｜初期費用0円｜最初の3か月無料";
+export const rakurakuMonitorBadge = `先着5船｜初期費用0円｜最初の${rakurakuFreeMonths}か月無料`;
 
 export const rakurakuHero = {
   eyebrow: "釣り船・遊漁船の船長さんへ",
@@ -261,12 +271,12 @@ export const rakurakuPricing = {
     limitLabel: "先着5船限定",
     initialPrice: 0,
     /** 無料期間（月数）。終了後は通常の月額へ移行する */
-    freeMonths: 3,
+    freeMonths: rakurakuFreeMonths,
     /** 無料期間の終了後に発生する月額。通常料金と同額 */
     monthlyPriceAfterFree: 9_800,
     conditions: ["導入後のフィードバック", "導入事例としての掲載協力"],
     /** 「ずっと無料」と誤解させないための注記 */
-    note: "無料は最初の3か月間です。4か月目から月額9,800円（税込）が発生します。無料期間中にやめた場合、料金はかかりません。",
+    note: `無料は最初の${rakurakuFreeMonths}か月間です。${rakurakuFirstBillingMonth}か月目から月額9,800円（税込）が発生します。無料期間中にやめた場合、料金はかかりません。`,
   },
 } as const;
 

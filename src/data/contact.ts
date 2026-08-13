@@ -26,7 +26,7 @@ export const consultationPlans = [
   { value: "buyout", label: "買い切り" },
   {
     value: "rakuraku-sencho",
-    label: "ラクラク船長 モニター（初期0円・3か月無料）",
+    label: "ラクラク船長 モニター（初期0円・2か月無料）",
   },
   {
     value: "rakuraku-sencho-regular",
