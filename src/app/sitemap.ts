@@ -14,6 +14,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
+    {
+      url: `${siteConfig.publicUrl}/rakuraku-sencho`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     { url: `${siteConfig.publicUrl}/services`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.publicUrl}/industries`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.publicUrl}/pricing`, changeFrequency: "monthly", priority: 0.8 },

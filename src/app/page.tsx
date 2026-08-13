@@ -13,6 +13,7 @@ import {
   MapPin,
   MessageCircle,
   ShieldCheck,
+  Ship,
   Sparkles,
   Store,
   Wrench,
@@ -45,6 +46,7 @@ import {
   type HomepagePlan,
 } from "@/data/business-model";
 import { businessActivities } from "@/data/official";
+import { rakurakuMonitorBadge } from "@/data/rakuraku-sencho";
 import { solutions } from "@/data/solutions";
 
 const externalLinkProps = {
@@ -254,6 +256,70 @@ export default function OfficialHomePage() {
                 <p className="mt-1 text-sm text-slate-300">{text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* 釣り船・遊漁船向けサービス「ラクラク船長」への導線 */}
+        <section id="rakuraku-sencho" className="scroll-mt-28 bg-sea-ivory py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="rounded-[2rem] border-2 border-sea-blue bg-white p-7 sm:p-10">
+              <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                <div>
+                  <p className="inline-flex items-center gap-2 rounded-full bg-sea-navy px-4 py-2 text-xs font-bold text-white">
+                    <Ship className="h-4 w-4" aria-hidden="true" />
+                    釣り船・遊漁船の船長さんへ
+                  </p>
+                  <h2 className="mt-5 text-[clamp(1.5rem,5vw,2.25rem)] font-bold leading-[1.4] text-sea-navy">
+                    船長の予約対応を、もっとラクに。
+                  </h2>
+                  <p className="mt-4 text-base leading-8 text-sea-body">
+                    予約管理・外国人対応・時化の一斉連絡。釣り船の面倒なやり取りを「ラクラク船長」がサポートします。今のホームページやGoogleカレンダーを活かしたまま導入できます。
+                  </p>
+                  <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                    <Link
+                      href="/rakuraku-sencho"
+                      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-sea-gold px-7 py-3 text-base font-bold text-sea-navy transition hover:bg-sea-gold/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sea-navy"
+                    >
+                      ラクラク船長を見る
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                    <Link
+                      href="/contact?plan=rakuraku-sencho"
+                      className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-sea-navy px-7 py-3 text-base font-bold text-sea-navy transition hover:bg-sea-blue-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sea-blue"
+                    >
+                      無料モニターに申し込む
+                    </Link>
+                  </div>
+                  <p className="mt-4 text-sm font-semibold text-sea-body">
+                    {rakurakuMonitorBadge}
+                  </p>
+                </div>
+
+                <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                  {[
+                    ["予約管理をシンプルに", "出船日・空き人数をスマホから確認"],
+                    ["時化たら「中止」を押すだけ", "予約者へまとめて欠航連絡"],
+                    ["外国人対応も日本語だけ", "多言語コミュニケーションをサポート"],
+                  ].map(([title, text]) => (
+                    <li
+                      key={title}
+                      className="flex items-start gap-3 rounded-2xl bg-sea-blue-soft p-5"
+                    >
+                      <CheckCircle2
+                        className="mt-0.5 h-5 w-5 shrink-0 text-sea-blue"
+                        aria-hidden="true"
+                      />
+                      <div>
+                        <p className="font-bold text-sea-navy">{title}</p>
+                        <p className="mt-1 text-sm leading-6 text-sea-body">
+                          {text}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1024,6 +1090,12 @@ export default function OfficialHomePage() {
             >
               <Link href="/services" className="min-h-11 py-3 hover:text-white">
                 サービス
+              </Link>
+              <Link
+                href="/rakuraku-sencho"
+                className="min-h-11 py-3 hover:text-white"
+              >
+                ラクラク船長
               </Link>
               <Link href="/services/dx" className="min-h-11 py-3 hover:text-white">
                 業種別DX
